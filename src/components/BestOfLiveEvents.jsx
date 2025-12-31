@@ -14,6 +14,8 @@ const events = [
   { id: 3, image: kids },
   { id: 4, image: music },
   { id: 5, image: art },
+  { id: 4, image: music },
+  { id: 5, image: art }
 
 ]
 
