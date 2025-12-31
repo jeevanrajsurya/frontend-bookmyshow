@@ -15,7 +15,7 @@ import p8 from "../assets/p8.avif"
 import p9 from "../assets/p9.avif"
 import p10 from "../assets/p10.avif"
 
-/* ✅ BACKEND-READY DATA */
+/* DATA */
 const movies = [
   { id: 1, title: "Appa I Love You", lang: "Kannada", image: p1 },
   { id: 2, title: "Nimbiya Banada Myaga - Page 1", lang: "Kannada", image: p2 },
@@ -39,43 +39,34 @@ function PremiereMovies() {
     <section className="bg-[#2B3148] py-6">
       <div className="max-w-7xl mx-auto px-4">
 
-        {/* TOP PREMIERE STRIP */}
+        {/* TOP STRIP */}
         <div className="mb-4">
-          <img
-            src={premiereIconImg}
-            alt="Premiere"
-            className="w-full h-auto"
-          />
+          <img src={premiereIconImg} alt="Premiere" className="w-full h-auto" />
         </div>
 
         {/* HEADER */}
-        <div className="flex items-center justify-between mb-4 flex-nowrap gap-2">
-          <div className="truncate">
-            <h2 className="text-[22px] sm:text-[24px] font-bold text-white font-['Roboto']">
+        <div className="flex items-center justify-between mb-4 gap-2">
+          <div>
+            <h2 className="text-[22px] sm:text-[24px] font-bold text-white">
               Premieres
             </h2>
-            <p className="text-[14px] text-[#b0b3c2] font-['Roboto']">
+            <p className="text-[14px] text-[#b0b3c2]">
               Brand new releases every Friday
             </p>
           </div>
 
-          <div className="flex items-center gap-1 cursor-pointer flex-shrink-0">
-            <span className="text-[14px] text-[#dc3558] font-['Roboto']">
-              See All
-            </span>
-            <FiChevronRight className="text-[#dc3558] text-[16px]" />
+          <div className="flex items-center gap-1 text-[#dc3558] cursor-pointer">
+            <span className="text-[14px]">See All</span>
+            <FiChevronRight className="text-[16px]" />
           </div>
         </div>
 
-        {/* DESKTOP */}
+        {/* ================= DESKTOP (UNCHANGED) ================= */}
         <div className="relative hidden lg:block">
-
           {page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute -left-5 top-[40%] z-20
-                         w-10 h-10 rounded-full bg-black/70
-                         flex items-center justify-center"
+              className="absolute -left-5 top-[40%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -83,17 +74,14 @@ function PremiereMovies() {
 
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-500"
               style={{ transform: `translateX(-${page * 100}%)` }}
             >
               {Array.from({ length: totalPages }).map((_, p) => (
-                <div
-                  key={p}
-                  className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0"
-                >
+                <div key={p} className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0">
                   {movies
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map((movie) => (
+                    .map(movie => (
                       <PremiereCard key={movie.id} movie={movie} />
                     ))}
                 </div>
@@ -104,29 +92,30 @@ function PremiereMovies() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute -right-5 top-[40%] z-20
-                         w-10 h-10 rounded-full bg-black/70
-                         flex items-center justify-center"
+              className="absolute -right-5 top-[40%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
           )}
         </div>
 
-        {/* MOBILE / TAB – TAILWIND ONLY SCROLLBAR HIDE */}
+        {/* ================= MOBILE + TABLET (SAME PATTERN AS BEFORE) ================= */}
         <div
           className="
-            flex gap-4 overflow-x-auto lg:hidden
+            lg:hidden
+            grid grid-flow-col
+            auto-cols-[calc(50%-0.75rem)]     /* Mobile → 2 cards */
+            sm:auto-cols-[calc(25%-0.75rem)] /* Tablet → 4 cards */
+            gap-4
+            overflow-x-auto
+            snap-x snap-mandatory
             [-ms-overflow-style:none]
             [scrollbar-width:none]
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {movies.map((movie) => (
-            <div
-              key={movie.id}
-              className="flex-shrink-0 w-[42%] sm:w-[30%] md:w-[23%]"
-            >
+          {movies.map(movie => (
+            <div key={movie.id} className="snap-start">
               <PremiereCard movie={movie} />
             </div>
           ))}
@@ -140,7 +129,7 @@ function PremiereMovies() {
 /* ================= CARD ================= */
 function PremiereCard({ movie }) {
   return (
-    <div className="w-full max-w-[216px] mx-auto">
+    <div>
       <div className="aspect-[2/3] rounded-lg overflow-hidden">
         <img
           src={movie.image}
@@ -149,14 +138,11 @@ function PremiereCard({ movie }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 break-words font-['Roboto']
-                     text-[16px] sm:text-[18px]
-                     font-medium leading-[1.33] text-white">
+      <h3 className="mt-2 mb-1 text-[16px] sm:text-[18px] font-medium text-white leading-[1.3]">
         {movie.title}
       </h3>
 
-      <p className="font-['Roboto] text-[14px] sm:text-[16px]
-                    leading-[1.5] text-[#b0b3c2]">
+      <p className="text-[14px] sm:text-[16px] text-[#b0b3c2]">
         {movie.lang}
       </p>
     </div>

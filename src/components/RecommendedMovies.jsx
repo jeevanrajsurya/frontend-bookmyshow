@@ -34,34 +34,23 @@ function RecommendedMovies() {
     <section className="bg-[#F5F7FA] py-10">
       <div className="max-w-7xl mx-auto px-4">
 
-        {/* HEADER – ONE LINE ALWAYS */}
-        <div className="flex items-center justify-between mb-3 flex-nowrap gap-2">
-          <h2
-            className="
-              text-[18px] sm:text-[20px] lg:text-[24px]
-              font-bold text-[#333] font-['Roboto']
-              truncate
-            "
-          >
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold">
             Recommended Movies
           </h2>
-
-          <div className="flex items-center gap-1 cursor-pointer flex-shrink-0">
-            <span className="text-[13px] sm:text-[14px] text-[#dc3558] font-['Roboto']">
-              See All
-            </span>
-            <FiChevronRight className="text-[#dc3558] text-[16px]" />
+          <div className="flex items-center gap-1 text-[#dc3558] cursor-pointer">
+            <span className="text-sm">See All</span>
+            <FiChevronRight />
           </div>
         </div>
 
-        {/* DESKTOP */}
+        {/* ================= DESKTOP (OLD – SAME) ================= */}
         <div className="relative hidden lg:block">
           {page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute left-[-15px] top-[35%] z-20
-                         w-10 h-10 rounded-full bg-black/70
-                         flex items-center justify-center"
+              className="absolute left-[-15px] top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -69,17 +58,14 @@ function RecommendedMovies() {
 
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-500"
               style={{ transform: `translateX(-${page * 100}%)` }}
             >
               {Array.from({ length: totalPages }).map((_, p) => (
-                <div
-                  key={p}
-                  className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0"
-                >
+                <div key={p} className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0">
                   {movies
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map((movie) => (
+                    .map(movie => (
                       <MovieCard key={movie.id} movie={movie} />
                     ))}
                 </div>
@@ -90,29 +76,30 @@ function RecommendedMovies() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute right-[-15px] top-[35%] z-20
-                         w-10 h-10 rounded-full bg-black/70
-                         flex items-center justify-center"
+              className="absolute right-[-15px] top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
           )}
         </div>
 
-        {/* MOBILE + TAB */}
+        {/* ================= MOBILE + TABLET (PERFECT FIX) ================= */}
         <div
           className="
-            flex gap-4 overflow-x-auto lg:hidden
+            lg:hidden
+            grid grid-flow-col
+            auto-cols-[calc(50%-0.75rem)]
+            sm:auto-cols-[calc(25%-0.75rem)]
+            gap-4
+            overflow-x-auto
+            snap-x snap-mandatory
             [-ms-overflow-style:none]
             [scrollbar-width:none]
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {movies.map((movie) => (
-            <div
-              key={movie.id}
-              className="flex-shrink-0 w-[42%] sm:w-[28%] md:w-[23%]"
-            >
+          {movies.map(movie => (
+            <div key={movie.id} className="snap-start">
               <MovieCard movie={movie} />
             </div>
           ))}
@@ -127,22 +114,12 @@ function MovieCard({ movie }) {
   return (
     <div>
       <div className="aspect-[20/33] rounded-lg overflow-hidden">
-        <img
-          src={movie.image}
-          alt={movie.title}
-          className="w-full h-full object-cover"
-        />
+        <img src={movie.image} alt={movie.title} className="w-full h-full object-cover" />
       </div>
-
-      <h3 className="mt-2 mb-1 break-words text-[#222] font-['Roboto']
-                     text-[16px] sm:text-[17px] lg:text-[18px]
-                     font-medium leading-[1.33]">
+      <h3 className="mt-2 text-[15px] sm:text-[16px] lg:text-[18px] font-medium">
         {movie.title}
       </h3>
-
-      <p className="text-[#666] font-['Roboto']
-                    text-[14px] sm:text-[15px] lg:text-[16px]
-                    leading-[1.5] line-clamp-2">
+      <p className="text-[13px] sm:text-[14px] text-[#666] line-clamp-2">
         {movie.genre}
       </p>
     </div>
