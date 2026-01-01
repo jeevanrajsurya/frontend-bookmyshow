@@ -36,7 +36,7 @@ function PremiereMovies() {
   const totalPages = Math.ceil(movies.length / cardsPerPage)
 
   return (
-    <section className="bg-[#2B3148] py-6">
+    <section className="bg-[#2B3148] py-10">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* TOP STRIP */}
@@ -47,16 +47,16 @@ function PremiereMovies() {
         {/* HEADER */}
         <div className="flex items-center justify-between mb-4 gap-2">
           <div>
-            <h2 className="text-[22px] sm:text-[24px] font-bold text-white">
+            <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-white">
               Premieres
             </h2>
-            <p className="text-[14px] text-[#b0b3c2]">
+            <p className="text-[13px] sm:text-[14px] text-[#b0b3c2]">
               Brand new releases every Friday
             </p>
           </div>
 
-          <div className="flex items-center gap-1 text-[#dc3558] cursor-pointer">
-            <span className="text-[14px]">See All</span>
+          <div className="flex items-center gap-1 cursor-pointer text-[#dc3558]">
+            <span className="text-[13px] sm:text-[14px]">See All</span>
             <FiChevronRight className="text-[16px]" />
           </div>
         </div>
@@ -78,7 +78,10 @@ function PremiereMovies() {
               style={{ transform: `translateX(-${page * 100}%)` }}
             >
               {Array.from({ length: totalPages }).map((_, p) => (
-                <div key={p} className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0">
+                <div
+                  key={p}
+                  className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0"
+                >
                   {movies
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
                     .map(movie => (
@@ -99,13 +102,13 @@ function PremiereMovies() {
           )}
         </div>
 
-        {/* ================= MOBILE + TABLET (SAME PATTERN AS BEFORE) ================= */}
+        {/* ================= MOBILE + TABLET ================= */}
         <div
           className="
             lg:hidden
             grid grid-flow-col
-            auto-cols-[calc(50%-0.75rem)]     /* Mobile → 2 cards */
-            sm:auto-cols-[calc(25%-0.75rem)] /* Tablet → 4 cards */
+            auto-cols-[calc(50%-0.75rem)]
+            sm:auto-cols-[calc(25%-0.75rem)]
             gap-4
             overflow-x-auto
             snap-x snap-mandatory
@@ -138,11 +141,11 @@ function PremiereCard({ movie }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[16px] sm:text-[18px] font-medium text-white leading-[1.3]">
+      <h3 className="mt-2 mb-1 text-[15px] sm:text-[16px] lg:text-[18px] font-medium text-white leading-[1.3]">
         {movie.title}
       </h3>
 
-      <p className="text-[14px] sm:text-[16px] text-[#b0b3c2]">
+      <p className="text-[13px] sm:text-[14px] text-[#b0b3c2]">
         {movie.lang}
       </p>
     </div>

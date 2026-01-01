@@ -32,25 +32,26 @@ function TopGamesSportsEvents() {
   const totalPages = Math.ceil(events.length / cardsPerPage);
 
   return (
-    <section className="bg-[#F5F7FA] py-10">
+    <section className="bg-[#F5F7FA] pt-5 pb-2">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* HEADER */}
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-[24px] font-bold text-[#222]">
-            Top Games & Sports Events
+          <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#222]">
+            Top Games & Sports
           </h2>
 
           <div className="flex items-center gap-1 cursor-pointer">
-            <span className="text-[14px] text-[#dc3558]">See All</span>
+            <span className="text-[13px] sm:text-[14px] text-[#dc3558]">
+              See All
+            </span>
             <FiChevronRight className="text-[#dc3558] text-[16px]" />
           </div>
         </div>
 
-        {/* DESKTOP */}
+        {/* ================= DESKTOP (UNCHANGED) ================= */}
         <div className="relative hidden lg:block">
 
-          {/* LEFT ARROW */}
           {totalPages > 1 && page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
@@ -74,7 +75,7 @@ function TopGamesSportsEvents() {
                 >
                   {events
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map((event) => (
+                    .map(event => (
                       <GameSportCard key={event.id} event={event} />
                     ))}
                 </div>
@@ -82,7 +83,6 @@ function TopGamesSportsEvents() {
             </div>
           </div>
 
-          {/* RIGHT ARROW */}
           {totalPages > 1 && page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
@@ -95,16 +95,23 @@ function TopGamesSportsEvents() {
           )}
         </div>
 
-        {/* MOBILE + TAB */}
+        {/* ================= MOBILE + TABLET ================= */}
         <div
-          className="flex gap-4 overflow-x-auto lg:hidden scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="
+            lg:hidden
+            grid grid-flow-col
+            auto-cols-[calc(50%-0.75rem)]
+            sm:auto-cols-[calc(25%-0.75rem)]
+            gap-4
+            overflow-x-auto
+            snap-x snap-mandatory
+            [-ms-overflow-style:none]
+            [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden
+          "
         >
-          {events.map((event) => (
-            <div
-              key={event.id}
-              className="flex-shrink-0 w-[45%] sm:w-[30%] md:w-[23%]"
-            >
+          {events.map(event => (
+            <div key={event.id} className="snap-start">
               <GameSportCard event={event} />
             </div>
           ))}
@@ -115,7 +122,7 @@ function TopGamesSportsEvents() {
   );
 }
 
-/* CARD */
+/* ================= CARD ================= */
 function GameSportCard({ event }) {
   return (
     <div>
@@ -127,11 +134,11 @@ function GameSportCard({ event }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[#222] text-[18px] font-medium leading-[1.33]">
+      <h3 className="mt-2 mb-1 text-[#222] text-[15px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.33]">
         {event.title}
       </h3>
 
-      <p className="text-[#666] text-[16px] leading-[1.5]">
+      <p className="text-[#666] text-[13px] sm:text-[14px] leading-[1.5]">
         {event.venue}
       </p>
     </div>

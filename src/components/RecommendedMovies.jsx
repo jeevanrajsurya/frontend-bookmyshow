@@ -31,7 +31,7 @@ function RecommendedMovies() {
   const totalPages = Math.ceil(movies.length / cardsPerPage)
 
   return (
-    <section className="bg-[#F5F7FA] py-10">
+    <section className="bg-[#F5F7FA] py-5">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* HEADER */}

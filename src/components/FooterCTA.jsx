@@ -154,22 +154,13 @@ function FooterCTA() {
         </div>
 
         {/* ================= SOCIAL ICONS ================= */}
-<div className="flex justify-center gap-4 mb-[28px]">
+<div className="flex justify-center gap-6 mb-[28px]">
   {[fb, twitter, insta, yt, pin, inIcon].map((icon, i) => (
-    <div
-      key={i}
-      className="
-        w-[36px] h-[36px]
-        rounded-full
-        bg-[#3A3A3A]
-        flex items-center justify-center
-        cursor-pointer
-      "
-    >
+    <div key={i} className="cursor-pointer">
       <img
         src={icon}
         alt="social"
-        className="w-[18px] h-[18px]"
+        className="w-[40px] h-[40px] opacity-80 hover:opacity-100 transition"
       />
     </div>
   ))}

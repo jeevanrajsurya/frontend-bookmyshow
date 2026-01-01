@@ -7,16 +7,15 @@ import kids from "../assets/kids.avif"
 import music from "../assets/music.avif"
 import art from "../assets/art.avif"
 
-/* ✅ BACKEND-READY EVENTS DATA */
+/* BACKEND-READY EVENTS DATA */
 const events = [
   { id: 1, image: comedy },
   { id: 2, image: icc },
   { id: 3, image: kids },
   { id: 4, image: music },
   { id: 5, image: art },
-  { id: 4, image: music },
-  { id: 5, image: art }
-
+  { id: 6, image: music },
+  { id: 7, image: art }
 ]
 
 const CARDS_PER_PAGE = 5
@@ -26,15 +25,15 @@ function BestOfLiveEvents() {
   const totalPages = Math.ceil(events.length / CARDS_PER_PAGE)
 
   return (
-    <section className="bg-[#F5F7FA] py-10">
+    <section className="bg-[#F5F7FA] py-5">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* HEADING */}
-        <h2 className="text-[24px] font-bold text-[#333] mb-4 font-['Roboto']">
+        <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#333] mb-4 font-['Roboto']">
           The Best Of Live Events
         </h2>
 
-        {/* ================= DESKTOP ================= */}
+        {/* ================= DESKTOP (UNCHANGED) ================= */}
         <div className="relative hidden lg:block">
 
           {page > 0 && (
@@ -60,7 +59,7 @@ function BestOfLiveEvents() {
                 >
                   {events
                     .slice(p * CARDS_PER_PAGE, (p + 1) * CARDS_PER_PAGE)
-                    .map((event) => (
+                    .map(event => (
                       <EventCard key={event.id} img={event.image} />
                     ))}
                 </div>
@@ -80,20 +79,23 @@ function BestOfLiveEvents() {
           )}
         </div>
 
-        {/* ================= MOBILE / TAB ================= */}
+        {/* ================= MOBILE + TABLET ================= */}
         <div
           className="
-            flex gap-3 md:gap-5 overflow-x-auto lg:hidden
+            lg:hidden
+            grid grid-flow-col
+            auto-cols-[calc(50%-0.75rem)]
+            sm:auto-cols-[calc(25%-0.75rem)]
+            gap-4
+            overflow-x-auto
+            snap-x snap-mandatory
             [-ms-overflow-style:none]
             [scrollbar-width:none]
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {events.map((event) => (
-            <div
-              key={event.id}
-              className="flex-shrink-0 w-[42%] sm:w-[30%]"
-            >
+          {events.map(event => (
+            <div key={event.id} className="snap-start">
               <EventCard img={event.image} />
             </div>
           ))}
