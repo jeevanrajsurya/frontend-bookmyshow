@@ -84,8 +84,8 @@ function Carousel() {
                   className="
                     w-full h-[160px]
                     sm:h-[275px]
-                    lg:h-[340px]
-                    2xl:h-[500px]   /* 1536px+ (includes 2560px) */
+                    lg:h-[320px]
+                    2xl:h-[500px]   
                   "
                 />
               </div>
