@@ -6,7 +6,6 @@ import ad2 from "../assets/ad2.avif"
 import ad3 from "../assets/ad3.avif"
 import ad4 from "../assets/ad4.avif"
 
-/* BACKEND-READY ADS DATA */
 const ads = [
   { id: 1, image: ad1 },
   { id: 2, image: ad2 },
@@ -21,7 +20,6 @@ function Carousel() {
   const [index, setIndex] = useState(startIndex)
   const [animate, setAnimate] = useState(true)
 
-  /* AUTO SLIDE – CLOCKWISE ONLY */
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((i) => i + 1)
@@ -29,7 +27,6 @@ function Carousel() {
     return () => clearInterval(timer)
   }, [])
 
-  /* RIGHT SIDE RESET */
   useEffect(() => {
     if (index >= startIndex + ads.length) {
       setTimeout(() => {
@@ -39,7 +36,6 @@ function Carousel() {
     }
   }, [index])
 
-  /* LEFT SIDE RESET */
   useEffect(() => {
     if (index < startIndex) {
       setTimeout(() => {
@@ -49,7 +45,6 @@ function Carousel() {
     }
   }, [index])
 
-  /* RE-ENABLE TRANSITION */
   useEffect(() => {
     if (!animate) {
       requestAnimationFrame(() =>
@@ -62,7 +57,7 @@ function Carousel() {
   const prev = () => setIndex((i) => i - 1)
 
   return (
-    <div className="w-full bg-[#F5F5F5] py-3 lg:py-2 overflow-hidden">
+    <section className="w-full bg-[#F5F5F5] py-3 overflow-hidden">
       <div className="relative w-full overflow-hidden">
 
         {/* TRACK */}
@@ -70,86 +65,68 @@ function Carousel() {
           className={`flex ${
             animate ? "transition-transform duration-700 ease-in-out" : ""
           }`}
-          style={{
-            transform: `translateX(calc(50% - ${(index + 0.5) * 70}%))`,
-          }}
+          style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {track.map((ad, i) => (
-            <div
-              key={i}
-              className="
-                flex-shrink-0
-                w-full
-                sm:w-[85%]
-                lg:w-[70%]
-                px-3
-                lg:px-2
-              "
-            >
-              <img
-                src={ad.image}
-                alt="ad"
+            <div key={i} className="flex-shrink-0 w-full px-3">
+
+              {/* 🔥 ONLY FIX PART */}
+              <div
                 className="
-                  w-full
-                  h-[200px]
-                  sm:h-[260px]
-                  lg:h-[300px]
-                  object-cover
-                  rounded-xl
+                  w-full rounded-xl overflow-hidden
+                  aspect-[16/7] sm:aspect-[16/6]
+                  lg:aspect-auto
                 "
-              />
+              >
+                <img
+                  src={ad.image}
+                  alt="ad"
+                  className="
+                    w-full h-[160px]
+                    sm:h-[275px]
+                    lg:h-[340px]
+                    2xl:h-[500px]   /* 1536px+ (includes 2560px) */
+                  "
+                />
+              </div>
+              {/* 🔥 ONLY FIX PART */}
+
             </div>
           ))}
         </div>
 
-        {/* LEFT ARROW – NOW VISIBLE IN ALL VIEWS */}
+        {/* LEFT ARROW */}
         <button
           onClick={prev}
           className="
-            flex
-            absolute
-            left-0
-            top-1/2
-            -translate-y-1/2
-            h-14
-            w-10
-            bg-gradient-to-r
-            from-black/70
-            to-black/30
-            rounded-r-xl
-            items-center
-            justify-center
-            z-30
+            absolute left-3 top-1/2 -translate-y-1/2
+            flex items-center justify-center
+            bg-black/50 rounded-lg z-30
+            h-8 w-8
+            sm:h-10 sm:w-10
+            lg:h-14 lg:w-12
           "
         >
-          <FiChevronLeft className="text-white text-2xl" />
+          <FiChevronLeft className="text-white text-lg sm:text-xl lg:text-2xl" />
         </button>
 
-        {/* RIGHT ARROW – NOW VISIBLE IN ALL VIEWS */}
+        {/* RIGHT ARROW */}
         <button
           onClick={next}
           className="
-            flex
-            absolute
-            right-0
-            top-1/2
-            -translate-y-1/2
-            h-14
-            w-10
-            bg-gradient-to-l
-            from-black/70
-            to-black/30
-            rounded-l-xl
-            items-center
-            justify-center
-            z-30
+            absolute right-3 top-1/2 -translate-y-1/2
+            flex items-center justify-center
+            bg-black/50 rounded-lg z-30
+            h-8 w-8
+            sm:h-10 sm:w-10
+            lg:h-14 lg:w-12
           "
         >
-          <FiChevronRight className="text-white text-2xl" />
+          <FiChevronRight className="text-white text-lg sm:text-xl lg:text-2xl" />
         </button>
 
         {/* DOTS */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
           {ads.map((_, i) => (
             <span
               key={i}
@@ -160,8 +137,9 @@ function Carousel() {
             />
           ))}
         </div>
+
       </div>
-    </div>
+    </section>
   )
 }
 
