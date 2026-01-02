@@ -33,7 +33,7 @@ function BestOfLiveEvents() {
           The Best Of Live Events
         </h2>
 
-        {/* ================= DESKTOP (UNCHANGED) ================= */}
+        {/* ================= DESKTOP  ================= */}
         <div className="relative hidden lg:block">
 
           {page > 0 && (

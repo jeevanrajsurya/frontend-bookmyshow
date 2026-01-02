@@ -9,15 +9,15 @@ function Navbar() {
       <div className="w-full h-16 bg-white">
         <div className="h-full max-w-[1440px] mx-auto flex items-center px-4">
 
-          {/* LEFT : LOGO + SEARCH */}
+          {/* LOGO + SEARCH */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
+
             {/* LOGO */}
             <img
               src={logo}
               alt="BookMyShow"
               className="h-7 object-contain flex-shrink-0"
             />
-
             {/* SEARCH BAR */}
             <div
               className="
@@ -56,10 +56,10 @@ function Navbar() {
             </div>
           </div>
 
-          {/* GAP RESERVER (IMPORTANT) */}
+          {/* GAP RESERVER  */}
           <div className="w-4 sm:w-6 md:w-8"></div>
 
-          {/* RIGHT : LOCATION + SIGN IN + MENU */}
+          {/*LOCATION + SIGN IN + MENU */}
           <div className="flex items-center gap-4 flex-shrink-0">
 
             {/* LOCATION */}
@@ -67,7 +67,7 @@ function Navbar() {
               <span>Coimbatore</span>
               <IoChevronDown className="text-gray-400 text-sm" />
             </div>
-
+            
             {/* SIGN IN */}
             <button
               className="

@@ -49,7 +49,7 @@ function ExploreFunActivities() {
           </div>
         </div>
 
-        {/* ================= DESKTOP (UNCHANGED) ================= */}
+        {/* ================= DESKTOP  ================= */}
         <div className="relative hidden lg:block">
 
           {totalPages > 1 && page > 0 && (

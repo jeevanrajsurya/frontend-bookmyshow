@@ -70,7 +70,7 @@ function Carousel() {
           {track.map((ad, i) => (
             <div key={i} className="flex-shrink-0 w-full px-3">
 
-              {/* 🔥 ONLY FIX PART */}
+              
               <div
                 className="
                   w-full rounded-xl overflow-hidden
@@ -89,7 +89,6 @@ function Carousel() {
                   "
                 />
               </div>
-              {/* 🔥 ONLY FIX PART */}
 
             </div>
           ))}

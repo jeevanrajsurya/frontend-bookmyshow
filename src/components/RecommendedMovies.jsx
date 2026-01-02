@@ -45,7 +45,7 @@ function RecommendedMovies() {
           </div>
         </div>
 
-        {/* ================= DESKTOP (OLD – SAME) ================= */}
+        {/* ================= DESKTOP================= */}
         <div className="relative hidden lg:block">
           {page > 0 && (
             <button
@@ -83,7 +83,7 @@ function RecommendedMovies() {
           )}
         </div>
 
-        {/* ================= MOBILE + TABLET (PERFECT FIX) ================= */}
+        {/* =================== MOBILE + TABLET  =================== */}
         <div
           className="
             lg:hidden

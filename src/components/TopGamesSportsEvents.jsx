@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-// 🔟 GAMES & SPORTS IMAGES
+//  GAMES & SPORTS IMAGES
 import gs1 from "../assets/gs1.avif";
 import gs2 from "../assets/gs2.avif";
 import gs3 from "../assets/gs3.avif";
@@ -49,7 +49,7 @@ function TopGamesSportsEvents() {
           </div>
         </div>
 
-        {/* ================= DESKTOP (UNCHANGED) ================= */}
+        {/* ================= DESKTOP  ================= */}
         <div className="relative hidden lg:block">
 
           {totalPages > 1 && page > 0 && (

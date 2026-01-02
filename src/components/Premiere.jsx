@@ -61,7 +61,7 @@ function PremiereMovies() {
           </div>
         </div>
 
-        {/* ================= DESKTOP (UNCHANGED) ================= */}
+        {/* ================= DESKTOP  ================= */}
         <div className="relative hidden lg:block">
           {page > 0 && (
             <button

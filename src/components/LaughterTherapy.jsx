@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-// 🔟 LAUGHTER THERAPY IMAGES
+//  LAUGHTER THERAPY IMAGES
 import l1 from "../assets/l1.avif";
 import l2 from "../assets/l2.avif";
 import l3 from "../assets/l3.avif";

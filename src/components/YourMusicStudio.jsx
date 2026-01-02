@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-// 🔟 EVENT IMAGES
+//  EVENT IMAGES
 import e1 from "../assets/e1.avif";
 import e2 from "../assets/e2.avif";
 import e3 from "../assets/e3.avif";
