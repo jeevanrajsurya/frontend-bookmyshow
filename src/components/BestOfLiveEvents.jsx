@@ -39,7 +39,7 @@ function BestOfLiveEvents() {
           {page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute -left-5 top-1/2 -translate-y-1/2 z-20
+              className="absolute -left-4 top-1/2 -translate-y-1/2 z-20
                          w-10 h-10 rounded-full bg-black/70
                          flex items-center justify-center"
             >
@@ -70,7 +70,7 @@ function BestOfLiveEvents() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute -right-5 top-1/2 -translate-y-1/2 z-20
+              className="absolute -right-4 top-1/2 -translate-y-1/2 z-20
                          w-10 h-10 rounded-full bg-black/70
                          flex items-center justify-center"
             >
