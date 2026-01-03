@@ -190,7 +190,7 @@ function Search() {
               {recentSearches.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center justify-between bg-white h-[55px] px-4 rounded-[12px]
+                  className="flex items-center justify-between bg-white h-[55px] px-4 py-6 rounded-[12px]
                              shadow-[0_1px_6px_rgba(0,0,0,0.08)]
                              hover:bg-[#f5f5f5] transition-colors"
                 >
@@ -213,12 +213,12 @@ function Search() {
               </p>
             )}
 
-            <div className="bg-white rounded-[14px] overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.08)]">
+            <div className="bg-white rounded-[14px] overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.08)] ">
               {filteredTrending.map((item, idx) => (
                 <div
                   key={item}
                   onClick={() => addToRecent(item)}
-                  className={`flex items-center justify-between h-[56px] px-4 cursor-pointer
+                  className={`flex items-center justify-between h-[56px] px-4 py-6 cursor-pointer
                     hover:bg-[#f5f5f5] transition-colors
                     ${idx !== filteredTrending.length - 1 ? "border-b border-[#e5e5e5]" : ""}`}
                 >
