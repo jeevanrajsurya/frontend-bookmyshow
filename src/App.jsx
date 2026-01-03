@@ -1,41 +1,38 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
 
 import Navbar from "./components/Navbar"
-import BottomNavbar from "./components/BottomNavbar"
-
 import Home from "./pages/Home"
 import Search from "./pages/Search"
 import Location from "./pages/Location"
 import Signin from "./pages/Signin"
 import Menu from "./pages/Menu"
 
-function Layout() {
-  const location = useLocation()
-
-  // 👉 Home page mattum navbar venum
-  const showNavbar = location.pathname === "/"
+function App() {
+  const [showLocation, setShowLocation] = useState(false)
+  const [showSignin, setShowSignin] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   return (
     <>
-      {showNavbar && <Navbar />}
-      {showNavbar && <BottomNavbar />}
+      {/* NAVBAR */}
+      <Navbar
+        onLocationClick={() => setShowLocation(true)}
+        onSigninClick={() => setShowSignin(true)}
+        onMenuClick={() => setShowMenu(true)}
+      />
 
+      {/* ROUTES */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/location" element={<Location />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/menu" element={<Menu />} />
       </Routes>
-    </>
-  )
-}
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+      {/* MODALS */}
+      {showLocation && <Location onClose={() => setShowLocation(false)} />}
+      {showSignin && <Signin onClose={() => setShowSignin(false)} />}
+      {showMenu && <Menu onClose={() => setShowMenu(false)} />}
+    </>
   )
 }
 
