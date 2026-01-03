@@ -28,10 +28,26 @@ function App() {
         <Route path="/search" element={<Search />} />
       </Routes>
 
-      {/* MODALS */}
-      {showLocation && <Location onClose={() => setShowLocation(false)} />}
-      {showSignin && <Signin onClose={() => setShowSignin(false)} />}
-      {showMenu && <Menu onClose={() => setShowMenu(false)} />}
+      {/* LOCATION MODAL */}
+      {showLocation && (
+        <Location onClose={() => setShowLocation(false)} />
+      )}
+
+      {/* SIGNIN MODAL */}
+      {showSignin && (
+        <Signin onClose={() => setShowSignin(false)} />
+      )}
+
+      {/* MENU  */}
+      {showMenu && (
+        <Menu
+          onClose={() => setShowMenu(false)}
+          onLogin={() => {
+            setShowMenu(false)     // close menu
+            setShowSignin(true)    // open signin
+          }}
+        />
+      )}
     </>
   )
 }
