@@ -7,8 +7,20 @@ import ola from "../assets/ola.avif"
 import axis from "../assets/axis.avif"
 import mastercard from "../assets/mastercard.avif"
 import icici from "../assets/icici.avif"
+
 import brandPromotionImage from "../assets/your-image-name.avif"
 import employeeEngagementImage from "../assets/your-image-name2.avif"
+import employeeEngagementImage3 from "../assets/your-image-name3.avif"
+import employeeEngagementImage4 from "../assets/your-image-name4.avif"
+import employeeEngagementImage5 from "../assets/your-image-name5.avif"
+
+import creativeIcon from "../assets/creative-support.avif"
+import marketingIcon from "../assets/marketing-email.avif"
+import smsIcon from "../assets/bulk-sms.avif"
+
+import movieVoucherBg from "../assets/movie-voucher-bg.avif"
+import giftVoucherBg from "../assets/gift-voucher-bg.avif"
+
 
 
 
@@ -512,7 +524,7 @@ function Corporates() {
       {/* RIGHT IMAGE – FULL COVER */}
       <div className="w-full h-full">
         <img
-          src={brandPromotionImage}
+          src={employeeEngagementImage3}
           alt="Brand Promotion"
           className="
             w-full
@@ -538,7 +550,7 @@ function Corporates() {
       {/* LEFT IMAGE – FULL COVER */}
       <div className="w-full h-full">
         <img
-          src={employeeEngagementImage}   
+          src={employeeEngagementImage4}   
           alt="Employee Engagement"
           className="
             w-full
@@ -677,7 +689,7 @@ function Corporates() {
       {/* RIGHT IMAGE – FULL COVER */}
       <div className="w-full h-full">
         <img
-          src={brandPromotionImage}
+          src={employeeEngagementImage5}
           alt="Brand Promotion"
           className="
             w-full
@@ -688,6 +700,227 @@ function Corporates() {
       </div>
     </div>
   </div>
+  {/* ================= BUSINESS SOLUTIONS ================= */}
+<section className="w-full bg-[#f2f2f2] py-2 ">
+  <div className="max-w-[1200px] bg-white mx-auto  py-7">
+
+    <h2 className="text-[16px] tracking-[2px] pl-10 text-[#222] font-bold mb-6 pt-5 ">
+      OUR SUITE OF BUSINESS SOLUTIONS:
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-3">
+
+      {/* CARD 1 */}
+      <div className="relative bg-[#6fb96f] h-[360px] px-10 flex items-center overflow-hidden">
+        <img
+          src={creativeIcon}
+          className="absolute right-6 bottom-6 w-[220px] opacity-20"
+        />
+        <h3 className="relative text-white text-[32px] leading-[40px] font-semibold max-w-[260px]">
+          End-to-End Creative Support
+        </h3>
+      </div>
+
+      {/* CARD 2 */}
+      <div className="relative bg-[#d64550] h-[360px] px-10 flex items-center overflow-hidden">
+        <img
+          src={marketingIcon}
+          className="absolute right-6 bottom-6 w-[220px] opacity-20"
+        />
+        <h3 className="relative text-white text-[32px] leading-[40px] font-semibold max-w-[260px]">
+          Marketing & E-mail Guidance
+        </h3>
+      </div>
+
+      {/* CARD 3 */}
+      <div className="relative bg-[#f6d04d] h-[360px] px-10 flex items-center overflow-hidden">
+        <img
+          src={smsIcon}
+          className="absolute right-6 bottom-6 w-[220px] opacity-20"
+        />
+        <h3 className="relative text-white text-[32px] leading-[40px] font-semibold max-w-[260px]">
+          Bulk SMS Communication
+        </h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+{/* ================= CTA STRIP ================= */}
+<section className="w-full bg-[#f2f2f2] ">
+  <div
+    className="
+      max-w-[1200px]
+      mx-auto
+      bg-white
+      px-10
+      py-8
+      flex
+      items-center
+      justify-between
+      gap-6
+    "
+  >
+    {/* LEFT TEXT */}
+    <p
+      className="
+        text-[18px]
+        leading-[28px]
+        text-[#1f1f1f]
+        font-normal
+      "
+    >
+      Get priority support from the experts in the entertainment industry.
+    </p>
+
+    {/* RIGHT BUTTON */}
+    <button
+      className="
+        bg-[#e15b64]
+        text-white
+        text-[16px]
+        font-semibold
+        px-8
+        py-3
+        rounded-md
+        hover:bg-[#d84f58]
+        transition
+        whitespace-nowrap
+      "
+    >
+      Access the complete suite
+    </button>
+  </div>
+  {/* ================= OUR PRODUCTS ================= */}
+<section className="w-full bg-[#f2f2f2] py-2">
+  <div className="max-w-[1200px] bg-white mx-auto">
+
+    {/* HEADING */}
+    <h2
+      className="
+        text-[14px]
+        tracking-[2px]
+        text-[#222]
+        font-semibold
+        mb-8
+        pt-5
+        pl-5
+      "
+    >
+      OUR PRODUCTS
+    </h2>
+
+    {/* PRODUCTS GRID */}
+    <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+
+      {/* LEFT – MOVIE VOUCHERS */}
+      <div
+        className="
+          relative
+          min-h-[420px]
+          text-white
+          px-12
+          py-14
+          flex
+          flex-col
+          justify-between
+        "
+        style={{
+          backgroundImage: `url(${movieVoucherBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* OVERLAY (to keep text readable) */}
+        <div className="absolute inset-0 bg-[#c7353a]/90"></div>
+
+        <div className="relative z-10 max-w-[420px]">
+          <h3 className="text-[34px] leading-[42px] font-semibold mb-6">
+            Movie Vouchers
+          </h3>
+
+          <p className="text-[16px] leading-[28px] font-normal mb-4">
+            Highly customizable, single usage, promotional codes in the form
+            of set amount / value or a percentage of discount on the ticket cost.
+          </p>
+
+          <p className="text-[16px] leading-[28px] font-normal mb-10">
+            An ideal suit for movie and product promotions, consumer activation
+            and countless more!
+          </p>
+
+          <button
+            className="
+              bg-white
+              text-[#e15b64]
+              text-[14px]
+              font-semibold
+              px-8
+              py-3
+              rounded-md
+              hover:bg-[#f5f5f5]
+              transition
+            "
+          >
+            Enquire
+          </button>
+        </div>
+      </div>
+
+      {/* RIGHT – GIFT VOUCHERS */}
+      <div
+        className="
+          relative
+          min-h-[420px]
+          text-white
+          px-12
+          py-14
+          flex
+          flex-col
+          justify-between
+        "
+        style={{
+          backgroundImage: `url(${giftVoucherBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-[#3e3a45]/95"></div>
+
+        <div className="relative z-10 max-w-[420px]">
+          <h3 className="text-[34px] leading-[42px] font-semibold mb-6">
+            Gift Vouchers
+          </h3>
+
+          <p className="text-[16px] leading-[28px] font-normal mb-10">
+            Amazing little pre-loaded cash cards which can be used to purchase
+            tickets across all categories for 6 months. Be it employee rewards,
+            trade channel incentive or consumer engagement, a gift voucher fits all.
+          </p>
+
+          <button
+            className="
+              bg-white
+              text-[#e15b64]
+              text-[14px]
+              font-semibold
+              px-8
+              py-3
+              rounded-md
+              hover:bg-[#f5f5f5]
+              transition
+            "
+          >
+            Enquire
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+              </section>
+          </section>
         </section>
       </section>
     </section>
