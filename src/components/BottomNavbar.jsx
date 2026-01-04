@@ -1,4 +1,12 @@
+import { useNavigate, useLocation } from "react-router-dom"
+
 function BottomNavbar() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // helper function
+  const isActive = (path) => location.pathname === path
+
   return (
     <div className="hidden md:block w-full bg-[#F5F5F5] border-b border-gray-200">
       <div className="max-w-[1440px] mx-auto h-10 px-4 flex items-center justify-between">
@@ -11,15 +19,9 @@ function BottomNavbar() {
                 <li
                   key={item}
                   className="
-                    text-sm
-                    font-normal
-                    leading-5
-                    tracking-[0.2px]
-                    text-[#333333]
-                    cursor-pointer
-                    px-2
-                    hover:text-black
-                    flex-shrink-0
+                    text-sm font-normal leading-5 tracking-[0.2px]
+                    text-[#333333] cursor-pointer px-2
+                    hover:text-black flex-shrink-0
                   "
                 >
                   {item}
@@ -32,26 +34,55 @@ function BottomNavbar() {
         {/* RIGHT COLUMN */}
         <div className="flex items-center -mr-3">
           <ul className="flex items-center gap-1 lg:gap-2 font-['Roboto'] whitespace-nowrap">
-            {["ListYourShow", "Corporates", "Offers", "Gift Cards"].map(
-              (item) => (
-                <li
-                  key={item}
-                  className="
-                    text-xs
-                    font-normal
-                    leading-4
-                    tracking-[0.2px]
-                    text-[#333333]
-                    cursor-pointer
-                    px-3
-                    hover:text-black
-                    flex-shrink-0
-                  "
-                >
-                  {item}
-                </li>
-              )
-            )}
+
+            <li
+              onClick={() => navigate("/list-your-show")}
+              className={`text-xs px-3 cursor-pointer leading-4 tracking-[0.2px]
+                ${
+                  isActive("/list-your-show")
+                    ? "text-black font-medium"
+                    : "text-[#333333] hover:text-black"
+                }`}
+            >
+              ListYourShow
+            </li>
+
+            <li
+              onClick={() => navigate("/corporates")}
+              className={`text-xs px-3 cursor-pointer leading-4 tracking-[0.2px]
+                ${
+                  isActive("/corporates")
+                    ? "text-black font-medium"
+                    : "text-[#333333] hover:text-black"
+                }`}
+            >
+              Corporates
+            </li>
+
+            <li
+              onClick={() => navigate("/offers")}
+              className={`text-xs px-3 cursor-pointer leading-4 tracking-[0.2px]
+                ${
+                  isActive("/offers")
+                    ? "text-black font-medium"
+                    : "text-[#333333] hover:text-black"
+                }`}
+            >
+              Offers
+            </li>
+
+            <li
+              onClick={() => navigate("/gift-cards")}
+              className={`text-xs px-3 cursor-pointer leading-4 tracking-[0.2px]
+                ${
+                  isActive("/gift-cards")
+                    ? "text-black font-medium"
+                    : "text-[#333333] hover:text-black"
+                }`}
+            >
+              Gift Cards
+            </li>
+
           </ul>
         </div>
 

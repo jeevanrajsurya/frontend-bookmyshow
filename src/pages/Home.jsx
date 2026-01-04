@@ -12,13 +12,13 @@ import TopGamesSportsEvents from "../components/TopGamesSportsEvents"
 import ExploreFunActivities from "../components/ExploreFunActivities"
 import TrendingSearches from "../components/TrendingSearches"
 import FooterCTA from "../components/FooterCTA"
-import BottomNavbar from "../components/BottomNavbar"
+
 
 
 function Home() {
   return (
     <>
-    <BottomNavbar/>
+    
       <Carousel />
       <RecommendedMovies />
       <StreamBanner />
