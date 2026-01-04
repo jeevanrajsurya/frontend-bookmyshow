@@ -13,8 +13,61 @@ import { BsArrowRepeat } from "react-icons/bs"
 
 import heyImg from "../assets/hey.avif"
 
+/* ================= MENU DATA (API READY) ================= */
+const MENU_ITEMS = [
+  {
+    id: 1,
+    icon: <FiBell />,
+    text: "Notifications",
+  },
+  {
+    id: 2,
+    icon: <MdOutlineMovie />,
+    text: "Your Orders",
+    sub: "View all your bookings & purchases",
+    disabled: true,
+  },
+  {
+    id: 3,
+    icon: <MdOutlineMovie />,
+    text: "Stream Library",
+    sub: "Rented & Purchased Movies",
+    disabled: true,
+  },
+  {
+    id: 4,
+    icon: <HiOutlineCreditCard />,
+    text: "Play Credit Card",
+    sub: "View your Play Credit Card details and offers",
+  },
+  {
+    id: 5,
+    icon: <FiHelpCircle />,
+    text: "Help & Support",
+    sub: "View commonly asked queries and Chat",
+  },
+  {
+    id: 6,
+    icon: <FiSettings />,
+    text: "Accounts & Settings",
+    sub: "Location, Payments, Permissions & More",
+    disabled: true,
+  },
+  {
+    id: 7,
+    icon: <FiGift />,
+    text: "Rewards",
+    sub: "View your rewards & unlock new ones",
+  },
+  {
+    id: 8,
+    icon: <BsArrowRepeat />,
+    text: "BookAChange",
+  },
+]
+
 function Menu({ onClose, onLogin }) {
-  //  STOP BACKGROUND SCROLL
+  /* ================= STOP BACKGROUND SCROLL ================= */
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return () => {
@@ -23,8 +76,14 @@ function Menu({ onClose, onLogin }) {
   }, [])
 
   const handleLoginClick = () => {
-    onClose()      //  close menu
-    onLogin()      //  open signin modal
+    onClose() // close menu
+    onLogin() // open signin modal
+  }
+
+  const handleMenuClick = (item) => {
+    if (item.disabled) return
+    // later: navigate / API / route
+    console.log("Menu clicked:", item.text)
   }
 
   return (
@@ -74,7 +133,7 @@ function Menu({ onClose, onLogin }) {
             </p>
           </div>
 
-          {/*  LOGIN BUTTON → SIGNIN OPEN */}
+          {/* LOGIN BUTTON */}
           <button
             onClick={handleLoginClick}
             className="
@@ -96,51 +155,16 @@ function Menu({ onClose, onLogin }) {
 
         {/* MENU LIST */}
         <div className="py-1">
-          <MenuItem icon={<FiBell />} text="Notifications" />
-
-          <MenuItem
-            icon={<MdOutlineMovie />}
-            text="Your Orders"
-            sub="View all your bookings & purchases"
-            disabled
-          />
-
-          <MenuItem
-            icon={<MdOutlineMovie />}
-            text="Stream Library"
-            sub="Rented & Purchased Movies"
-            disabled
-          />
-
-          <MenuItem
-            icon={<HiOutlineCreditCard />}
-            text="Play Credit Card"
-            sub="View your Play Credit Card details and offers"
-          />
-
-          <MenuItem
-            icon={<FiHelpCircle />}
-            text="Help & Support"
-            sub="View commonly asked queries and Chat"
-          />
-
-          <MenuItem
-            icon={<FiSettings />}
-            text="Accounts & Settings"
-            sub="Location, Payments, Permissions & More"
-            disabled
-          />
-
-          <MenuItem
-            icon={<FiGift />}
-            text="Rewards"
-            sub="View your rewards & unlock new ones"
-          />
-
-          <MenuItem
-            icon={<BsArrowRepeat />}
-            text="BookAChange"
-          />
+          {MENU_ITEMS.map((item) => (
+            <MenuItem
+              key={item.id}
+              icon={item.icon}
+              text={item.text}
+              sub={item.sub}
+              disabled={item.disabled}
+              onClick={() => handleMenuClick(item)}
+            />
+          ))}
         </div>
       </div>
     </>
@@ -149,17 +173,20 @@ function Menu({ onClose, onLogin }) {
 
 export default Menu
 
-/* ---------- ITEM COMPONENT ---------- */
+/* ================= ITEM COMPONENT ================= */
 
-function MenuItem({ icon, text, sub, disabled }) {
+function MenuItem({ icon, text, sub, disabled, onClick }) {
   return (
     <div
+      onClick={!disabled ? onClick : undefined}
       className={`
         flex items-center justify-between
         px-5 py-3
-        ${disabled
-          ? "opacity-40 cursor-not-allowed"
-          : "cursor-pointer hover:bg-gray-50"}
+        ${
+          disabled
+            ? "opacity-40 cursor-not-allowed"
+            : "cursor-pointer hover:bg-gray-50"
+        }
       `}
     >
       <div className="flex items-center gap-4">

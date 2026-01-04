@@ -1,8 +1,15 @@
-import { FiSearch, FiX, FiChevronLeft, FiChevronRight, FiFilm } from "react-icons/fi"
-import { useRef, useState, useEffect } from "react"
+import {
+  FiSearch,
+  FiX,
+  FiChevronLeft,
+  FiChevronRight,
+  FiFilm,
+} from "react-icons/fi"
+import { useRef, useState, useEffect, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 
-const categories = [
+/* ================= TEMP DATA (later API replace) ================= */
+const CATEGORY_DATA = [
   "Movies",
   "Stream",
   "Events",
@@ -13,7 +20,7 @@ const categories = [
   "Music",
 ]
 
-const trendingItems = [
+const TRENDING_DATA = [
   "Jana Nayagan",
   "Sirai",
   "Avatar: Fire and Ash",
@@ -28,6 +35,10 @@ function Search() {
   const catRef = useRef(null)
   const navigate = useNavigate()
 
+  /* ================= STATES ================= */
+  const [categories, setCategories] = useState([])
+  const [trendingItems, setTrendingItems] = useState([])
+
   const [activeCategories, setActiveCategories] = useState([])
   const [showLeft, setShowLeft] = useState(false)
   const [showRight, setShowRight] = useState(true)
@@ -35,6 +46,14 @@ function Search() {
   const [searchText, setSearchText] = useState("")
   const [recentSearches, setRecentSearches] = useState([])
 
+  /* ================= BACKEND READY ================= */
+  useEffect(() => {
+    // later replace with API calls
+    setCategories(CATEGORY_DATA)
+    setTrendingItems(TRENDING_DATA)
+  }, [])
+
+  /* ================= CATEGORY LOGIC ================= */
   const toggleCategory = (cat) => {
     setActiveCategories((prev) =>
       prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
@@ -63,12 +82,16 @@ function Search() {
 
   useEffect(() => {
     updateArrows()
-  }, [])
+  }, [categories])
 
-  const filteredTrending = trendingItems.filter((item) =>
-    item.toLowerCase().includes(searchText.toLowerCase())
-  )
+  /* ================= FILTER (PERFORMANCE SAFE) ================= */
+  const filteredTrending = useMemo(() => {
+    return trendingItems.filter((item) =>
+      item.toLowerCase().includes(searchText.toLowerCase())
+    )
+  }, [searchText, trendingItems])
 
+  /* ================= RECENT SEARCH ================= */
   const addToRecent = (item) => {
     setRecentSearches((prev) =>
       prev.includes(item) ? prev : [item, ...prev]
@@ -81,24 +104,23 @@ function Search() {
 
   return (
     <div className="fixed inset-0 z-[100] bg-[#f5f5f5]">
-
       {/* ================= TOP SEARCH BAR ================= */}
       <div className="bg-white h-[84px] relative z-[20] flex items-center justify-center">
-
-        {/* SEARCH BAR */}
-        <div className="flex items-center gap-3 bg-[#f5f5f5] h-[45px]
-                        w-[560px] max-w-[calc(100%-80px)]
-                        rounded-full px-[25px] border border-[#eeeeee]">
+        <div
+          className="flex items-center gap-3 bg-[#f5f5f5] h-[45px]
+                     w-[560px] max-w-[calc(100%-80px)]
+                     rounded-full px-[25px] border border-[#eeeeee]"
+        >
           <FiSearch className="text-[#666666] text-lg" />
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search for Movies, Events, Plays & more"
-            className="bg-transparent outline-none w-full text-[14px] font-normal font-['Roboto'] text-[#1a1a1a]"
+            className="bg-transparent outline-none w-full text-[14px]
+                       font-normal font-['Roboto'] text-[#1a1a1a]"
           />
         </div>
 
-        {/*  ICON */}
         <FiX
           onClick={() => navigate("/")}
           className="absolute right-4 text-xl text-[#1a1a1a] cursor-pointer"
@@ -107,13 +129,18 @@ function Search() {
 
       {/* ================= CATEGORY FLOATING CARD ================= */}
       <div className="relative z-[20]">
-        <div className="absolute left-1/2 -translate-x-1/2 top-[-18px] w-[560px] bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.08)] px-6 py-3">
-
+        <div
+          className="absolute left-1/2 -translate-x-1/2 top-[-18px]
+                     w-[560px] bg-white rounded-xl
+                     shadow-[0_2px_10px_rgba(0,0,0,0.08)]
+                     px-6 py-3"
+        >
           {showLeft && (
             <FiChevronLeft
               onClick={scrollLeft}
               size={28}
-              className="absolute left-0 top-1/2 -translate-y-1/2 text-[#b3b3b3] cursor-pointer"
+              className="absolute left-0 top-1/2 -translate-y-1/2
+                         text-[#b3b3b3] cursor-pointer"
             />
           )}
 
@@ -121,9 +148,9 @@ function Search() {
             ref={catRef}
             onScroll={updateArrows}
             className="flex gap-3 overflow-x-hidden pt-1 px-2
-              [&::-webkit-scrollbar]:hidden
-              [-ms-overflow-style:'none']
-              [scrollbar-width:'none']"
+                       [&::-webkit-scrollbar]:hidden
+                       [-ms-overflow-style:'none']
+                       [scrollbar-width:'none']"
           >
             {categories.map((cat) => {
               const isActive = activeCategories.includes(cat)
@@ -132,8 +159,11 @@ function Search() {
                 <button
                   key={cat}
                   onClick={() => toggleCategory(cat)}
-                  className={`flex items-center gap-2 px-4 py-[8px] rounded-full whitespace-nowrap border transition-colors duration-200
-                    text-[14px] font-normal leading-[20px] tracking-[0.2px] font-['Roboto']
+                  className={`flex items-center gap-2 px-4 py-[8px]
+                    rounded-full whitespace-nowrap border
+                    transition-colors duration-200
+                    text-[14px] font-normal leading-[20px]
+                    tracking-[0.2px] font-['Roboto']
                     ${
                       isActive
                         ? "bg-[#f84464] text-white border-[#f84464]"
@@ -156,13 +186,14 @@ function Search() {
             <FiChevronRight
               onClick={scrollRight}
               size={28}
-              className="absolute right-0 top-1/2 -translate-y-1/2 text-[#b3b3b3] cursor-pointer"
+              className="absolute right-0 top-1/2 -translate-y-1/2
+                         text-[#b3b3b3] cursor-pointer"
             />
           )}
         </div>
       </div>
 
-      {/* ================= SCROLLABLE CONTENT ================= */}
+      {/* ================= CONTENT ================= */}
       <div
         className="absolute inset-0 overflow-y-auto
                    [&::-webkit-scrollbar]:hidden
@@ -170,7 +201,6 @@ function Search() {
                    [scrollbar-width:'none']"
         style={{ paddingTop: "154px", paddingBottom: "40px" }}
       >
-
         {/* RECENT SEARCHES */}
         {recentSearches.length > 0 && (
           <div className="mt-[7px] flex justify-center">
@@ -190,7 +220,8 @@ function Search() {
               {recentSearches.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center justify-between bg-white h-[55px] px-4 py-6 rounded-[12px]
+                  className="flex items-center justify-between bg-white
+                             h-[55px] px-4 py-6 rounded-[12px]
                              shadow-[0_1px_6px_rgba(0,0,0,0.08)]
                              hover:bg-[#f5f5f5] transition-colors"
                 >
@@ -204,23 +235,35 @@ function Search() {
           </div>
         )}
 
-        {/* TRENDING SEARCHES */}
-        <div className={`flex justify-center ${recentSearches.length > 0 ? "mt-6" : "mt-[7px]"}`}>
+        {/* TRENDING */}
+        <div
+          className={`flex justify-center ${
+            recentSearches.length > 0 ? "mt-6" : "mt-[7px]"
+          }`}
+        >
           <div className="w-[560px]">
             {searchText === "" && (
-              <p className="text-[12px] font-medium tracking-[0.4px] text-[#666666] font-['Roboto'] mb-2 mx-2">
+              <p className="text-[12px] font-medium tracking-[0.4px]
+                            text-[#666666] font-['Roboto']
+                            mb-2 mx-2">
                 TRENDING SEARCHES
               </p>
             )}
 
-            <div className="bg-white rounded-[14px] overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.08)] ">
+            <div className="bg-white rounded-[14px] overflow-hidden
+                            shadow-[0_1px_6px_rgba(0,0,0,0.08)]">
               {filteredTrending.map((item, idx) => (
                 <div
                   key={item}
                   onClick={() => addToRecent(item)}
-                  className={`flex items-center justify-between h-[56px] px-4 py-6 cursor-pointer
+                  className={`flex items-center justify-between
+                    h-[56px] px-4 py-6 cursor-pointer
                     hover:bg-[#f5f5f5] transition-colors
-                    ${idx !== filteredTrending.length - 1 ? "border-b border-[#e5e5e5]" : ""}`}
+                    ${
+                      idx !== filteredTrending.length - 1
+                        ? "border-b border-[#e5e5e5]"
+                        : ""
+                    }`}
                 >
                   <span className="text-[15px] font-normal text-[#1a1a1a] font-['Roboto']">
                     {item}
@@ -231,7 +274,6 @@ function Search() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   )
