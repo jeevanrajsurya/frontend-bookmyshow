@@ -13,6 +13,7 @@ const ads = [
   { id: 4, image: ad4 }
 ]
 
+// infinite track
 const track = [...ads, ...ads, ...ads]
 
 function Carousel() {
@@ -60,7 +61,7 @@ function Carousel() {
     <section className="w-full bg-[#F5F5F5] py-3 overflow-hidden">
       <div className="relative w-full overflow-hidden">
 
-        {/* TRACK */}
+        {/* ===== TRACK ===== */}
         <div
           className={`flex ${
             animate ? "transition-transform duration-700 ease-in-out" : ""
@@ -68,63 +69,62 @@ function Carousel() {
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {track.map((ad, i) => (
-            <div key={i} className="flex-shrink-0 w-full px-3">
-
-              
-              <div
-                className="
-                  w-full rounded-xl overflow-hidden
-                  aspect-[16/7] sm:aspect-[16/6]
-                  lg:aspect-auto
-                "
-              >
-                <img
-                  src={ad.image}
-                  alt="ad"
+            <div
+              key={i}
+              className="flex-shrink-0 w-full px-3 md:px-3 lg:px-3"
+            >
+              {/* CENTERED DESKTOP WIDTH */}
+              <div className="w-full lg:max-w-7xl lg:mx-auto">
+                <div
                   className="
-                    w-full h-[160px]
-                    sm:h-[275px]
-                    lg:h-[320px]
-                    2xl:h-[500px]   
+                    w-full
+                    rounded-xl
+                    overflow-hidden
+                    aspect-[16/7]
+                    sm:aspect-[16/6]
+                    max-h-[90px] sm:max-h-[180px] md:max-h-[250px] lg:max-h-[400px]
+                    lg:aspect-auto
                   "
-                />
+                >
+                  <img
+                    src={ad.image}
+                    alt="ad"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-
             </div>
           ))}
         </div>
 
-        {/* LEFT ARROW */}
+        {/* ===== ARROWS (ONLY MOBILE + TAB) ===== */}
         <button
           onClick={prev}
           className="
             absolute left-3 top-1/2 -translate-y-1/2
-            flex items-center justify-center
             bg-black/50 rounded-lg z-30
-            h-8 w-8
-            sm:h-10 sm:w-10
-            lg:h-14 lg:w-12
+            h-8 w-8 sm:h-10 sm:w-10
+            flex items-center justify-center
+            lg:hidden
           "
         >
-          <FiChevronLeft className="text-white text-lg sm:text-xl lg:text-2xl" />
+          <FiChevronLeft className="text-white text-lg" />
         </button>
 
-        {/* RIGHT ARROW */}
         <button
           onClick={next}
           className="
             absolute right-3 top-1/2 -translate-y-1/2
-            flex items-center justify-center
             bg-black/50 rounded-lg z-30
-            h-8 w-8
-            sm:h-10 sm:w-10
-            lg:h-14 lg:w-12
+            h-8 w-8 sm:h-10 sm:w-10
+            flex items-center justify-center
+            lg:hidden
           "
         >
-          <FiChevronRight className="text-white text-lg sm:text-xl lg:text-2xl" />
+          <FiChevronRight className="text-white text-lg" />
         </button>
 
-        {/* DOTS */}
+        {/* ===== DOTS ===== */}
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
           {ads.map((_, i) => (
             <span

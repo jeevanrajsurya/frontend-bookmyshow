@@ -10,12 +10,10 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
   return (
     <header className="w-full bg-white">
       <div className="w-full h-16 bg-white">
-        <div className="h-full max-w-[1440px] mx-auto flex items-center px-4">
+        <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4">
 
           {/* LOGO + SEARCH */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
-
-            {/* LOGO */}
             <Link to="/">
               <img
                 src={logo}
@@ -24,7 +22,6 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               />
             </Link>
 
-            {/* SEARCH BAR (CLICK → /search) */}
             <div
               onClick={() => navigate("/search")}
               className="
@@ -62,48 +59,30 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
                 "
               />
             </div>
-
           </div>
 
-          {/* GAP */}
           <div className="w-4 sm:w-6 md:w-8"></div>
 
-          {/* LOCATION + SIGN IN + MENU */}
           <div className="flex items-center gap-4 flex-shrink-0">
-
-            {/* LOCATION (MODAL) */}
             <div
               onClick={onLocationClick}
-              className="hidden sm:flex items-center gap-1 text-sm font-['Roboto'] cursor-pointer flex-shrink-0"
+              className="hidden sm:flex items-center gap-1 text-sm font-['Roboto'] cursor-pointer"
             >
               <span>Coimbatore</span>
               <IoChevronDown className="text-gray-400 text-sm" />
             </div>
 
-            {/* SIGN IN (MODAL) */}
             <button
               onClick={onSigninClick}
-              className="
-                h-[28px]
-                px-4
-                bg-[#EB4E62]
-                text-white
-                text-[12px]
-                font-['Roboto']
-                rounded
-                shadow-sm
-                cursor-pointer
-              "
+              className="h-[28px] px-4 bg-[#EB4E62] text-white text-[12px] font-['Roboto'] rounded"
             >
               Sign in
             </button>
 
-            {/* HAMBURGER (DRAWER) */}
             <RxHamburgerMenu
               onClick={onMenuClick}
               className="text-2xl cursor-pointer"
             />
-
           </div>
 
         </div>
