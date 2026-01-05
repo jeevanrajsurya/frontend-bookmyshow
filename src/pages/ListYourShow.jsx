@@ -8,7 +8,7 @@ import ad1 from "../assets/ad1.avif"
 import ad2 from "../assets/ad2.avif"
 import ad3 from "../assets/ad3.avif"
 
-// CARD ICONS (YOUR ASSETS)
+// CARD ICONS
 import performance from "../assets/performance.avif"
 import experience from "../assets/experience.avif"
 import exposition from "../assets/exposition.avif"
@@ -16,7 +16,7 @@ import online from "../assets/online.avif"
 import sports from "../assets/sports.avif"
 import parties from "../assets/parties.avif"
 
-// TESTIMONIAL LOGOS (YOUR ASSETS)
+// TESTIMONIAL LOGOS
 import ncpa from "../assets/ncpa.avif"
 import prithvi from "../assets/prithvi.avif"
 import redfm from "../assets/redfm.avif"
@@ -74,38 +74,37 @@ function ListYourShow() {
       {/* ================= CAROUSEL ================= */}
       <Carousel slides={slides} />
 
-      {/* ================= WHAT CAN YOU HOST ================= */}
+      {/* ================= WHAT CAN YOU HOST1 ================= */}
       <section className="py-16">
-        <div className="max-w-[1200px] mx-auto px-14">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-14">
 
-          {/* TITLE */}
-          <h2 className="text-center text-[48px] font-bold text-[#1f2533]">
+          <h2 className="text-center text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-[#1f2533]">
             What can you host?
           </h2>
 
-          {/* SUBTITLE */}
           <p
             className="text-center mt-4 max-w-[770px] mx-auto
-                       text-[18px] leading-[24px]
-                       text-[#1f2533] font-semibold"
+                       text-[16px] sm:text-[17px] lg:text-[18px]
+                       leading-[22px] sm:leading-[24px] lg:leading-[20px]
+                       text-[rgb(31,37,58)]
+                       font-normal font-['Roboto']"
           >
             As the purveyor of entertainment, BookMyShow enables your event with
             end to end solutions from the time you register to the completion of
             the event. Let’s look at what you can host.
           </p>
 
-          {/* CARDS */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="py-8 -mx-[-16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
             {hostItems.map((item) => (
               <div
                 key={item.title}
                 className="
-                  bg-[#eef6ff]
+                  bg-[rgb(236,245,255)]
                   rounded-lg
-                  border
-                  border-[#d6e3f3]
-                  px-5
-                  py-10
+                  border border-[#d6e3f3]
+                  px-4 sm:px-5
+                  m-4
+                  py-6 sm:py-7 lg:py-8
                   flex flex-col items-center
                   text-center
                   shadow-sm
@@ -118,16 +117,19 @@ function ListYourShow() {
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="w-[82px] h-[82px]"
+                  className="
+                    w-[64px] h-[64px]
+                    sm:w-[80px] sm:h-[80px]
+                    lg:w-[96px] lg:h-[96px]
+                  "
                 />
 
-                <h3 className="mt-6 text-[28px] font-bold text-[#1f2533]">
+                <h3 className="mt-4 sm:mt-5 lg:mt-6 text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#1f2533]">
                   {item.title}
                 </h3>
 
-                {/* info icon */}
                 <div
-                  className="mt-6 w-5 h-5 rounded-full border
+                  className="mt-5 w-[24px] h-[24px] rounded-full border
                              border-[#eb4e62]
                              text-[#eb4e62]
                              flex items-center justify-center
@@ -139,16 +141,15 @@ function ListYourShow() {
             ))}
           </div>
 
-          {/* ================= BUTTON ================= */}
-          <div className="mt-26 flex justify-center">
+          <div className="mt-16 flex justify-center">
             <button
               className="
                 bg-[#f25d6c]
                 text-white
                 font-['Roboto']
                 text-[16px]
-                font-semibold
-                px-20
+                font-medium
+                px-14 sm:px-18 lg:px-20
                 py-4
                 rounded-lg
                 hover:bg-[#e44f5f]
@@ -162,38 +163,36 @@ function ListYourShow() {
         </div>
       </section>
 
-      {/* ================= WHAT CAN YOU HOST ================= */}
+      {/* ================= WHAT CAN YOU HOST2 ================= */}
       <section className="py-16">
-        <div className="max-w-[1200px] mx-auto px-14">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-14">
 
-          {/* TITLE */}
-          <h2 className="text-center text-[48px] font-bold text-[#1f2533]">
+          <h2 className="text-center text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-[#1f2533]">
             What are the services we offers?
           </h2>
 
-          {/* SUBTITLE */}
           <p
             className="text-center mt-4 max-w-[770px] mx-auto
-                       text-[18px] leading-[24px]
-                       text-[#1f2533] font-semibold"
+                       text-[16px] sm:text-[17px] lg:text-[18px]
+                       leading-[22px] sm:leading-[24px] lg:leading-[20px]
+                       text-[rgb(31,37,58)]
+                       font-normal font-['Roboto']"
           >
             As the purveyor of entertainment, BookMyShow enables your event with
             end to end solutions from the time you register to the completion of
             the event. Let’s look at what you can host.
           </p>
 
-          {/* CARDS */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="py-8 -mx-[-16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {hostItems.map((item) => (
               <div
                 key={item.title}
                 className="
-                  bg-[#FFF4F4]
+                  bg-[rgb(252,241,241)]
                   rounded-lg
-                  border
-                  border-[#d6e3f3]
-                  px-5
-                  py-10
+                  border border-[#d6e3f3]
+                  px-4 sm:px-5
+                  py-6 sm:py-7 lg:py-8
                   flex flex-col items-center
                   text-center
                   shadow-sm
@@ -206,16 +205,19 @@ function ListYourShow() {
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="w-[82px] h-[82px]"
+                  className="
+                    w-[64px] h-[64px]
+                    sm:w-[80px] sm:h-[80px]
+                    lg:w-[96px] lg:h-[96px]
+                  "
                 />
 
-                <h3 className="mt-6 text-[28px] font-bold text-[#1f2533]">
+                <h3 className="mt-4 sm:mt-5 lg:mt-6 text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#1f2533]">
                   {item.title}
                 </h3>
 
-                {/* info icon */}
                 <div
-                  className="mt-6 w-5 h-5 rounded-full border
+                  className="mt-5 w-[24px] h-[24px] rounded-full border
                              border-[#eb4e62]
                              text-[#eb4e62]
                              flex items-center justify-center
@@ -227,16 +229,15 @@ function ListYourShow() {
             ))}
           </div>
 
-          {/* ================= BUTTON ================= */}
-          <div className="mt-26 -mb-30 flex justify-center">
+          <div className="mt-16 flex justify-center">
             <button
               className="
                 bg-[#f25d6c]
                 text-white
                 font-['Roboto']
                 text-[16px]
-                font-semibold
-                px-20
+                font-medium
+                px-14 sm:px-18 lg:px-20
                 py-4
                 rounded-lg
                 hover:bg-[#e44f5f]
@@ -250,90 +251,50 @@ function ListYourShow() {
         </div>
       </section>
 
-      {/* ================= FULL WIDTH TESTIMONIAL CAROUSEL ================= */}
-      <section className="w-full relative overflow-hidden">
+      {/* ================= TESTIMONIAL ================= */}
+      <section className="w-full relative overflow-hidden lg:-mt-[100px]">
 
-  {/* ===== ARROW LAYER (OUTSIDE CONTENT) ===== */}
-  <div className="absolute inset-0 flex items-center justify-between px-2 sm:px-4 lg:px-6 z-20 pointer-events-none">
-    <button
-      onClick={prev}
-      className="
-        pointer-events-auto
-        bg-black/50
-        rounded-md
-        flex items-center justify-center
-        w-10 h-10
-        sm:w-8 sm:h-8
-        lg:w-14 lg:h-14
-      "
-    >
-      <FiChevronLeft className="text-white text-lg sm:text-xl lg:text-2xl" />
-    </button>
-
-    <button
-      onClick={next}
-      className="
-        pointer-events-auto
-        bg-black/50
-        rounded-md
-        flex items-center justify-center
-        w-10 h-10
-        sm:w-8 sm:h-8
-        lg:w-14 lg:h-14
-      "
-    >
-      <FiChevronRight className="text-white text-lg sm:text-xl lg:text-2xl" />
-    </button>
-  </div>
-
-  {/* ===== CONTENT ===== */}
-  <div className="max-w-[1200px] mx-auto px-18 sm:px-18 lg:px-14 py-20">
-    <div
-      className="
-        flex
-        flex-row
-        items-center
-        gap-8
-        sm:gap-12
-        lg:gap-24
-      "
-    >
-
-      {/* LEFT TEXT */}
-      <div className="flex-1 max-w-[520px]">
-        <div className="text-[14px] sm:text-[42px] lg:text-[46px] font-bold">
-          “
+        <div className="absolute inset-0 flex items-center justify-between px-2 sm:px-4 lg:px-6 z-20 pointer-events-none">
+          <button onClick={prev} className="pointer-events-auto bg-black/50 w-10 h-10 lg:w-14 lg:h-14 rounded-md flex items-center justify-center">
+            <FiChevronLeft className="text-white text-lg lg:text-2xl" />
+          </button>
+          <button onClick={next} className="pointer-events-auto bg-black/50 w-10 h-10 lg:w-14 lg:h-14 rounded-md flex items-center justify-center">
+            <FiChevronRight className="text-white text-lg lg:text-2xl" />
+          </button>
         </div>
 
-        <p className="text-[14px] sm:text-[10px] lg:text-[17px] leading-[10px] sm:leading-[15px] lg:leading-[25px] text-[#1f2533] sm:px-8">
-          {item.text}
-        </p>
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-14 py-20">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
 
-        <div className="mt-6 sm:mt-8 font-bold whitespace-pre-line text-[#1f2533]">
-          {item.author}
+            <div className="flex-1 max-w-[520px] text-center lg:text-left">
+              <p className="text-[14px] sm:text-[15px] font-normal lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[26px] text-[#1f2533]">
+                {item.text}
+              </p>
+
+              <div className="mt-6 sm:mt-8 font-bold whitespace-pre-line text-[#1f2533]">
+                {item.author}
+              </div>
+            </div>
+
+            <div className="flex-1 flex justify-center lg:justify-end">
+              <img
+                src={item.image}
+                alt="testimonial"
+                className="
+                  w-auto
+                  object-contain
+                  max-h-[180px]
+                  sm:max-h-[260px]
+                  lg:max-h-[560px]
+                "
+              />
+            </div>
+
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* RIGHT IMAGE */}
-      <div className="flex-1 flex justify-end">
-        <img
-          src={item.image}
-          alt="testimonial"
-          className="
-            w-auto
-            object-contain
-            max-h-[200px]
-            sm:max-h-[300px]
-            lg:max-h-[560px]
-          "
-        />
-      </div>
-
-    </div>
-  </div>
-</section>
-{/* ================= FOOTER ================= */}
-        <FooterCTA />  
+      <FooterCTA />
     </div>
   )
 }
