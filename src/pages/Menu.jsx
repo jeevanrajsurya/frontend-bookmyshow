@@ -15,11 +15,7 @@ import heyImg from "../assets/hey.avif"
 
 /* ================= MENU DATA (API READY) ================= */
 const MENU_ITEMS = [
-  {
-    id: 1,
-    icon: <FiBell />,
-    text: "Notifications",
-  },
+  { id: 1, icon: <FiBell />, text: "Notifications" },
   {
     id: 2,
     icon: <MdOutlineMovie />,
@@ -76,13 +72,12 @@ function Menu({ onClose, onLogin }) {
   }, [])
 
   const handleLoginClick = () => {
-    onClose() // close menu
-    onLogin() // open signin modal
+    onClose()
+    onLogin()
   }
 
   const handleMenuClick = (item) => {
     if (item.disabled) return
-    // later: navigate / API / route
     console.log("Menu clicked:", item.text)
   }
 
@@ -90,12 +85,17 @@ function Menu({ onClose, onLogin }) {
     <>
       {/* OVERLAY */}
       <div
+        id="example-anchor"
         className="fixed inset-0 bg-black/60 z-40"
         onClick={onClose}
       />
 
-      {/* MENU PANEL */}
+      {/* ================= MENU PANEL WITH AOS ================= */}
       <div
+        data-aos="fade-left"
+        data-aos-anchor="#example-anchor"
+        data-aos-offset="500"
+        data-aos-duration="500"
         className="
           fixed top-0 right-0 h-full
           w-[360px]
@@ -174,7 +174,6 @@ function Menu({ onClose, onLogin }) {
 export default Menu
 
 /* ================= ITEM COMPONENT ================= */
-
 function MenuItem({ icon, text, sub, disabled, onClick }) {
   return (
     <div

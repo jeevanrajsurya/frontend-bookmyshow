@@ -41,7 +41,11 @@ function PremiereMovies() {
 
         {/* TOP STRIP */}
         <div className="mb-4">
-          <img src={premiereIconImg} alt="Premiere" className="w-full h-auto" />
+          <img
+            src={premiereIconImg}
+            alt="Premiere"
+            className="w-full h-auto"
+          />
         </div>
 
         {/* HEADER */}
@@ -61,12 +65,14 @@ function PremiereMovies() {
           </div>
         </div>
 
-        {/* ================= DESKTOP  ================= */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
           {page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute -left-5 top-[40%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute -left-5 top-[40%] z-20
+                         w-10 h-10 rounded-full bg-black/70
+                         flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -84,8 +90,12 @@ function PremiereMovies() {
                 >
                   {movies
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map(movie => (
-                      <PremiereCard key={movie.id} movie={movie} />
+                    .map((movie, i) => (
+                      <PremiereCard
+                        key={movie.id}
+                        movie={movie}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -95,7 +105,9 @@ function PremiereMovies() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute -right-5 top-[40%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute -right-5 top-[40%] z-20
+                         w-10 h-10 rounded-full bg-black/70
+                         flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
@@ -117,9 +129,9 @@ function PremiereMovies() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {movies.map(movie => (
+          {movies.map((movie, i) => (
             <div key={movie.id} className="snap-start">
-              <PremiereCard movie={movie} />
+              <PremiereCard movie={movie} delay={i * 100} />
             </div>
           ))}
         </div>
@@ -130,9 +142,13 @@ function PremiereMovies() {
 }
 
 /* ================= CARD ================= */
-function PremiereCard({ movie }) {
+function PremiereCard({ movie, delay = 0 }) {
   return (
-    <div>
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+    >
       <div className="aspect-[2/3] rounded-lg overflow-hidden">
         <img
           src={movie.image}
@@ -141,7 +157,8 @@ function PremiereCard({ movie }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[15px] sm:text-[16px] lg:text-[18px] font-medium text-white leading-[1.3]">
+      <h3 className="mt-2 mb-1 text-[15px] sm:text-[16px] lg:text-[18px]
+                     font-medium text-white leading-[1.3]">
         {movie.title}
       </h3>
 

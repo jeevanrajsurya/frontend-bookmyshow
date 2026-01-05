@@ -38,7 +38,6 @@ const OTHER_CITIES_DATA = [
 function Location({ onClose }) {
   const [showAll, setShowAll] = useState(false)
   const [searchText, setSearchText] = useState("")
-
   const [popularCities, setPopularCities] = useState([])
   const [otherCities, setOtherCities] = useState([])
 
@@ -50,9 +49,8 @@ function Location({ onClose }) {
     }
   }, [])
 
-  /* ================= BACKEND READY ================= */
+  /* ================= LOAD DATA ================= */
   useEffect(() => {
-    // later replace with API calls
     setPopularCities(POPULAR_CITIES_DATA)
     setOtherCities(OTHER_CITIES_DATA)
   }, [])
@@ -66,7 +64,6 @@ function Location({ onClose }) {
   }, [searchText, otherCities])
 
   const handleCitySelect = (city) => {
-    // later: save to global state / backend
     console.log("Selected city:", city)
     onClose()
   }
@@ -76,8 +73,17 @@ function Location({ onClose }) {
       {/* OVERLAY */}
       <div className="fixed inset-0 bg-black/60 z-40" onClick={onClose} />
 
-      {/* MODAL */}
-      <div className="fixed z-50 top-[64px] left-1/2 -translate-x-1/2 w-[96%] max-w-[1100px] bg-white rounded-lg">
+      {/* MODAL (AOS : FADE-DOWN) */}
+      <div
+        data-aos="fade-down"
+        data-aos-duration="600"
+        data-aos-offset="200"
+        className="
+          fixed z-50 top-[64px] left-1/2 -translate-x-1/2
+          w-[96%] max-w-[1100px]
+          bg-white rounded-lg
+        "
+      >
         {/* TOP */}
         <div className="p-4 sm:p-5 lg:p-6">
           {/* SEARCH */}

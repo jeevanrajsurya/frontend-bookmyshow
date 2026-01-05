@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useState } from "react"
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
-//  GAMES & SPORTS IMAGES
-import gs1 from "../assets/gs1.avif";
-import gs2 from "../assets/gs2.avif";
-import gs3 from "../assets/gs3.avif";
-import gs4 from "../assets/gs4.avif";
-import gs5 from "../assets/gs5.avif";
-import gs6 from "../assets/gs6.avif";
-import gs7 from "../assets/gs7.avif";
-import gs8 from "../assets/gs8.avif";
-import gs9 from "../assets/gs9.avif";
-import gs10 from "../assets/gs10.avif";
+// GAMES & SPORTS IMAGES
+import gs1 from "../assets/gs1.avif"
+import gs2 from "../assets/gs2.avif"
+import gs3 from "../assets/gs3.avif"
+import gs4 from "../assets/gs4.avif"
+import gs5 from "../assets/gs5.avif"
+import gs6 from "../assets/gs6.avif"
+import gs7 from "../assets/gs7.avif"
+import gs8 from "../assets/gs8.avif"
+import gs9 from "../assets/gs9.avif"
+import gs10 from "../assets/gs10.avif"
 
 const events = [
   { id: 1, title: "Pro Kabaddi League", venue: "Indoor Stadium: Bengaluru", img: gs1 },
@@ -24,12 +24,12 @@ const events = [
   { id: 8, title: "E-Sports Championship", venue: "Convention Center: Mumbai", img: gs8 },
   { id: 9, title: "Swimming Championship", venue: "Aquatic Center: Pune", img: gs9 },
   { id: 10, title: "Cycling Rally", venue: "City Roads: Coimbatore", img: gs10 },
-];
+]
 
 function TopGamesSportsEvents() {
-  const [page, setPage] = useState(0);
-  const cardsPerPage = 5;
-  const totalPages = Math.ceil(events.length / cardsPerPage);
+  const [page, setPage] = useState(0)
+  const cardsPerPage = 5
+  const totalPages = Math.ceil(events.length / cardsPerPage)
 
   return (
     <section className="bg-[#F5F7FA] pt-5 pb-2">
@@ -49,9 +49,8 @@ function TopGamesSportsEvents() {
           </div>
         </div>
 
-        {/* ================= DESKTOP  ================= */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
-
           {totalPages > 1 && page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
@@ -75,8 +74,12 @@ function TopGamesSportsEvents() {
                 >
                   {events
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map(event => (
-                      <GameSportCard key={event.id} event={event} />
+                    .map((event, i) => (
+                      <GameSportCard
+                        key={event.id}
+                        event={event}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -110,23 +113,27 @@ function TopGamesSportsEvents() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {events.map(event => (
+          {events.map((event, i) => (
             <div key={event.id} className="snap-start">
-              <GameSportCard event={event} />
+              <GameSportCard event={event} delay={i * 100} />
             </div>
           ))}
         </div>
 
       </div>
     </section>
-  );
+  )
 }
 
 /* ================= CARD ================= */
-function GameSportCard({ event }) {
+function GameSportCard({ event, delay = 0 }) {
   return (
-    <div>
-      <div className="relative aspect-[20/33] rounded-lg overflow-hidden">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+    >
+      <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
           src={event.img}
           alt={event.title}
@@ -134,7 +141,9 @@ function GameSportCard({ event }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[#222] text-[15px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.33]">
+      <h3 className="mt-2 mb-1 text-[#222]
+                     text-[15px] sm:text-[16px] lg:text-[18px]
+                     font-medium leading-[1.33]">
         {event.title}
       </h3>
 
@@ -142,7 +151,7 @@ function GameSportCard({ event }) {
         {event.venue}
       </p>
     </div>
-  );
+  )
 }
 
-export default TopGamesSportsEvents;
+export default TopGamesSportsEvents

@@ -6,7 +6,7 @@ import { BsFlagFill } from "react-icons/bs"
 
 function Signin({ onClose }) {
   const [phone, setPhone] = useState("")
-  const [authMethod, setAuthMethod] = useState(null) // google | email | phone | apple
+  const [authMethod, setAuthMethod] = useState(null)
 
   const isValid = phone.length === 10
 
@@ -24,41 +24,25 @@ function Signin({ onClose }) {
     if (value.length <= 10) setPhone(value)
   }
 
-  /* ============ AUTH HANDLERS (API READY) ============ */
-  const handleGoogleLogin = () => {
-    setAuthMethod("google")
-    // later: Google OAuth API
-    console.log("Google login")
-  }
-
-  const handleEmailLogin = () => {
-    setAuthMethod("email")
-    // later: Email auth flow
-    console.log("Email login")
-  }
-
-  const handleAppleLogin = () => {
-    setAuthMethod("apple")
-    // later: Apple auth
-    console.log("Apple login")
-  }
-
-  const handlePhoneSubmit = () => {
-    if (!isValid) return
-    setAuthMethod("phone")
-
-    // later: send OTP API
-    console.log("Send OTP to:", phone)
-  }
-
   return (
     <>
-      {/* OVERLAY */}
-      <div className="fixed inset-0 bg-black/60 z-40" onClick={onClose} />
+      {/* ================= OVERLAY ================= */}
+      {/* fade animation */}
+      <div
+        data-aos="fade-in"
+        data-aos-duration="300"
+        className="fixed inset-0 bg-black/60 z-40"
+        onClick={onClose}
+      />
 
-      {/* MODAL */}
+      {/* ================= MODAL ================= */}
       <div className="fixed z-50 inset-0 flex items-center justify-center px-4">
-        <div className="w-full max-w-[420px] bg-white rounded-lg p-10 relative font-['Roboto']">
+        {/* zoom animation */}
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="400"
+          className="w-full max-w-[420px] bg-white rounded-lg p-10 relative font-['Roboto']"
+        >
           {/* CLOSE */}
           <button
             onClick={onClose}
@@ -74,7 +58,6 @@ function Signin({ onClose }) {
 
           {/* GOOGLE */}
           <button
-            onClick={handleGoogleLogin}
             className="w-full border border-gray-400 rounded-md py-2.5
                        flex items-center justify-center gap-3 mb-5
                        text-sm font-medium hover:bg-gray-50
@@ -86,7 +69,6 @@ function Signin({ onClose }) {
 
           {/* EMAIL */}
           <button
-            onClick={handleEmailLogin}
             className="w-full border border-gray-400 rounded-md py-2.5
                        flex items-center justify-center gap-3 mb-5
                        text-sm font-medium hover:bg-gray-50
@@ -98,7 +80,6 @@ function Signin({ onClose }) {
 
           {/* APPLE */}
           <button
-            onClick={handleAppleLogin}
             className="w-full border border-gray-400 rounded-md py-2.5
                        flex items-center justify-center gap-3 mb-5
                        text-sm font-medium hover:bg-gray-50
@@ -116,16 +97,12 @@ function Signin({ onClose }) {
           {/* PHONE INPUT */}
           <div className="mb-6">
             <div className="flex items-end gap-2">
-              {/* FLAG */}
               <BsFlagFill className="text-[#138808] text-[14px] mb-[3px]" />
 
-              {/* +91 */}
               <div className="flex items-center gap-1 text-sm text-gray-700 mb-[2px]">
-                +91
-                <FiChevronDown size={14} />
+                +91 <FiChevronDown size={14} />
               </div>
 
-              {/* INPUT */}
               <div className="flex-1">
                 <input
                   type="text"
@@ -150,7 +127,6 @@ function Signin({ onClose }) {
 
           {/* CONTINUE */}
           <button
-            onClick={handlePhoneSubmit}
             disabled={!isValid}
             className={`w-full py-2.5 rounded-md
               text-white text-sm font-medium transition

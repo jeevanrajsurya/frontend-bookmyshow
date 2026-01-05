@@ -29,11 +29,12 @@ function BestOfLiveEvents() {
       <div className="max-w-7xl mx-auto px-4">
 
         {/* HEADING */}
-        <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#333] mb-4 font-['Roboto']">
+        <h2 className="text-[18px] sm:text-[20px] lg:text-[24px]
+                       font-bold text-[#333] mb-4 font-['Roboto']">
           The Best Of Live Events
         </h2>
 
-        {/* ================= DESKTOP  ================= */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
 
           {page > 0 && (
@@ -59,8 +60,12 @@ function BestOfLiveEvents() {
                 >
                   {events
                     .slice(p * CARDS_PER_PAGE, (p + 1) * CARDS_PER_PAGE)
-                    .map(event => (
-                      <EventCard key={event.id} img={event.image} />
+                    .map((event, i) => (
+                      <EventCard
+                        key={event.id}
+                        img={event.image}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -86,7 +91,7 @@ function BestOfLiveEvents() {
             grid grid-flow-col
             auto-cols-[calc(50%-0.75rem)]
             sm:auto-cols-[calc(25%-0.75rem)]
-            gap-4
+            gap-3
             overflow-x-auto
             snap-x snap-mandatory
             [-ms-overflow-style:none]
@@ -94,9 +99,9 @@ function BestOfLiveEvents() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {events.map(event => (
+          {events.map((event, i) => (
             <div key={event.id} className="snap-start">
-              <EventCard img={event.image} />
+              <EventCard img={event.image} delay={i * 100} />
             </div>
           ))}
         </div>
@@ -107,9 +112,14 @@ function BestOfLiveEvents() {
 }
 
 /* ================= EVENT CARD ================= */
-function EventCard({ img }) {
+function EventCard({ img, delay = 0 }) {
   return (
-    <div className="w-full max-w-[216px] mx-auto">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+      className="w-full max-w-[216px] mx-auto"
+    >
       <div className="aspect-square rounded-xl overflow-hidden">
         <img
           src={img}

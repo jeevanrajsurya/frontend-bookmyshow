@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useState } from "react"
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
-//  LAUGHTER THERAPY IMAGES
-import l1 from "../assets/l1.avif";
-import l2 from "../assets/l2.avif";
-import l3 from "../assets/l3.avif";
-import l4 from "../assets/l4.avif";
-import l5 from "../assets/l5.avif";
-import l6 from "../assets/l6.avif";
-import l7 from "../assets/l7.avif";
-import l8 from "../assets/l8.avif";
-import l9 from "../assets/l9.avif";
-import l10 from "../assets/l10.avif";
+// LAUGHTER THERAPY IMAGES
+import l1 from "../assets/l1.avif"
+import l2 from "../assets/l2.avif"
+import l3 from "../assets/l3.avif"
+import l4 from "../assets/l4.avif"
+import l5 from "../assets/l5.avif"
+import l6 from "../assets/l6.avif"
+import l7 from "../assets/l7.avif"
+import l8 from "../assets/l8.avif"
+import l9 from "../assets/l9.avif"
+import l10 from "../assets/l10.avif"
 
 const shows = [
   { id: 1, title: "Stupid Philosophy by Anand Rathnam", venue: "Medai The Stage: Coimbatore", img: l1 },
@@ -24,12 +24,12 @@ const shows = [
   { id: 8, title: "Standup Tamil Special", venue: "Madurai", img: l8 },
   { id: 9, title: "Open Mic Comedy Night", venue: "Hyderabad", img: l9 },
   { id: 10, title: "Laugh Unlimited", venue: "Kochi", img: l10 },
-];
+]
 
 function LaughterTherapy() {
-  const [page, setPage] = useState(0);
-  const cardsPerPage = 5;
-  const totalPages = Math.ceil(shows.length / cardsPerPage);
+  const [page, setPage] = useState(0)
+  const cardsPerPage = 5
+  const totalPages = Math.ceil(shows.length / cardsPerPage)
 
   return (
     <section className="bg-[#F5F7FA] pt-5 pb-2">
@@ -49,12 +49,14 @@ function LaughterTherapy() {
           </div>
         </div>
 
-        {/* DESKTOP */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
           {totalPages > 1 && page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute -left-5 top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute -left-5 top-[35%] z-20
+                         w-10 h-10 rounded-full bg-black/70
+                         flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -72,8 +74,12 @@ function LaughterTherapy() {
                 >
                   {shows
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map(show => (
-                      <LaughterCard key={show.id} show={show} />
+                    .map((show, i) => (
+                      <LaughterCard
+                        key={show.id}
+                        show={show}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -83,14 +89,16 @@ function LaughterTherapy() {
           {totalPages > 1 && page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute -right-5 top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute -right-5 top-[35%] z-20
+                         w-10 h-10 rounded-full bg-black/70
+                         flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
           )}
         </div>
 
-        {/* MOBILE + TABLET */}
+        {/* ================= MOBILE + TABLET ================= */}
         <div
           className="
             lg:hidden
@@ -105,22 +113,26 @@ function LaughterTherapy() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {shows.map(show => (
+          {shows.map((show, i) => (
             <div key={show.id} className="snap-start">
-              <LaughterCard show={show} />
+              <LaughterCard show={show} delay={i * 100} />
             </div>
           ))}
         </div>
 
       </div>
     </section>
-  );
+  )
 }
 
-/* CARD */
-function LaughterCard({ show }) {
+/* ================= CARD ================= */
+function LaughterCard({ show, delay = 0 }) {
   return (
-    <div>
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+    >
       <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
           src={show.img}
@@ -129,7 +141,9 @@ function LaughterCard({ show }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[#222] text-[15px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.33]">
+      <h3 className="mt-2 mb-1 text-[#222]
+                     text-[15px] sm:text-[16px] lg:text-[18px]
+                     font-medium leading-[1.33]">
         {show.title}
       </h3>
 
@@ -137,7 +151,7 @@ function LaughterCard({ show }) {
         {show.venue}
       </p>
     </div>
-  );
+  )
 }
 
-export default LaughterTherapy;
+export default LaughterTherapy

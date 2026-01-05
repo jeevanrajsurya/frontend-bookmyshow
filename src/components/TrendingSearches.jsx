@@ -21,9 +21,13 @@ function TrendingSearches() {
 
         {/* BOXES */}
         <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-x-6 lg:gap-y-6">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <div
               key={item}
+              /* ================= AOS : ZOOM-IN (BOX LEVEL) ================= */
+              data-aos="zoom-in"
+              data-aos-duration="500"
+              data-aos-delay={index * 80}
               className="
                 bg-white
                 border border-[#E5E5E5]

@@ -12,7 +12,12 @@ const ThrowbackBanner = () => {
     <section className="w-full bg-[#f5f5f5] py-5 sm:py-10 lg:py-20">
       {/* Same container as other sections */}
       <div className="max-w-7xl mx-auto px-4">
-        <div className="rounded-lg overflow-hidden">
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="600"
+          data-aos-offset="200"
+          className="rounded-lg overflow-hidden"
+        >
           <img
             src={throwbackBanner.image}
             alt={throwbackBanner.alt}

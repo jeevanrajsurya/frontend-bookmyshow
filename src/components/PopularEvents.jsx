@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useState } from "react"
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
-//  POPULAR EVENTS IMAGES
-import pe1 from "../assets/pe1.avif";
-import pe2 from "../assets/pe2.avif";
-import pe3 from "../assets/pe3.avif";
-import pe4 from "../assets/pe4.avif";
-import pe5 from "../assets/pe5.avif";
-import pe6 from "../assets/pe6.avif";
-import pe7 from "../assets/pe7.avif";
-import pe8 from "../assets/pe8.avif";
-import pe9 from "../assets/pe9.avif";
-import pe10 from "../assets/pe10.avif";
+// POPULAR EVENTS IMAGES
+import pe1 from "../assets/pe1.avif"
+import pe2 from "../assets/pe2.avif"
+import pe3 from "../assets/pe3.avif"
+import pe4 from "../assets/pe4.avif"
+import pe5 from "../assets/pe5.avif"
+import pe6 from "../assets/pe6.avif"
+import pe7 from "../assets/pe7.avif"
+import pe8 from "../assets/pe8.avif"
+import pe9 from "../assets/pe9.avif"
+import pe10 from "../assets/pe10.avif"
 
 const events = [
   { id: 1, title: "SAKTHI STAR NIGHT 2K26", venue: "Sree Sakthi Engineering College: Coimbatore", img: pe1 },
@@ -24,12 +24,12 @@ const events = [
   { id: 8, title: "Art & Wine Evening", venue: "Hyderabad", img: pe8 },
   { id: 9, title: "Sunset Music Party", venue: "Goa", img: pe9 },
   { id: 10, title: "Creative Canvas Workshop", venue: "Kochi", img: pe10 },
-];
+]
 
 function PopularEvents() {
-  const [page, setPage] = useState(0);
-  const cardsPerPage = 5;
-  const totalPages = Math.ceil(events.length / cardsPerPage);
+  const [page, setPage] = useState(0)
+  const cardsPerPage = 5
+  const totalPages = Math.ceil(events.length / cardsPerPage)
 
   return (
     <section className="bg-[#F5F7FA] pt-5 pb-2">
@@ -49,13 +49,14 @@ function PopularEvents() {
           </div>
         </div>
 
-        {/* DESKTOP */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
-
           {totalPages > 1 && page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute -left-5 top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute -left-5 top-[35%] z-20
+                         w-10 h-10 rounded-full bg-black/70
+                         flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -73,8 +74,12 @@ function PopularEvents() {
                 >
                   {events
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map(event => (
-                      <PopularEventCard key={event.id} event={event} />
+                    .map((event, i) => (
+                      <PopularEventCard
+                        key={event.id}
+                        event={event}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -84,14 +89,16 @@ function PopularEvents() {
           {totalPages > 1 && page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute -right-5 top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute -right-5 top-[35%] z-20
+                         w-10 h-10 rounded-full bg-black/70
+                         flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
           )}
         </div>
 
-        {/* MOBILE + TABLET */}
+        {/* ================= MOBILE + TABLET ================= */}
         <div
           className="
             lg:hidden
@@ -106,23 +113,27 @@ function PopularEvents() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {events.map(event => (
+          {events.map((event, i) => (
             <div key={event.id} className="snap-start">
-              <PopularEventCard event={event} />
+              <PopularEventCard event={event} delay={i * 100} />
             </div>
           ))}
         </div>
 
       </div>
     </section>
-  );
+  )
 }
 
-/* CARD */
-function PopularEventCard({ event }) {
+/* ================= CARD ================= */
+function PopularEventCard({ event, delay = 0 }) {
   return (
-    <div>
-      <div className="relative aspect-[20/33] rounded-lg overflow-hidden">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+    >
+      <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
           src={event.img}
           alt={event.title}
@@ -130,7 +141,9 @@ function PopularEventCard({ event }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[#222] text-[15px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.33]">
+      <h3 className="mt-2 mb-1 text-[#222]
+                     text-[15px] sm:text-[16px] lg:text-[18px]
+                     font-medium leading-[1.33]">
         {event.title}
       </h3>
 
@@ -138,7 +151,7 @@ function PopularEventCard({ event }) {
         {event.venue}
       </p>
     </div>
-  );
+  )
 }
 
-export default PopularEvents;
+export default PopularEvents

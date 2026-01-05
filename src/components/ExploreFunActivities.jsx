@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useState } from "react"
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
 // 🔟 FUN ACTIVITY IMAGES
-import fa1 from "../assets/fa1.avif";
-import fa2 from "../assets/fa2.avif";
-import fa3 from "../assets/fa3.avif";
-import fa4 from "../assets/fa4.avif";
-import fa5 from "../assets/fa5.avif";
-import fa6 from "../assets/fa6.avif";
-import fa7 from "../assets/fa7.avif";
-import fa8 from "../assets/fa8.avif";
-import fa9 from "../assets/fa9.avif";
-import fa10 from "../assets/fa10.avif";
+import fa1 from "../assets/fa1.avif"
+import fa2 from "../assets/fa2.avif"
+import fa3 from "../assets/fa3.avif"
+import fa4 from "../assets/fa4.avif"
+import fa5 from "../assets/fa5.avif"
+import fa6 from "../assets/fa6.avif"
+import fa7 from "../assets/fa7.avif"
+import fa8 from "../assets/fa8.avif"
+import fa9 from "../assets/fa9.avif"
+import fa10 from "../assets/fa10.avif"
 
 const activities = [
   { id: 1, title: "Pottery Workshop", venue: "Art Studio: Bengaluru", img: fa1 },
@@ -24,12 +24,12 @@ const activities = [
   { id: 8, title: "Cooking Masterclass", venue: "Kitchen Lab: Chennai", img: fa8 },
   { id: 9, title: "Kids Art & Craft", venue: "Fun Zone: Coimbatore", img: fa9 },
   { id: 10, title: "Mindfulness & Yoga", venue: "Wellness Center: Pune", img: fa10 },
-];
+]
 
 function ExploreFunActivities() {
-  const [page, setPage] = useState(0);
-  const cardsPerPage = 5;
-  const totalPages = Math.ceil(activities.length / cardsPerPage);
+  const [page, setPage] = useState(0)
+  const cardsPerPage = 5
+  const totalPages = Math.ceil(activities.length / cardsPerPage)
 
   return (
     <section className="bg-[#F5F7FA] pt-5 pb-5">
@@ -49,7 +49,7 @@ function ExploreFunActivities() {
           </div>
         </div>
 
-        {/* ================= DESKTOP  ================= */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
 
           {totalPages > 1 && page > 0 && (
@@ -75,8 +75,12 @@ function ExploreFunActivities() {
                 >
                   {activities
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map(activity => (
-                      <FunActivityCard key={activity.id} activity={activity} />
+                    .map((activity, i) => (
+                      <FunActivityCard
+                        key={activity.id}
+                        activity={activity}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -110,23 +114,27 @@ function ExploreFunActivities() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {activities.map(activity => (
+          {activities.map((activity, i) => (
             <div key={activity.id} className="snap-start">
-              <FunActivityCard activity={activity} />
+              <FunActivityCard activity={activity} delay={i * 100} />
             </div>
           ))}
         </div>
 
       </div>
     </section>
-  );
+  )
 }
 
 /* ================= CARD ================= */
-function FunActivityCard({ activity }) {
+function FunActivityCard({ activity, delay = 0 }) {
   return (
-    <div>
-      <div className="relative aspect-[20/33] rounded-lg overflow-hidden">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+    >
+      <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
           src={activity.img}
           alt={activity.title}
@@ -134,7 +142,9 @@ function FunActivityCard({ activity }) {
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-[#222] text-[15px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.33]">
+      <h3 className="mt-2 mb-1 text-[#222]
+                     text-[15px] sm:text-[16px] lg:text-[18px]
+                     font-medium leading-[1.33]">
         {activity.title}
       </h3>
 
@@ -142,7 +152,7 @@ function FunActivityCard({ activity }) {
         {activity.venue}
       </p>
     </div>
-  );
+  )
 }
 
-export default ExploreFunActivities;
+export default ExploreFunActivities

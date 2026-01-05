@@ -45,12 +45,13 @@ function RecommendedMovies() {
           </div>
         </div>
 
-        {/* ================= DESKTOP================= */}
+        {/* ================= DESKTOP ================= */}
         <div className="relative hidden lg:block">
           {page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute left-[-15px] top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute left-[-15px] top-[35%] z-20 w-10 h-10
+                         rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -62,11 +63,18 @@ function RecommendedMovies() {
               style={{ transform: `translateX(-${page * 100}%)` }}
             >
               {Array.from({ length: totalPages }).map((_, p) => (
-                <div key={p} className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0">
+                <div
+                  key={p}
+                  className="grid grid-cols-5 gap-x-8 w-full flex-shrink-0"
+                >
                   {movies
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
-                    .map(movie => (
-                      <MovieCard key={movie.id} movie={movie} />
+                    .map((movie, i) => (
+                      <MovieCard
+                        key={movie.id}
+                        movie={movie}
+                        delay={i * 100}
+                      />
                     ))}
                 </div>
               ))}
@@ -76,14 +84,15 @@ function RecommendedMovies() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute right-[-15px] top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute right-[-15px] top-[35%] z-20 w-10 h-10
+                         rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
           )}
         </div>
 
-        {/* =================== MOBILE + TABLET  =================== */}
+        {/* ================= MOBILE + TABLET ================= */}
         <div
           className="
             lg:hidden
@@ -98,9 +107,9 @@ function RecommendedMovies() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {movies.map(movie => (
+          {movies.map((movie, i) => (
             <div key={movie.id} className="snap-start">
-              <MovieCard movie={movie} />
+              <MovieCard movie={movie} delay={i * 100} />
             </div>
           ))}
         </div>
@@ -110,15 +119,26 @@ function RecommendedMovies() {
   )
 }
 
-function MovieCard({ movie }) {
+/* ================= MOVIE CARD ================= */
+function MovieCard({ movie, delay = 0 }) {
   return (
-    <div>
+    <div
+      data-aos="fade-right"
+      data-aos-duration="600"
+      data-aos-delay={delay}
+    >
       <div className="aspect-[20/33] rounded-lg overflow-hidden">
-        <img src={movie.image} alt={movie.title} className="w-full h-full object-cover" />
+        <img
+          src={movie.image}
+          alt={movie.title}
+          className="w-full h-full object-cover"
+        />
       </div>
+
       <h3 className="mt-2 text-[15px] sm:text-[16px] lg:text-[18px] font-medium">
         {movie.title}
       </h3>
+
       <p className="text-[13px] sm:text-[14px] text-[#666] line-clamp-2">
         {movie.genre}
       </p>
