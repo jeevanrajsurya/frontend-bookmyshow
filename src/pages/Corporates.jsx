@@ -1,7 +1,7 @@
 import corporatesHero from "../assets/corporates-hero.avif"
 import { FiPlayCircle, FiDownload } from "react-icons/fi"
 
-// PARTNER LOGOS (YOUR ASSETS)
+// PARTNER LOGOS
 import hp from "../assets/hp.avif"
 import ola from "../assets/ola.avif"
 import axis from "../assets/axis.avif"
@@ -96,7 +96,7 @@ function Corporates() {
         </div>
       </div>
 
-      {/* RIGHT FORM (DESKTOP ONLY) */}
+      {/* RIGHT FORM  */}
       <div
         className="
           hidden
@@ -309,11 +309,12 @@ function Corporates() {
       <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
         <p
           className="
-            text-[13px]
-            tracking-[2px]
-            text-[#666]
+            text-[16px]
             font-medium
-            mb-4
+            leading-[20px]
+            tracking-[1px]
+            text-[#666666]
+            pb-[5px]
           "
         >
           WHAT&apos;S IN IT FOR YOU
@@ -321,11 +322,11 @@ function Corporates() {
 
         <h2
           className="
-            text-[36px]
-            leading-[44px]
-            font-semibold
-            text-[#1f1f1f]
-            mb-6
+           text-[34px]
+           font-medium
+           text-[#333333]
+           pb-4
+           leading-[48px]
           "
         >
           Brand Promotions
@@ -333,10 +334,11 @@ function Corporates() {
 
         <p
           className="
-            text-[16px]
-            leading-[28px]
-            text-[#4a4a4a]
-            mb-10
+          text-[18px]
+          font-normal
+          leading-[28px]
+          text-[#333333]
+          pb-8
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -346,18 +348,17 @@ function Corporates() {
 
         <button
           className="
-            w-max
-            border
-            border-[#dc3558]
-            text-[#dc3558]
-            px-8
-            py-3
-            text-[14px]
-            font-semibold
-            rounded-md
-            hover:bg-[#dc3558]
-            hover:text-white
-            transition
+              w-[270px]
+              h-[50px]
+              rounded
+              border
+              border-[#EB4E62]
+              text-center
+              font-medium
+              m-0
+              leading-[50px]
+              cursor-pointer
+              text-[#EB4E62]
           "
         >
           Promote your brand
@@ -407,11 +408,11 @@ function Corporates() {
       <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
         <h2
           className="
-            text-[36px]
-            leading-[44px]
-            font-semibold
-            text-[#1f1f1f]
-            mb-6
+            text-[34px]
+            leading-[48px]
+            font-medium
+            text-[#333333]
+            pb-4
           "
         >
           Employee Engagement
@@ -421,10 +422,11 @@ function Corporates() {
 
         <p
           className="
-            text-[16px]
+            text-[18px]
+            font-normal
             leading-[28px]
-            text-[#4a4a4a]
-            mb-10
+            text-[#333333]
+            pb-10
           "
         >
           Show your clients and employees some appreciation by gifting
@@ -433,18 +435,17 @@ function Corporates() {
 
         <button
           className="
-            w-max
-            border
-            border-[#dc3558]
-            text-[#dc3558]
-            px-8
-            py-3
-            text-[14px]
-            font-semibold
-            rounded-md
-            hover:bg-[#dc3558]
-            hover:text-white
-            transition
+            w-[270px]
+              h-[50px]
+              rounded
+              border
+              border-[#EB4E62]
+              text-center
+              font-medium
+              m-0
+              leading-[50px]
+              cursor-pointer
+              text-[#EB4E62]
           "
         >
           Engage your employees
@@ -473,11 +474,12 @@ function Corporates() {
       <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
         <p
           className="
-            text-[13px]
-            tracking-[2px]
-            text-[#666]
+            text-[16px]
             font-medium
-            mb-4
+            leading-[20px]
+            tracking-[1px]
+            text-[#666666]
+            pb-[5px]
           "
         >
           WHAT&apos;S IN IT FOR YOU
@@ -485,11 +487,11 @@ function Corporates() {
 
         <h2
           className="
-            text-[36px]
-            leading-[44px]
-            font-semibold
-            text-[#1f1f1f]
-            mb-6
+            text-[34px]
+            leading-[48px]
+            font-medium
+            text-[#333333]
+            pb-4
           "
         >
           Brand Promotions
@@ -497,10 +499,11 @@ function Corporates() {
 
         <p
           className="
-            text-[16px]
+           text-[18px]
+            font-normal
             leading-[28px]
-            text-[#4a4a4a]
-            mb-10
+            text-[#333333]
+            pb-10
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -510,18 +513,17 @@ function Corporates() {
 
         <button
           className="
-            w-max
-            border
-            border-[#dc3558]
-            text-[#dc3558]
-            px-8
-            py-3
-            text-[14px]
-            font-semibold
-            rounded-md
-            hover:bg-[#dc3558]
-            hover:text-white
-            transition
+            w-[270px]
+              h-[50px]
+              rounded
+              border
+              border-[#EB4E62]
+              text-center
+              font-medium
+              m-0
+              leading-[50px]
+              cursor-pointer
+              text-[#EB4E62]
           "
         >
           Promote your brand
@@ -571,11 +573,11 @@ function Corporates() {
       <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
         <h2
           className="
-            text-[36px]
-            leading-[44px]
-            font-semibold
-            text-[#1f1f1f]
-            mb-6
+             text-[34px]
+            leading-[48px]
+            font-medium
+            text-[#333333]
+            pb-4
           "
         >
           Employee Engagement
@@ -585,10 +587,11 @@ function Corporates() {
 
         <p
           className="
-            text-[16px]
+            text-[18px]
+            font-normal
             leading-[28px]
-            text-[#4a4a4a]
-            mb-10
+            text-[#333333]
+            pb-10
           "
         >
           Show your clients and employees some appreciation by gifting
@@ -597,18 +600,17 @@ function Corporates() {
 
         <button
           className="
-            w-max
-            border
-            border-[#dc3558]
-            text-[#dc3558]
-            px-8
-            py-3
-            text-[14px]
-            font-semibold
-            rounded-md
-            hover:bg-[#dc3558]
-            hover:text-white
-            transition
+            w-[270px]
+              h-[50px]
+              rounded
+              border
+              border-[#EB4E62]
+              text-center
+              font-medium
+              m-0
+              leading-[50px]
+              cursor-pointer
+              text-[#EB4E62]
           "
         >
           Engage your employees
@@ -638,11 +640,12 @@ function Corporates() {
       <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
         <p
           className="
-            text-[13px]
-            tracking-[2px]
-            text-[#666]
+           text-[16px]
             font-medium
-            mb-4
+            leading-[20px]
+            tracking-[1px]
+            text-[#666666]
+            pb-[5px]
           "
         >
           WHAT&apos;S IN IT FOR YOU
@@ -650,11 +653,11 @@ function Corporates() {
 
         <h2
           className="
-            text-[36px]
-            leading-[44px]
-            font-semibold
-            text-[#1f1f1f]
-            mb-6
+            text-[34px]
+            leading-[48px]
+            font-medium
+            text-[#333333]
+            pb-4
           "
         >
           Brand Promotions
@@ -662,10 +665,11 @@ function Corporates() {
 
         <p
           className="
-            text-[16px]
+            text-[18px]
+            font-normal
             leading-[28px]
-            text-[#4a4a4a]
-            mb-10
+            text-[#333333]
+            pb-10
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -675,18 +679,17 @@ function Corporates() {
 
         <button
           className="
-            w-max
-            border
-            border-[#dc3558]
-            text-[#dc3558]
-            px-8
-            py-3
-            text-[14px]
-            font-semibold
-            rounded-md
-            hover:bg-[#dc3558]
-            hover:text-white
-            transition
+            w-[270px]
+              h-[50px]
+              rounded
+              border
+              border-[#EB4E62]
+              text-center
+              font-medium
+              m-0
+              leading-[50px]
+              cursor-pointer
+              text-[#EB4E62]
           "
         >
           Promote your brand
@@ -711,7 +714,14 @@ function Corporates() {
 <section className="w-full bg-[#f2f2f2] py-2 ">
   <div className="max-w-[1200px] bg-white mx-auto  py-7">
 
-    <h2 className="text-[16px] tracking-[2px] pl-10 text-[#222] font-bold mb-6 pt-5 ">
+    <h2 className="text-[16px]
+    font-medium
+    leading-[20px]
+    tracking-[1px]
+    text-[#333333]
+    pr-0
+    pb-[12px]
+    pl-[40px]">
       OUR SUITE OF BUSINESS SOLUTIONS:
     </h2>
 
@@ -723,8 +733,8 @@ function Corporates() {
           src={creativeIcon}
           className="absolute right-6 bottom-6 w-[220px] opacity-20"
         />
-        <h3 className="relative text-white text-[32px] leading-[40px] font-semibold max-w-[260px]">
-          End-to-End Creative Support
+        <h3 className="relative text-white text-[34px] leading-[46px] font-medium max-w-[260px]">
+          End to End Support
         </h3>
       </div>
 
@@ -734,7 +744,7 @@ function Corporates() {
           src={marketingIcon}
           className="absolute right-6 bottom-6 w-[220px] opacity-20"
         />
-        <h3 className="relative text-white text-[32px] leading-[40px] font-semibold max-w-[260px]">
+        <h3 className="relative text-white text-[34px] leading-[46px] font-medium max-w-[260px]">
           Marketing & E-mail Guidance
         </h3>
       </div>
@@ -745,7 +755,7 @@ function Corporates() {
           src={smsIcon}
           className="absolute right-6 bottom-6 w-[220px] opacity-20"
         />
-        <h3 className="relative text-white text-[32px] leading-[40px] font-semibold max-w-[260px]">
+        <h3 className="relative text-white text-[34px] leading-[46px] font-medium max-w-[260px]">
           Bulk SMS Communication
         </h3>
       </div>
@@ -785,8 +795,8 @@ function Corporates() {
       className="
         bg-[#e15b64]
         text-white
-        text-[16px]
-        font-semibold
+        text-[18px]
+        font-medium
         px-8
         py-3
         rounded-md
@@ -805,13 +815,13 @@ function Corporates() {
     {/* HEADING */}
     <h2
       className="
-        text-[14px]
-        tracking-[2px]
-        text-[#222]
-        font-semibold
-        mb-8
-        pt-5
-        pl-5
+        text-[16px]
+    font-medium
+    tracking-[1px]
+    text-[#333333]
+    pb-[25px]
+    pl-[40px]
+    pt-[10px]
       "
     >
       OUR PRODUCTS
@@ -842,16 +852,16 @@ function Corporates() {
         <div className="absolute inset-0 bg-[#c7353a]/90"></div>
 
         <div className="relative z-10 max-w-[420px]">
-          <h3 className="text-[34px] leading-[42px] font-semibold mb-6">
+          <h3 className="text-[34px] font-medium text-white mb-[18px]">
             Movie Vouchers
           </h3>
 
-          <p className="text-[16px] leading-[28px] font-normal mb-4">
+          <p className="text-[20px] leading-[32px] font-normal mb-4">
             Highly customizable, single usage, promotional codes in the form
             of set amount / value or a percentage of discount on the ticket cost.
           </p>
 
-          <p className="text-[16px] leading-[28px] font-normal mb-10">
+          <p className="text-[20px] leading-[32px] font-normal mb-10">
             An ideal suit for movie and product promotions, consumer activation
             and countless more!
           </p>
@@ -859,11 +869,11 @@ function Corporates() {
           <button
             className="
               bg-white
-              text-[#e15b64]
-              text-[14px]
-              font-semibold
-              px-8
-              py-3
+              text-[#DC354B]
+              text-[16px]
+              font-medium
+              py-[14px]
+              px-[32px]
               rounded-md
               hover:bg-[#f5f5f5]
               transition
@@ -896,11 +906,11 @@ function Corporates() {
         <div className="absolute inset-0 bg-[#3e3a45]/95"></div>
 
         <div className="relative z-10 max-w-[420px]">
-          <h3 className="text-[34px] leading-[42px] font-semibold mb-6">
+          <h3 className="text-[34px] leading-[42px] font-medium mb-6">
             Gift Vouchers
           </h3>
 
-          <p className="text-[16px] leading-[28px] font-normal mb-10">
+          <p className="text-[20px] leading-[28px] font-normal mb-10">
             Amazing little pre-loaded cash cards which can be used to purchase
             tickets across all categories for 6 months. Be it employee rewards,
             trade channel incentive or consumer engagement, a gift voucher fits all.
@@ -908,12 +918,12 @@ function Corporates() {
 
           <button
             className="
-              bg-white
-              text-[#e15b64]
-              text-[14px]
-              font-semibold
-              px-8
-              py-3
+               bg-white
+              text-[#DC354B]
+              text-[16px]
+              font-medium
+              py-[14px]
+              px-[32px]
               rounded-md
               hover:bg-[#f5f5f5]
               transition

@@ -172,7 +172,8 @@ function Location({ onClose }) {
                     onClick={() => handleCitySelect(city)}
                     className="text-[11px] sm:text-[12px]
                                font-['Roboto'] text-[#999]
-                               cursor-pointer hover:text-[#333]"
+                               cursor-pointer hover:text-[#333]
+                                text-center xl:text-left"
                   >
                     {city}
                   </p>
