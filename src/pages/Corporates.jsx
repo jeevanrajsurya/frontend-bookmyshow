@@ -1,4 +1,4 @@
-import corporatesHero from "../assets/corporates-hero.avif"
+import corporatesHero from "../assets/corporates-hero1.avif"
 import { FiPlayCircle, FiDownload } from "react-icons/fi"
 
 // PARTNER LOGOS

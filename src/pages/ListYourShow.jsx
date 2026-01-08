@@ -141,7 +141,7 @@ function ListYourShow() {
             ))}
           </div>
 
-          <div className="mt-16 flex justify-center">
+          <div className="mt-5 flex justify-center">
             <button
               className="
                 bg-[#f25d6c]
@@ -164,7 +164,7 @@ function ListYourShow() {
       </section>
 
       {/* ================= WHAT CAN YOU HOST2 ================= */}
-      <section className="py-16">
+      <section className="py-10">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-14">
 
           <h2 className="text-center text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-[#1f2533]">
@@ -229,7 +229,7 @@ function ListYourShow() {
             ))}
           </div>
 
-          <div className="mt-16 flex justify-center">
+          <div className="mt-5 flex justify-center">
             <button
               className="
                 bg-[#f25d6c]
@@ -294,7 +294,7 @@ function ListYourShow() {
         </div>
       </section>
 
-      <FooterCTA />
+      {/* <FooterCTA /> */}
     </div>
   )
 }
