@@ -3,45 +3,41 @@ import { Routes, Route } from "react-router-dom"
 
 /* ================= AOS ================= */
 import AOS from "aos"
-/*
-  AOS.init():
-  - duration : animation speed (ms)
-  - once     : animation only once on scroll
-*/
 
 /* ================= COMPONENTS ================= */
 import Navbar from "./components/Navbar"
 import BottomNavbar from "./components/BottomNavbar"
 
-/* ================= PAGES ================= */
+/* ================= COMMON PAGES ================= */
 import Home from "./pages/Home"
 import Search from "./pages/Search"
 import Location from "./pages/Location"
 import Signin from "./pages/Signin"
 import Menu from "./pages/Menu"
 
+/* ================= RIGHT MENU PAGES ================= */
 import ListYourShow from "./pages/ListYourShow"
 import Corporates from "./pages/Corporates"
 import Offers from "./pages/Offers"
 import GiftCards from "./pages/GiftCards"
 
+/* ================= LEFT MENU PAGES ================= */
+import Movies from "./pages/Movies"
+import Stream from "./pages/Stream"
+import Events from "./pages/Events"
+import Plays from "./pages/Plays"
+import Sports from "./pages/Sports"
+import Activities from "./pages/Activities"
+
 function App() {
-  /* ================= MODAL STATES ================= */
   const [showLocation, setShowLocation] = useState(false)
   const [showSignin, setShowSignin] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
-  /* ================= STEP 3 : AOS INIT ================= */
   useEffect(() => {
-    /*
-      This runs ONE TIME when app loads
-
-      - Enables AOS animations for entire project
-      - No need to repeat in other components
-    */
     AOS.init({
-      duration: 800,   // animation duration (0.8s)
-      once: true,      // animate only once
+      duration: 800,
+      once: true,
       easing: "ease-in-out",
     })
   }, [])
@@ -49,7 +45,6 @@ function App() {
   return (
     <>
       {/* ================= TOP NAVBAR ================= */}
-      {/* All breakpoints */}
       <Navbar
         onLocationClick={() => setShowLocation(true)}
         onSigninClick={() => setShowSignin(true)}
@@ -57,39 +52,38 @@ function App() {
       />
 
       {/* ================= BOTTOM NAVBAR ================= */}
-      {/* md+ only */}
       <BottomNavbar />
 
       {/* ================= ROUTES ================= */}
-      {/*
-        /                → Home
-        /search          → Search
-        /list-your-show  → ListYourShow
-        /corporates      → Corporates
-        /offers          → Offers
-        /gift-cards      → GiftCards
-      */}
       <Routes>
+        {/* Common */}
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
 
+        {/* Left Menu */}
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/stream" element={<Stream />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/plays" element={<Plays />} />
+        <Route path="/sports" element={<Sports />} />
+        <Route path="/activities" element={<Activities />} />
+
+        {/* Right Menu */}
         <Route path="/list-your-show" element={<ListYourShow />} />
         <Route path="/corporates" element={<Corporates />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/gift-cards" element={<GiftCards />} />
       </Routes>
 
-      {/* ================= LOCATION MODAL ================= */}
+      {/* ================= MODALS ================= */}
       {showLocation && (
         <Location onClose={() => setShowLocation(false)} />
       )}
 
-      {/* ================= SIGNIN MODAL ================= */}
       {showSignin && (
         <Signin onClose={() => setShowSignin(false)} />
       )}
 
-      {/* ================= MENU DRAWER ================= */}
       {showMenu && (
         <Menu
           onClose={() => setShowMenu(false)}
