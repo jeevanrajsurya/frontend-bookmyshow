@@ -6,17 +6,38 @@ import e1 from "../assets/e1.avif"
 import e2 from "../assets/e2.avif"
 import e3 from "../assets/e3.avif"
 import e4 from "../assets/e4.avif"
+import e5 from "../assets/e5.avif"
+import e6 from "../assets/e6.avif"
+import e7 from "../assets/e7.avif"
+import e8 from "../assets/e8.avif"
+import e9 from "../assets/e9.avif"
+import e10 from "../assets/e10.avif"
+import m1 from "../assets/m1.avif"
+import m2 from "../assets/m2.avif"
+import m3 from "../assets/m3.avif"
+import m4 from "../assets/m4.avif"
+import m5 from "../assets/m5.avif"
+import m6 from "../assets/m6.avif"
+import m7 from "../assets/m7.avif"
+import m8 from "../assets/m8.avif"
 
-const eventImages = [e1, e2, e3, e4, e1, e2, e3, e4]
+//AOS ANIMATION
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
+
+
+
+const eventImages = [e1, e2, e3, e4, e5, e6, e7, e8,e9,e10,m1,m2,m3,m4,m5,m6,m7,m8]
 
 /* ================= EVENT DATA ================= */
-const events = eventImages.map((img, i) => ({
+const events = Array.from({ length: 52 }).map((_, i) => ({
   id: i + 1,
-  title: `Event Title ${i + 1}`,
-  venue: "Venue Name",
-  category: "Category",
-  price: "₹ 399 onwards",
-  image: img,
+  title: "Speed Friending",
+  venue: "NICE Ground: Bengaluru",
+  category: "Concerts",
+  price: "₹ 5999 onwards",
+  image: eventImages[i % eventImages.length], 
 }))
 
 /* ================= FILTER OPTIONS ================= */
@@ -39,6 +60,15 @@ const filtersConfig = {
 }
 
 function Events() {
+
+     useEffect(() => {
+  AOS.init({
+    duration: 800,   
+    once: true,      
+    easing: "ease-out-cubic",
+  })
+}, [])
+
   const [openSections, setOpenSections] = useState({
     Date: true,
     Languages: false,
@@ -71,14 +101,16 @@ function Events() {
 
   return (
     <section className="bg-[#F5F7FA] min-h-screen py-10">
-      <div className="max-w-7xl mx-auto px-4 flex gap-8">
+      <div className="max-w-7xl mx-auto px-4 flex gap-10">
 
         {/* ================= LEFT FILTERS ================= */}
-        <aside className="w-[360px] hidden lg:block">
-          <h2 className="text-[24px] font-['Roboto'] font-bold leading-[30px] text-[#333333] capitalize mb-4">Filters</h2>
+        <aside className="w-[360px]  hidden lg:block">
+          <h2 className="text-2xl font-semibold leading-[30px] text-[#333333] capitalize mb-4">
+            Filters
+          </h2>
 
           {/* DATE */}
-          <div className="bg-white rounded-md mb-4 p-4 text-[14px] font-normal leading-[1.43] bg-transparent text-[#333333]">
+          <div className="bg-white rounded-md mb-4 p-4 text-[14px] font-normal text-[#333333]">
             <Header
               title="Date"
               open={openSections.Date}
@@ -103,9 +135,7 @@ function Events() {
                 <div className="mt-2">
                   <FilterChip
                     active={selected.Date?.includes("This Weekend")}
-                    onClick={() =>
-                      toggleOption("Date", "This Weekend")
-                    }
+                    onClick={() => toggleOption("Date", "This Weekend")}
                   >
                     This Weekend
                   </FilterChip>
@@ -124,7 +154,7 @@ function Events() {
             (section) => (
               <div
                 key={section}
-                className="bg-white rounded-md mb-4 p-4 text-[14px] font-normal leading-[1.43] bg-transparent text-[#333333]"
+                className="bg-white rounded-md mb-4 p-4 text-[14px] font-normal leading-[1.43] text-[#333333]"
               >
                 <Header
                   title={section}
@@ -139,9 +169,7 @@ function Events() {
                       <FilterChip
                         key={opt}
                         active={selected[section]?.includes(opt)}
-                        onClick={() =>
-                          toggleOption(section, opt)
-                        }
+                        onClick={() => toggleOption(section, opt)}
                       >
                         {opt}
                       </FilterChip>
@@ -152,7 +180,7 @@ function Events() {
             )
           )}
 
-          <button className="w-full border leading-[20px] text-[14px] font-normal border-[#dc3558] text-[#dc3558] py-2 rounded">
+          <button className="w-full border text-[14px] font-normal border-[#dc3558] text-[#dc3558] py-2 rounded">
             Browse by Venues
           </button>
         </aside>
@@ -163,24 +191,160 @@ function Events() {
             Events in Coimbatore
           </h1>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          {/*  CATEGORY CHIPS – FIXED */}
+          <div
+            className="
+              flex items-center gap-3 mb-8
+              flex-nowrap overflow-x-auto
+              whitespace-nowrap
+              [-ms-overflow-style:none]
+              [scrollbar-width:none]
+              [&::-webkit-scrollbar]:hidden
+            "
+          >
             {filtersConfig.Categories.map((cat) => (
-              <span
+              <button
                 key={cat}
-                className="px-4 py-1 border rounded-full text-sm text-[#dc3558]"
+                className="
+                  px-4 py-2
+                  font-['Roboto'] 
+                  border border-gray-300
+                  rounded-full
+                  text-[12px]
+                  font-normal
+                  break-words 
+                  text-[#dc354b]
+                  leading-[16px]
+                  bg-white
+                  transition-colors
+                  duration-200
+                "
               >
                 {cat}
-              </span>
+              </button>
             ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 ">
             {events.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
         </div>
       </div>
+      
+
+      {/* ================= EVENTS DESCRIPTION (FULL WIDTH) ================= */}
+
+<section className="w-full bg-[#F5F7FA]">
+  <div className="max-w-6xl mx-auto px-6 py-4 text-[#666666]">
+
+    {/* TITLE */}
+    <h2 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+      Find The Latest and Best Events in Coimbatore Today!
+    </h2>
+
+    {/* PARA */}
+    <p className="p-0  text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      If lounging on a sofa with a bowl of popcorn has become your daily ritual,
+      you can jazz it up with some live events! Gone are the days when movies were
+      the only source of real entertainment. Now you can take a break from the
+      constant screen time to indulge in some live entertainment near you with
+      the tap of a button. Find a curated list of upcoming events in{" "}
+      <span className="font-semibold text-[#333]">Coimbatore</span> so that you
+      can spot the right event for that perfect weekend.
+    </p>
+
+    {/* SUB TITLE */}
+    <h3 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+      How to book an event online?
+    </h3>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      BookMyShow offers a simple, yet seamless experience for browsing, sorting,
+      and booking handpicked events. Just click on the upcoming events of your
+      choice, make the payment through one of the many payment gateways, and
+      you’re good to go!<br/>
+      Consider BookMyShow as a one-stop-shop for all your live entertainment
+      cravings. You have an option to filter the latest events according to
+      category so you can find the same in the favourite category. You can also
+      filter the genre so you can experience comedy, music, action and more.
+    </p>
+    
+     <h3 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+      How to book an event online?
+    </h3>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      BookMyShow offers a simple, yet seamless experience for browsing, sorting,
+      and booking handpicked events. Just click on the upcoming events of your
+      choice, make the payment through one of the many payment gateways, and
+      you’re good to go!.Consider BookMyShow as a one-stop-shop for all your live entertainment
+      cravings. You have an option to filter the latest events according to
+      category so you can find the same in the favourite category. You can also
+      filter the genre so you can experience comedy, music, action and more.
+    </p>
+    
+
+    {/* CATEGORY TITLE */}
+    <h3 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+      Top 3 Events Categories
+    </h3>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      <span className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">Comedy events</span> – If you
+      like to tickle your funny bone, comic relief can be your go-to option. Find
+      the latest{" "}
+      <span className="text-[#dc3558]">comedy events</span> by some of
+      Coimbatore’s best comedians.
+    </p>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      <span className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">Music shows</span> – Looking
+      for a way to unwind from the post-work blues?{" "}
+      <span className="text-[#dc3558]">Music shows</span> might do the trick!
+      Experience handpicked gigs and concerts.
+    </p>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      <span className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+        Performance / workshops
+      </span>{" "}
+      – For those who want something more hands-on, you can book tickets to a
+      live performance or{" "}
+      <span className="text-[#dc3558]">workshop</span>.
+    </p>
+
+    {/* SECTION TITLE */}
+    <h3 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+      A hassle-free live events experience
+    </h3>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      Our{" "}
+      <span className="text-[#dc3558]">online streaming events</span> in 2026 are
+      carefully organized. This digital spin on events lets you experience all
+      the good stuff through your laptop or smartphone.
+    </p>
+
+    {/* FINAL CTA */}
+    <h3 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
+      Get Tickets to the Latest Events in Your Coimbatore
+    </h3>
+
+    <p className="p-0 text-[12px] font-normal leading-[16px] tracking-[0.2px] text-justify text-[#808080]">
+      Wait no more! Find the next event in Coimbatore and book your tickets now! Consider BookMyShow as a one-stop-shop for all your live entertainment
+      cravings. You have an option to filter the latest events according to
+      category so you can find the same in the favourite category. You can also
+      filter the genre so you can experience comedy, music, action and more.
+      You have an option to filter the latest events according to
+      category so you can find the same in the favourite category. You can also
+      filter the genre so you can experience comedy, music, action and more.
+    </p>
+
+  </div>
+</section>
+
     </section>
   )
 }
@@ -194,12 +358,12 @@ function Header({ title, open, onToggle, onClear }) {
         onClick={onToggle}
       >
         {open ? <FiChevronUp /> : <FiChevronDown />}
-        <span className="font-medium text-[#dc3558]">
+        <span className="text-[14px] font-normal leading-[1.43] text-[#333333]">
           {title}
         </span>
       </div>
       <span
-        className="text-sm text-gray-400 cursor-pointer"
+        className="text-[12px] text-[#666666] cursor-pointer"
         onClick={onClear}
       >
         Clear
@@ -213,7 +377,8 @@ function FilterChip({ active, children, onClick }) {
     <button
       onClick={onClick}
       className={`
-        px-3 py-1 text-sm border rounded
+        px-3 py-1 border rounded
+        break-words font-['Roboto'] text-[14px] font-normal leading-[1.43]
         ${
           active
             ? "bg-[#dc3558] text-white border-[#dc3558]"
@@ -228,8 +393,9 @@ function FilterChip({ active, children, onClick }) {
 
 /* ================= EVENT CARD ================= */
 function EventCard({ event }) {
-  return (
-    <div>
+    
+    return (
+    <div className="mb-10" data-aos="fade-up">
       <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
           src={event.image}
@@ -248,5 +414,8 @@ function EventCard({ event }) {
     </div>
   )
 }
+
+
+
 
 export default Events
