@@ -191,39 +191,38 @@ function Events() {
             Events in Coimbatore
           </h1>
 
-          {/*  CATEGORY CHIPS – FIXED */}
-          <div
-            className="
-              flex items-center gap-2 mb-8
-              flex-nowrap overflow-x-auto
-              whitespace-nowrap
-              [-ms-overflow-style:none]
-              [scrollbar-width:none]
-              [&::-webkit-scrollbar]:hidden
-            "
-          >
-            {filtersConfig.Categories.map((cat) => (
-              <button
-                key={cat}
-                className="
-                  px-4 py-2
-                  font-['Roboto'] 
-                  border border-gray-300
-                  rounded-full
-                  text-[12px]
-                  font-normal
-                  break-words 
-                  text-[#dc354b]
-                  leading-[16px]
-                  bg-white
-                  transition-colors
-                  duration-200
-                "
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+         {/*  CATEGORY CHIPS – WRAP FIXED */}
+<div
+  className="
+    flex flex-wrap
+    items-center
+    gap-2
+    mb-8
+  "
+>
+  {filtersConfig.Categories.map((cat) => (
+    <button
+      key={cat}
+      className="
+        px-4 py-2
+        font-['Roboto']
+        border border-gray-300
+        rounded-full
+        text-[12px]
+        font-normal
+        text-[#dc354b]
+        leading-[16px]
+        bg-white
+        transition-colors
+        duration-200
+        whitespace-nowrap
+      "
+    >
+      {cat}
+    </button>
+  ))}
+</div>
+
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 ">
             {events.map((event) => (
