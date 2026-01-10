@@ -12,14 +12,14 @@ import e7 from "../assets/e7.avif"
 import e8 from "../assets/e8.avif"
 import e9 from "../assets/e9.avif"
 import e10 from "../assets/e10.avif"
-import m1 from "../assets/m1.avif"
-import m2 from "../assets/m2.avif"
-import m3 from "../assets/m3.avif"
-import m4 from "../assets/m4.avif"
-import m5 from "../assets/m5.avif"
-import m6 from "../assets/m6.avif"
-import m7 from "../assets/m7.avif"
-import m8 from "../assets/m8.avif"
+import l1 from "../assets/l1.avif"
+import l2 from "../assets/l2.avif"
+import l3 from "../assets/l3.avif"
+import l4 from "../assets/l4.avif"
+import l5 from "../assets/l5.avif"
+import l6 from "../assets/l6.avif"
+import l7 from "../assets/l7.avif"
+import l8 from "../assets/l8.avif"
 
 //AOS ANIMATION
 import { useEffect } from "react"
@@ -28,10 +28,10 @@ import "aos/dist/aos.css"
 
 
 
-const eventImages = [e1, e2, e3, e4, e5, e6, e7, e8,e9,e10,m1,m2,m3,m4,m5,m6,m7,m8]
+const eventImages = [e1, e2, e3, e4, e5, e6, e7, e8,e9,e10,l1,l2,l3,l4,l5,l6,l7,l8]
 
 /* ================= EVENT DATA ================= */
-const events = Array.from({ length: 52 }).map((_, i) => ({
+const events = Array.from({ length: 49 }).map((_, i) => ({
   id: i + 1,
   title: "Speed Friending",
   venue: "NICE Ground: Bengaluru",
@@ -100,17 +100,17 @@ function Events() {
   }
 
   return (
-    <section className="bg-[#F5F7FA] min-h-screen py-10">
+    <section className="bg-[#F5F7FA] min-h-screen py-[60px]">
       <div className="max-w-7xl mx-auto px-4 flex gap-10">
 
         {/* ================= LEFT FILTERS ================= */}
-        <aside className="w-[360px]  hidden lg:block">
-          <h2 className="text-2xl font-semibold leading-[30px] text-[#333333] capitalize mb-4">
+        <aside className="w-[360px] lg:w-[300px]  hidden lg:block">
+          <h2 className="text-[24px] font-bold leading-[30px] text-[#333333] mb-6">
             Filters
           </h2>
 
           {/* DATE */}
-          <div className="bg-white rounded-md mb-4 p-4 text-[14px] font-normal text-[#333333]">
+          <div className="bg-white rounded-sm mb-3 p-4 text-[14px] leading-[1.43] bg-transparent  font-normal text-[#333333]">
             <Header
               title="Date"
               open={openSections.Date}
@@ -154,7 +154,7 @@ function Events() {
             (section) => (
               <div
                 key={section}
-                className="bg-white rounded-md mb-4 p-4 text-[14px] font-normal leading-[1.43] text-[#333333]"
+                className="bg-white rounded-sm mb-3 p-4 text-[14px] leading-[1.43] bg-transparent  font-medium text-[#333333]"
               >
                 <Header
                   title={section}
@@ -180,21 +180,21 @@ function Events() {
             )
           )}
 
-          <button className="w-full border text-[14px] font-normal border-[#dc3558] text-[#dc3558] py-2 rounded">
+          <button className="w-full border text-[14px] font-medium border-[#dc3558] text-[#dc3558] py-2 rounded">
             Browse by Venues
           </button>
         </aside>
 
         {/* ================= RIGHT EVENTS ================= */}
         <div className="flex-1">
-          <h1 className="text-2xl font-semibold mb-4">
+          <h1 className="text-[24px] font-bold leading-[30px] text-[#333333] mb-6">
             Events in Coimbatore
           </h1>
 
           {/*  CATEGORY CHIPS – FIXED */}
           <div
             className="
-              flex items-center gap-3 mb-8
+              flex items-center gap-2 mb-8
               flex-nowrap overflow-x-auto
               whitespace-nowrap
               [-ms-overflow-style:none]
@@ -233,11 +233,18 @@ function Events() {
         </div>
       </div>
       
-
+            {/* ================= BREADCRUMB (FULL WIDTH WHITE) ================= */}
+          <section className="w-full bg-white mt-8">
+            <div className="max-w-6xl mx-auto px-6 py-3">
+              <p className="text-left  text-[12px] font-medium leading-[20px] tracking-[0.1px] normal-case ">
+                Home <span className="mx-1">→</span> Plays
+              </p>
+            </div>
+          </section>
       {/* ================= EVENTS DESCRIPTION (FULL WIDTH) ================= */}
 
 <section className="w-full bg-[#F5F7FA]">
-  <div className="max-w-6xl mx-auto px-6 py-4 text-[#666666]">
+  <div className="max-w-6xl mx-auto px-6 pt-2 text-[#666666]">
 
     {/* TITLE */}
     <h2 className="text-left mb-5 text-[14px] font-medium leading-[20px] tracking-[0.1px] normal-case text-[#808080]">
@@ -357,13 +364,23 @@ function Header({ title, open, onToggle, onClear }) {
         className="flex items-center gap-2 cursor-pointer"
         onClick={onToggle}
       >
+        {/* ARROW ICON */}
         {open ? <FiChevronUp /> : <FiChevronDown />}
-        <span className="text-[14px] font-normal leading-[1.43] text-[#333333]">
+
+        {/* TITLE TEXT */}
+        <span
+          className={`
+            text-[14px] font-normal leading-[1.43]
+            ${open ? "text-[#dc3558]" : "text-black"}
+          `}
+        >
           {title}
         </span>
       </div>
+
+      {/* CLEAR */}
       <span
-        className="text-[12px] text-[#666666] cursor-pointer"
+        className="text-[12px] text-[#666666] font-normal cursor-pointer"
         onClick={onClear}
       >
         Clear
@@ -395,7 +412,7 @@ function FilterChip({ active, children, onClick }) {
 function EventCard({ event }) {
     
     return (
-    <div className="mb-10" data-aos="fade-up">
+    <div data-aos="fade-up">
       <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
           src={event.image}
@@ -404,13 +421,13 @@ function EventCard({ event }) {
         />
       </div>
 
-      <h3 className="mt-2 text-[16px] font-medium">
+      <h3 className="mt-2 text-[15px] sm:text-[16px] lg:text-[18px] font-medium">
         {event.title}
       </h3>
 
-      <p className="text-sm text-gray-500">{event.venue}</p>
-      <p className="text-sm text-gray-500">{event.category}</p>
-      <p className="text-sm font-medium mt-1">{event.price}</p>
+      <p className="text-13px sm:text-[14px] text-[#666] line-clamp-2">{event.venue}</p>
+      <p className="text-13px sm:text-[14px] text-[#666] line-clamp-2">{event.category}</p>
+      <p className="text-13px sm:text-[14px] text-[#666] line-clamp-2">{event.price}</p>
     </div>
   )
 }
