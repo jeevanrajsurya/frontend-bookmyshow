@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
-/* ================= EVENT IMAGES ================= */
+/* ================= IMAGES ================= */
 import fa1 from "../assets/fa1.avif"
 import fa2 from "../assets/fa2.avif"
 import fa3 from "../assets/fa3.avif"
@@ -30,7 +30,7 @@ import "aos/dist/aos.css"
 
 const eventImages = [fa1, fa2, fa3, fa4, fa5, fa6, fa7, fa8, fa9, fa10,l1,l2,l3,l4,l5,l6,l7,l8]
 
-/* ================= EVENT DATA ================= */
+/* ================= DATA ================= */
 const events = Array.from({ length: 49 }).map((_, i) => ({
   id: i + 1,
   title: "Speed Friending",
@@ -227,7 +227,7 @@ function Activities() {
         </div>
       </div>
       
-            {/* ================= BREADCRUMB (FULL WIDTH WHITE) ================= */}
+            {/* ================= BREADCRUMB  ================= */}
           <section className="w-full bg-white mt-8">
             <div className="max-w-6xl mx-auto px-6 py-3">
               <p className="text-left  text-[12px] font-medium leading-[20px] tracking-[0.1px] normal-case ">
@@ -235,7 +235,7 @@ function Activities() {
               </p>
             </div>
           </section>
-      {/* ================= EVENTS DESCRIPTION (FULL WIDTH) ================= */}
+      {/* ================= EVENTS DESCRIPTION  ================= */}
 
 <section className="w-full bg-[#F5F7FA]">
   <div className="max-w-6xl mx-auto px-6 pt-2 text-[#666666]">
