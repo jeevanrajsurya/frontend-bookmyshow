@@ -32,7 +32,7 @@ function ExploreFunActivities() {
   const totalPages = Math.ceil(activities.length / cardsPerPage)
 
   return (
-    <section className="bg-[#F5F7FA] pt-5 pb-5">
+    <section className="bg-[#F5F7FA] pt-5 pb-15">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* HEADER */}
