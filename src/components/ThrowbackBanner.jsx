@@ -16,7 +16,7 @@ const ThrowbackBanner = () => {
           data-aos="zoom-in"
           data-aos-duration="600"
           data-aos-offset="200"
-          className="rounded-lg overflow-hidden"
+          className="rounded overflow-hidden"
         >
           <img
             src={throwbackBanner.image}

@@ -105,7 +105,8 @@ function LaughterTherapy() {
             grid grid-flow-col
             auto-cols-[calc(50%-0.75rem)]
             sm:auto-cols-[calc(25%-0.75rem)]
-            gap-4
+            gap-6
+            sm:gap-4
             overflow-x-auto
             snap-x snap-mandatory
             [-ms-overflow-style:none]
