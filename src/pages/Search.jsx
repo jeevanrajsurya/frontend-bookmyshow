@@ -131,9 +131,9 @@ function Search() {
       <div className="relative z-[20]">
         <div
           className="absolute left-1/2 -translate-x-1/2 top-[-18px]
-                     w-[560px] bg-white rounded-xl
-                     shadow-[0_2px_10px_rgba(0,0,0,0.08)]
-                     px-6 py-3"
+             w-full sm:w-[560px] bg-white rounded-xl
+             shadow-[0_2px_10px_rgba(0,0,0,0.08)]
+             px-6 py-3"
         >
           {showLeft && (
             <FiChevronLeft
@@ -147,10 +147,10 @@ function Search() {
           <div
             ref={catRef}
             onScroll={updateArrows}
-            className="flex gap-3 overflow-x-hidden pt-1 px-2
-                       [&::-webkit-scrollbar]:hidden
-                       [-ms-overflow-style:'none']
-                       [scrollbar-width:'none']"
+            className="flex gap-3 overflow-x-auto sm:overflow-x-hidden pt-1 px-2
+             [&::-webkit-scrollbar]:hidden
+             [-ms-overflow-style:'none']
+             [scrollbar-width:'none']"
           >
             {categories.map((cat) => {
               const isActive = activeCategories.includes(cat)

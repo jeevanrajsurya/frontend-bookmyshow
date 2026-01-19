@@ -123,7 +123,7 @@ function Location({ onClose }) {
 
           {/* POPULAR LIST */}
           <div
-            className="flex gap-4 overflow-x-auto xl:overflow-visible
+            className="flex gap-2 sm:gap-4 overflow-x-auto xl:overflow-visible
                        xl:justify-between pb-2
                        [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: "none" }}
@@ -138,7 +138,7 @@ function Location({ onClose }) {
                 <img
                   src={city.img}
                   alt={city.name}
-                  className="mx-auto h-[48px] sm:h-[64px] xl:h-[90px] mb-2"
+                  className="mx-auto h-[40px] sm:h-[64px] xl:h-[90px] mb-2"
                 />
                 <p className="text-[11px] sm:text-[13px] xl:text-[14px]
                               font-['Roboto'] text-[#666]">
