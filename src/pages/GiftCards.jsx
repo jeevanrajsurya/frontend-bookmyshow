@@ -52,134 +52,285 @@ function GiftCards() {
         <div className="max-w-[1280px] mx-auto px-4 py-4">
 
           {/* ================= TABS ================= */}
-          <div className="flex justify-center">
-            <div className="flex">
-              <button
-                onClick={() => setActiveTab("egift")}
-                className={`px-10 py-[15px] border border-[#cccccc]
-                text-[12px] leading-[16px] tracking-[0.2px] uppercase
-                ${activeTab === "egift"
-                  ? "bg-white text-black"
-                  : "bg-[#f5f5f5] text-[#999999]"}`}
-              >
-                E-GIFT CARDS
-              </button>
+         <div className="flex justify-center">
+  <div
+    className="
+      flex
+      w-full
+      max-w-[420px]
+      sm:w-auto
+    "
+  >
+    <button
+      onClick={() => setActiveTab("egift")}
+      className={`
+        flex-1
+        sm:flex-none
+        px-4
+        sm:px-10
+        py-3
+        sm:py-[15px]
+        border border-[#cccccc]
+        text-[8px]
+        sm:text-[12px]
+        leading-[16px]
+        tracking-[0.2px]
+        uppercase
+        ${
+          activeTab === "egift"
+            ? "bg-white text-black"
+            : "bg-[#f5f5f5] text-[#999999]"
+        }
+      `}
+    >
+      E-GIFT CARDS
+    </button>
 
-              <button
-                onClick={() => setActiveTab("physical")}
-                className={`px-10 py-[15px] border border-[#cccccc]
-                text-[12px] leading-[16px] tracking-[0.2px] uppercase
-                ${activeTab === "physical"
-                  ? "bg-white text-black"
-                  : "bg-[#f5f5f5] text-[#999999]"}`}
-              >
-                PHYSICAL GIFT CARDS
-              </button>
-            </div>
-          </div>
+    <button
+      onClick={() => setActiveTab("physical")}
+      className={`
+        flex-1
+        sm:flex-none
+        px-4
+        sm:px-10
+        py-3
+        sm:py-[15px]
+        border border-l-0 sm:border-l border-[#cccccc]
+        text-[8px]
+        sm:text-[12px]
+        leading-[16px]
+        tracking-[0.2px]
+        uppercase
+        ${
+          activeTab === "physical"
+            ? "bg-white text-black"
+            : "bg-[#f5f5f5] text-[#999999]"
+        }
+      `}
+    >
+      PHYSICAL GIFT CARDS
+    </button>
+  </div>
+</div>
 
           {/* ================= WHITE CONTENT ================= */}
           <div className="w-full bg-white mt-4">
             <div className="max-w-[1280px] mx-auto px-4">
 
-              {/* ================= E-GIFT ================= */}
-              {activeTab === "egift" && (
-                <div className="py-6">
+             {/* ================= E-GIFT ================= */}
+{activeTab === "egift" && (
+  <div className="py-4 sm:py-6">
 
-                  <h2 className="text-center text-[18px] font-normal leading-[28px] text-[#666666] mb-6">
-                    Pick a card from one of our themes
-                  </h2>
+    {/* Heading */}
+    <h2
+      className="
+        text-center
+        text-[14px]
+        sm:text-[16px]
+        lg:text-[18px]
+        font-normal
+        leading-[22px]
+        sm:leading-[26px]
+        lg:leading-[28px]
+        text-[#666666]
+        mb-4
+        sm:mb-6
+      "
+    >
+      Pick a card from one of our themes
+    </h2>
 
-                  <div className="flex justify-center gap-4 flex-wrap mb-10">
-                    {["All", "Entertaining Gifts", "Bestie Gifts", "Made with Love"].map(btn => (
-                      <button
-                        key={btn}
-                        className="px-4 py-2 rounded-[16px] text-[12px]
-                        border border-[#cccccc]
-                        leading-[16px] tracking-[0.2px]
-                        text-[#666666]
-                        hover:bg-[#e2565a] hover:text-white hover:border-[#e2565a]
-                        transition"
-                      >
-                        {btn}
-                      </button>
-                    ))}
-                  </div>
+    {/* Filter buttons */}
+    <div className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-6 sm:mb-10 px-2">
+      {["All", "Entertaining Gifts", "Bestie Gifts", "Made with Love"].map(
+        (btn) => (
+          <button
+            key={btn}
+            className="
+              px-3
+              sm:px-4
+              py-1.5
+              sm:py-2
+              rounded-[14px]
+              sm:rounded-[16px]
+              text-[11px]
+              sm:text-[12px]
+              border border-[#cccccc]
+              leading-[14px]
+              sm:leading-[16px]
+              tracking-[0.2px]
+              text-[#666666]
+              hover:bg-[#e2565a]
+              hover:text-white
+              hover:border-[#e2565a]
+              transition
+            "
+          >
+            {btn}
+          </button>
+        )
+      )}
+    </div>
 
-                  <div className="flex flex-wrap justify-between">
-                    {giftCardsData.map((item, index) => (
-                      <div
-                        key={item.id}
-                        data-aos="zoom-in"
-                        data-aos-delay={(index % 4) * 100}
-                        className="w-[calc(25%-18px)] mb-6 rounded-[12px]
-                        overflow-hidden cursor-pointer
-                        shadow-[0px_1px_5px_rgba(0,0,0,0.25)]
-                        hover:shadow-[0px_6px_16px_rgba(0,0,0,0.3)]
-                        transition"
-                      >
-                        <img src={item.image} className="w-full h-full object-cover" />
-                      </div>
-                    ))}
-                  </div>
+    {/* Cards grid */}
+    <div className="flex flex-wrap justify-center sm:justify-between">
+      {giftCardsData.map((item, index) => (
+        <div
+          key={item.id}
+          data-aos="zoom-in"
+          data-aos-delay={(index % 4) * 80}
+          className="
+            w-[calc(50%-12px)]     
+            sm:w-[calc(33.333%-16px)] 
+            lg:w-[calc(25%-18px)]   
+            mb-4
+            sm:mb-6
+            rounded-[10px]
+            sm:rounded-[12px]
+            overflow-hidden
+            cursor-pointer
+            shadow-[0px_1px_5px_rgba(0,0,0,0.25)]
+            hover:shadow-[0px_6px_16px_rgba(0,0,0,0.3)]
+            transition
+          "
+        >
+          <img
+            src={item.image}
+            alt="gift card"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
 
-                </div>
-              )}
+  </div>
+)}
 
               {/* ================= PHYSICAL ================= */}
-              {activeTab === "physical" && (
-                <div className="p-[16px]">
+{activeTab === "physical" && (
+  <div className="px-4 py-6 sm:px-6 lg:px-8">
 
-                  <h2 className="text-center text-[18px] mb-6">
-                    INTRODUCING PHYSICAL GIFT CARDS
-                  </h2>
+    {/* Heading */}
+    <h2
+      className="
+        text-center
+        text-[16px]
+        sm:text-[18px]
+        font-medium
+        mb-4
+      "
+    >
+      INTRODUCING PHYSICAL GIFT CARDS
+    </h2>
 
-                  <p className="max-w-[900px] mx-auto text-center text-[12px] text-[#666666]">
-                    Gift your loved ones a range of experiences from movies to events,
-                    plays, concerts and sports with a BookMyShow gift card.
-                    <br />
-                    BookMyShow Gift Cards are now available across India.
-                  </p>
+    {/* Description */}
+    <p
+      className="
+        max-w-[900px]
+        mx-auto
+        text-center
+        text-[11px]
+        sm:text-[12px]
+        text-[#666666]
+        leading-[18px]
+      "
+    >
+      Gift your loved ones a range of experiences from movies to events,
+      plays, concerts and sports with a BookMyShow gift card.
+      <br className="hidden sm:block" />
+      BookMyShow Gift Cards are now available across India.
+    </p>
 
-                  <p className="text-center mt-6 mb-5">
-                    Available at stores near you
-                  </p>
+    {/* Store text */}
+    <p className="text-center mt-6 mb-4 text-[13px] text-[#666666]">
+      Available at stores near you
+    </p>
 
-                  <div className="flex justify-between max-w-[1100px] mx-auto mb-16">
-                    <img src={relianceLogo} className="h-[50px]" />
-                    <img src={cromaLogo} className="h-[55px]" />
-                    <img src={jioLogo} className="h-[50px]" />
-                    <img src={ezoneLogo} className="h-[50px]" />
-                    <img src={zeevinLogo} className="h-[55px]" />
-                  </div>
+    {/* Offline stores */}
+    <div
+      className="
+        flex
+        flex-wrap
+        justify-center
+        gap-6
+        sm:gap-10
+        max-w-[1100px]
+        mx-auto
+        mb-12
+      "
+    >
+      <img src={relianceLogo} className="h-[36px] sm:h-[45px]" />
+      <img src={cromaLogo} className="h-[38px] sm:h-[50px]" />
+      <img src={jioLogo} className="h-[36px] sm:h-[45px]" />
+      <img src={ezoneLogo} className="h-[36px] sm:h-[45px]" />
+      <img src={zeevinLogo} className="h-[38px] sm:h-[50px]" />
+    </div>
 
-                  <p className="text-center mb-6">Or order online from</p>
+    {/* Online text */}
+    <p className="text-center mb-4 text-[13px] text-[#666666]">
+      Or order online from
+    </p>
 
-                  <div className="flex justify-center gap-32 mb-10">
-                    <img src={snapdealLogo} className="h-[38px]" />
-                    <img src={amazonLogo} className="h-[38px]" />
-                  </div>
+    {/* Online stores */}
+    <div
+      className="
+        flex
+        justify-center
+        gap-10
+        sm:gap-20
+        mb-12
+      "
+    >
+      <img src={snapdealLogo} className="h-[30px] sm:h-[36px]" />
+      <img src={amazonLogo} className="h-[30px] sm:h-[36px]" />
+    </div>
 
-                  <div className="flex justify-center gap-40 items-center pt-10 pb-5">
-                    <img src={physicalGiftImg} className="max-w-[420px]" />
+    {/* Image + features */}
+    <div
+      className="
+        flex
+        flex-col
+        lg:flex-row
+        items-center
+        justify-center
+        gap-8
+        lg:gap-20
+        pt-6
+      "
+    >
+      {/* Image */}
+      <img
+        src={physicalGiftImg}
+        className="
+          w-full
+          max-w-[260px]
+          sm:max-w-[320px]
+          lg:max-w-[420px]
+        "
+      />
 
-                    <div>
-                      <div className="flex font-normal text-[14px] gap-4 mb-6 text-[#666666] leading-[25px]">
-                        <FiCreditCard className="text-[28px] text-[#6666] " />
-                        <p >As easy as paying cash</p>
-                      </div>
+      {/* Points */}
+      <div className="flex flex-col gap-6">
 
-                      <div className="flex gap-4 font-normal text-[14px] text-[#666666] leading-[25px] ">
-                        <HiOutlineDevicePhoneMobile className="text-[28px] text-[#6666]" />
-                        <p className="max-w-[360px]">
-                          Use it anytime, anywhere through the BookMyShow app or website.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+        <div className="flex gap-4 items-center text-[#666666]">
+          <FiCreditCard className="text-[22px] sm:text-[24px]" />
+          <p className="text-[13px] sm:text-[14px]">
+            As easy as paying cash
+          </p>
+        </div>
 
-                </div>
-              )}
+        <div className="flex gap-4 items-start text-[#666666]">
+          <HiOutlineDevicePhoneMobile className="text-[58px] sm:text-[28px]" />
+          <p className="text-[13px] sm:text-[14px] max-w-[360px]">
+            Use it anytime, anywhere through the BookMyShow app or website.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+)}
 
             </div>
           </div>
@@ -188,13 +339,40 @@ function GiftCards() {
         {/* ================= COMMON FOOTER (BOTH TABS) ================= */}
 
         {/* FOOTER LINKS */}
-        <div className="w-full bg-[#f5f5f5] py-5">
-          <div className="max-w-[1280px] mx-auto flex justify-center gap-16 text-[#e2565a]">
-            <span>Terms & Conditions</span>
-            <span>Need Help?</span>
-            <span>Check Gift Card Balance</span>
-          </div>
-        </div>
+       <div className="w-full bg-[#f5f5f5] py-5">
+  <div
+    className="
+      max-w-[1280px]
+      mx-auto
+      flex
+      flex-col
+      sm:flex-row
+      flex-wrap
+      justify-center
+      items-center
+      gap-4
+      sm:gap-10
+      lg:gap-16
+      text-[#e2565a]
+      text-[13px]
+      sm:text-[14px]
+      font-medium
+    "
+  >
+    <span className="cursor-pointer hover:underline">
+      Terms & Conditions
+    </span>
+
+    <span className="cursor-pointer hover:underline">
+      Need Help?
+    </span>
+
+    <span className="cursor-pointer hover:underline">
+      Check Gift Card Balance
+    </span>
+  </div>
+</div>
+
 
         {/* OFFERS INFO */}
         <div className="w-full bg-white">
