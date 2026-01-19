@@ -94,7 +94,7 @@ function Corporates() {
         <h1
           data-aos="fade-up"
           data-aos-delay="250"
-          className="text-[26px] sm:text-[30px] lg:text-[36px]
+          className="text-[16px] sm:text-[30px] lg:text-[36px]
                      font-semibold leading-[36px] lg:leading-[44px]"
         >
           Entertainment you can gift.
@@ -103,7 +103,7 @@ function Corporates() {
         <p
           data-aos="fade-up"
           data-aos-delay="350"
-          className="mt-4 text-[14px] sm:text-[16px] lg:text-[20px]
+          className="mt-2 text-[12px] sm:text-[16px] lg:text-[20px]
                      leading-[22px] sm:leading-[26px] lg:leading-[30px]
                      text-white/90"
         >
@@ -116,16 +116,16 @@ function Corporates() {
           data-aos-delay="450"
           className="mt-6 flex items-center justify-center
                      lg:justify-start gap-6
-                     text-[14px] sm:text-[16px] lg:text-[20px]
+                     text-[10px] sm:text-[16px] lg:text-[20px]
                      font-medium"
         >
           <button className="flex items-center gap-2 hover:underline">
-            <FiPlayCircle className="text-[#eb4e62] text-[18px]" />
+            <FiPlayCircle className="text-[#eb4e62] text-[14px]" />
             Watch video
           </button>
 
           <button className="flex items-center gap-2 hover:underline">
-            <FiDownload className="text-[#eb4e62] text-[18px]" />
+            <FiDownload className="text-[#eb4e62] text-[14px]" />
             Download Brochure
           </button>
         </div>
@@ -222,7 +222,7 @@ function Corporates() {
   </div>
 </div>
 
-         {/* ================= OUR PARTNERS ================= */}
+        {/* ================= OUR PARTNERS ================= */}
 <section
   data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-3"
@@ -233,8 +233,10 @@ function Corporates() {
       max-w-[1200px]
       mx-auto
       bg-white
-      py-14
-      px-6
+      py-10
+      sm:py-12
+      px-4
+      sm:px-6
     "
   >
     {/* HEADING */}
@@ -243,10 +245,12 @@ function Corporates() {
       data-aos-delay="100"
       className="
         text-center
-        text-[14px]
+        text-[12px]
+        sm:text-[14px]
         tracking-[2px]
         text-[#222]
-        mb-12
+        mb-8
+        sm:mb-12
         font-semibold
       "
     >
@@ -259,8 +263,10 @@ function Corporates() {
         flex
         items-center
         justify-center
-        gap-16
         flex-wrap
+        gap-15
+        sm:gap-10
+        lg:gap-16
       "
     >
       <img
@@ -268,98 +274,116 @@ function Corporates() {
         data-aos-delay="0"
         src={hp}
         alt="HP"
-        className="h-[48px] object-contain"
+        className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
       />
+
       <img
         data-aos="zoom-in"
         data-aos-delay="120"
         src={ola}
         alt="Ola"
-        className="h-[48px] object-contain"
+        className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
       />
+
       <img
         data-aos="zoom-in"
         data-aos-delay="240"
         src={axis}
         alt="Axis Bank"
-        className="h-[48px] object-contain"
+        className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
       />
+
       <img
         data-aos="zoom-in"
         data-aos-delay="360"
         src={mastercard}
         alt="Mastercard"
-        className="h-[48px] object-contain"
+        className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
       />
+
       <img
         data-aos="zoom-in"
         data-aos-delay="480"
         src={icici}
         alt="ICICI Bank"
-        className="h-[48px] object-contain"
+        className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
       />
     </div>
   </div>
 </section>
 
+
 {/* ================= STATS ================= */}
 <section
   data-aos="fade-up"
-  className="w-full bg-[#f2f2f2] py-20"
+  className="w-full bg-[#f2f2f2] py-14 sm:py-16 lg:py-20"
 >
   <div
     className="
       max-w-[1200px]
       mx-auto
-      px-6
+      px-4
+      sm:px-6
       grid
       grid-cols-2
       sm:grid-cols-3
       lg:grid-cols-5
-      gap-y-12
+      gap-y-10
+      sm:gap-y-12
       text-center
     "
   >
     {/* ITEM 1 */}
     <div data-aos="fade-up" data-aos-delay="0">
-      <h3 className="text-[28px] font-semibold text-[#222]">1000+</h3>
-      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
+      <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
+        1000+
+      </h3>
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] lg:text-[14px]
+                    font-semibold tracking-wide text-[#555]">
         CITIES
       </p>
     </div>
 
     {/* ITEM 2 */}
     <div data-aos="fade-up" data-aos-delay="120">
-      <h3 className="text-[28px] font-semibold text-[#222]">6000</h3>
-      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
+      <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
+        6000
+      </h3>
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] lg:text-[14px]
+                    font-semibold tracking-wide text-[#555]">
         SCREENS
       </p>
     </div>
 
     {/* ITEM 3 */}
     <div data-aos="fade-up" data-aos-delay="240">
-      <h3 className="text-[28px] font-semibold text-[#222]">1000+</h3>
-      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
+      <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
+        1000+
+      </h3>
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] lg:text-[14px]
+                    font-semibold tracking-wide text-[#555]">
         CORPORATES<br />WHO TRUST US
       </p>
     </div>
 
     {/* ITEM 4 */}
     <div data-aos="fade-up" data-aos-delay="360">
-      <h3 className="text-[28px] font-semibold text-[#222]">
+      <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         15 MILLION+
       </h3>
-      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] lg:text-[14px]
+                    font-semibold tracking-wide text-[#555]">
         TICKETS SOLD<br />PER MONTHS
       </p>
     </div>
 
     {/* ITEM 5 */}
     <div data-aos="fade-up" data-aos-delay="480">
-      <h3 className="text-[28px] font-semibold text-[#222]">
+      <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         4 Billion
       </h3>
-      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] lg:text-[14px]
+                    font-semibold tracking-wide text-[#555]">
         PAGE VIEWS<br />PER MONTH
       </p>
     </div>
@@ -373,18 +397,12 @@ function Corporates() {
   className="w-full bg-[#f2f2f2]"
 >
   {/* WHITE CONTAINER */}
-  <div
-    className="
-      max-w-[1200px]
-      mx-auto
-      bg-white
-    "
-  >
+  <div className="max-w-[1200px] mx-auto bg-white">
     <div
       className="
         grid
         grid-cols-1
-        lg:grid-cols-2
+        md:grid-cols-2
         items-stretch
       "
     >
@@ -392,18 +410,27 @@ function Corporates() {
       <div
         data-aos="fade-right"
         data-aos-delay="100"
-        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+        className="
+          px-5 py-10
+          sm:px-6 sm:py-12
+          md:px-8 md:py-14
+          lg:px-10 lg:py-16
+          flex flex-col justify-center
+          max-w-[520px]
+        "
       >
         <p
           data-aos="fade-up"
           data-aos-delay="200"
           className="
-            text-[16px]
+            text-[13px]
+            sm:text-[14px]
+            md:text-[15px]
+            lg:text-[16px]
             font-medium
-            leading-[20px]
             tracking-[1px]
             text-[#666666]
-            pb-[5px]
+            pb-1
           "
         >
           WHAT&apos;S IN IT FOR YOU
@@ -413,11 +440,16 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="300"
           className="
-            text-[34px]
+            text-[24px]
+            sm:text-[26px]
+            md:text-[30px]
+            lg:text-[34px]
             font-medium
             text-[#333333]
-            pb-4
-            leading-[48px]
+            pb-3
+            leading-[32px]
+            md:leading-[40px]
+            lg:leading-[48px]
           "
         >
           Brand Promotions
@@ -427,11 +459,16 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="400"
           className="
-            text-[18px]
-            font-normal
-            leading-[28px]
+            text-[14px]
+            sm:text-[15px]
+            md:text-[16px]
+            lg:text-[18px]
+            leading-[22px]
+            md:leading-[26px]
+            lg:leading-[28px]
             text-[#333333]
-            pb-8
+            pb-6
+            lg:pb-8
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -443,15 +480,21 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="500"
           className="
-            w-[270px]
-            h-[50px]
+            w-[200px]
+            sm:w-[220px]
+            md:w-[240px]
+            lg:w-[270px]
+            h-[42px]
+            md:h-[46px]
+            lg:h-[50px]
             rounded
             border
             border-[#EB4E62]
             text-center
             font-medium
-            m-0
-            leading-[50px]
+            leading-[42px]
+            md:leading-[46px]
+            lg:leading-[50px]
             cursor-pointer
             text-[#EB4E62]
           "
@@ -460,11 +503,17 @@ function Corporates() {
         </button>
       </div>
 
-      {/* RIGHT IMAGE – FULL COVER */}
+      {/* RIGHT IMAGE */}
       <div
         data-aos="fade-left"
         data-aos-delay="200"
-        className="w-full h-full"
+        className="
+          w-full
+          h-[220px]
+          sm:h-[280px]
+          md:h-[360px]
+          lg:h-auto
+        "
       >
         <img
           src={brandPromotionImage}
@@ -474,7 +523,6 @@ function Corporates() {
       </div>
     </div>
   </div>
-
 <section
   data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
@@ -485,15 +533,21 @@ function Corporates() {
       className="
         grid
         grid-cols-1
-        lg:grid-cols-2
+        md:grid-cols-2
         items-stretch
       "
     >
-      {/* LEFT IMAGE – FULL COVER */}
+      {/* LEFT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-right"
         data-aos-delay="150"
-        className="w-full h-full"
+        className="
+          w-full
+          h-[220px]
+          sm:h-[280px]
+          md:h-[360px]
+          lg:h-auto
+        "
       >
         <img
           src={employeeEngagementImage}
@@ -506,17 +560,29 @@ function Corporates() {
       <div
         data-aos="fade-left"
         data-aos-delay="200"
-        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+        className="
+          px-5 py-10
+          sm:px-6 sm:py-12
+          md:px-8 md:py-14
+          lg:px-10 lg:py-16
+          flex flex-col justify-center
+          max-w-[520px]
+        "
       >
         <h2
           data-aos="fade-up"
           data-aos-delay="300"
           className="
-            text-[34px]
-            leading-[48px]
+            text-[24px]
+            sm:text-[26px]
+            md:text-[30px]
+            lg:text-[34px]
             font-medium
             text-[#333333]
-            pb-4
+            pb-3
+            leading-[32px]
+            md:leading-[40px]
+            lg:leading-[48px]
           "
         >
           Employee Engagement
@@ -528,11 +594,17 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="400"
           className="
-            text-[18px]
+            text-[14px]
+            sm:text-[15px]
+            md:text-[16px]
+            lg:text-[18px]
             font-normal
-            leading-[28px]
+            leading-[22px]
+            md:leading-[26px]
+            lg:leading-[28px]
             text-[#333333]
-            pb-10
+            pb-6
+            lg:pb-10
           "
         >
           Show your clients and employees some appreciation by gifting
@@ -543,15 +615,21 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="500"
           className="
-            w-[270px]
-            h-[50px]
+            w-[200px]
+            sm:w-[220px]
+            md:w-[240px]
+            lg:w-[270px]
+            h-[42px]
+            md:h-[46px]
+            lg:h-[50px]
             rounded
             border
             border-[#EB4E62]
             text-center
             font-medium
-            m-0
-            leading-[50px]
+            leading-[42px]
+            md:leading-[46px]
+            lg:leading-[50px]
             cursor-pointer
             text-[#EB4E62]
           "
@@ -561,23 +639,18 @@ function Corporates() {
       </div>
     </div>
   </div>
-    <section
+   
+   <section
   data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
 >
   {/* WHITE CONTAINER */}
-  <div
-    className="
-      max-w-[1200px]
-      mx-auto
-      bg-white
-    "
-  >
+  <div className="max-w-[1200px] mx-auto bg-white">
     <div
       className="
         grid
         grid-cols-1
-        lg:grid-cols-2
+        md:grid-cols-2
         items-stretch
       "
     >
@@ -585,18 +658,27 @@ function Corporates() {
       <div
         data-aos="fade-right"
         data-aos-delay="100"
-        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+        className="
+          px-5 py-10
+          sm:px-6 sm:py-12
+          md:px-8 md:py-14
+          lg:px-10 lg:py-16
+          flex flex-col justify-center
+          max-w-[520px]
+        "
       >
         <p
           data-aos="fade-up"
           data-aos-delay="200"
           className="
-            text-[16px]
+            text-[13px]
+            sm:text-[14px]
+            md:text-[15px]
+            lg:text-[16px]
             font-medium
-            leading-[20px]
             tracking-[1px]
             text-[#666666]
-            pb-[5px]
+            pb-1
           "
         >
           WHAT&apos;S IN IT FOR YOU
@@ -606,11 +688,16 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="300"
           className="
-            text-[34px]
-            leading-[48px]
+            text-[24px]
+            sm:text-[26px]
+            md:text-[30px]
+            lg:text-[34px]
             font-medium
             text-[#333333]
-            pb-4
+            pb-3
+            leading-[32px]
+            md:leading-[40px]
+            lg:leading-[48px]
           "
         >
           Brand Promotions
@@ -620,11 +707,17 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="400"
           className="
-            text-[18px]
+            text-[14px]
+            sm:text-[15px]
+            md:text-[16px]
+            lg:text-[18px]
             font-normal
-            leading-[28px]
+            leading-[22px]
+            md:leading-[26px]
+            lg:leading-[28px]
             text-[#333333]
-            pb-10
+            pb-6
+            lg:pb-10
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -636,15 +729,21 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="500"
           className="
-            w-[270px]
-            h-[50px]
+            w-[200px]
+            sm:w-[220px]
+            md:w-[240px]
+            lg:w-[270px]
+            h-[42px]
+            md:h-[46px]
+            lg:h-[50px]
             rounded
             border
             border-[#EB4E62]
             text-center
             font-medium
-            m-0
-            leading-[50px]
+            leading-[42px]
+            md:leading-[46px]
+            lg:leading-[50px]
             cursor-pointer
             text-[#EB4E62]
           "
@@ -653,11 +752,17 @@ function Corporates() {
         </button>
       </div>
 
-      {/* RIGHT IMAGE – FULL COVER */}
+      {/* RIGHT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-left"
         data-aos-delay="200"
-        className="w-full h-full"
+        className="
+          w-full
+          h-[220px]
+          sm:h-[280px]
+          md:h-[360px]
+          lg:h-auto
+        "
       >
         <img
           src={employeeEngagementImage3}
@@ -667,6 +772,8 @@ function Corporates() {
       </div>
     </div>
   </div>
+
+
 <section
   data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
@@ -677,15 +784,21 @@ function Corporates() {
       className="
         grid
         grid-cols-1
-        lg:grid-cols-2
+        md:grid-cols-2
         items-stretch
       "
     >
-      {/* LEFT IMAGE – FULL COVER */}
+      {/* LEFT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-right"
         data-aos-delay="150"
-        className="w-full h-full"
+        className="
+          w-full
+          h-[220px]
+          sm:h-[280px]
+          md:h-[360px]
+          lg:h-auto
+        "
       >
         <img
           src={employeeEngagementImage4}
@@ -698,17 +811,29 @@ function Corporates() {
       <div
         data-aos="fade-left"
         data-aos-delay="200"
-        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+        className="
+          px-5 py-10
+          sm:px-6 sm:py-12
+          md:px-8 md:py-14
+          lg:px-10 lg:py-16
+          flex flex-col justify-center
+          max-w-[520px]
+        "
       >
         <h2
           data-aos="fade-up"
           data-aos-delay="300"
           className="
-            text-[34px]
-            leading-[48px]
+            text-[24px]
+            sm:text-[26px]
+            md:text-[30px]
+            lg:text-[34px]
             font-medium
             text-[#333333]
-            pb-4
+            pb-3
+            leading-[32px]
+            md:leading-[40px]
+            lg:leading-[48px]
           "
         >
           Employee Engagement
@@ -720,11 +845,17 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="400"
           className="
-            text-[18px]
+            text-[14px]
+            sm:text-[15px]
+            md:text-[16px]
+            lg:text-[18px]
             font-normal
-            leading-[28px]
+            leading-[22px]
+            md:leading-[26px]
+            lg:leading-[28px]
             text-[#333333]
-            pb-10
+            pb-6
+            lg:pb-10
           "
         >
           Show your clients and employees some appreciation by gifting
@@ -735,15 +866,21 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="500"
           className="
-            w-[270px]
-            h-[50px]
+            w-[200px]
+            sm:w-[220px]
+            md:w-[240px]
+            lg:w-[270px]
+            h-[42px]
+            md:h-[46px]
+            lg:h-[50px]
             rounded
             border
             border-[#EB4E62]
             text-center
             font-medium
-            m-0
-            leading-[50px]
+            leading-[42px]
+            md:leading-[46px]
+            lg:leading-[50px]
             cursor-pointer
             text-[#EB4E62]
           "
@@ -754,23 +891,18 @@ function Corporates() {
     </div>
   </div>
 
+
  <section
   data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
 >
   {/* WHITE CONTAINER */}
-  <div
-    className="
-      max-w-[1200px]
-      mx-auto
-      bg-white
-    "
-  >
+  <div className="max-w-[1200px] mx-auto bg-white">
     <div
       className="
         grid
         grid-cols-1
-        lg:grid-cols-2
+        md:grid-cols-2
         items-stretch
       "
     >
@@ -778,18 +910,27 @@ function Corporates() {
       <div
         data-aos="fade-right"
         data-aos-delay="100"
-        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+        className="
+          px-5 py-10
+          sm:px-6 sm:py-12
+          md:px-8 md:py-14
+          lg:px-10 lg:py-16
+          flex flex-col justify-center
+          max-w-[520px]
+        "
       >
         <p
           data-aos="fade-up"
           data-aos-delay="200"
           className="
-            text-[16px]
+            text-[13px]
+            sm:text-[14px]
+            md:text-[15px]
+            lg:text-[16px]
             font-medium
-            leading-[20px]
             tracking-[1px]
             text-[#666666]
-            pb-[5px]
+            pb-1
           "
         >
           WHAT&apos;S IN IT FOR YOU
@@ -799,11 +940,16 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="300"
           className="
-            text-[34px]
-            leading-[48px]
+            text-[24px]
+            sm:text-[26px]
+            md:text-[30px]
+            lg:text-[34px]
             font-medium
             text-[#333333]
-            pb-4
+            pb-3
+            leading-[32px]
+            md:leading-[40px]
+            lg:leading-[48px]
           "
         >
           Brand Promotions
@@ -813,11 +959,17 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="400"
           className="
-            text-[18px]
+            text-[14px]
+            sm:text-[15px]
+            md:text-[16px]
+            lg:text-[18px]
             font-normal
-            leading-[28px]
+            leading-[22px]
+            md:leading-[26px]
+            lg:leading-[28px]
             text-[#333333]
-            pb-10
+            pb-6
+            lg:pb-10
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -829,15 +981,21 @@ function Corporates() {
           data-aos="fade-up"
           data-aos-delay="500"
           className="
-            w-[270px]
-            h-[50px]
+            w-[200px]
+            sm:w-[220px]
+            md:w-[240px]
+            lg:w-[270px]
+            h-[42px]
+            md:h-[46px]
+            lg:h-[50px]
             rounded
             border
             border-[#EB4E62]
             text-center
             font-medium
-            m-0
-            leading-[50px]
+            leading-[42px]
+            md:leading-[46px]
+            lg:leading-[50px]
             cursor-pointer
             text-[#EB4E62]
           "
@@ -846,11 +1004,17 @@ function Corporates() {
         </button>
       </div>
 
-      {/* RIGHT IMAGE – FULL COVER */}
+      {/* RIGHT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-left"
         data-aos-delay="200"
-        className="w-full h-full"
+        className="
+          w-full
+          h-[220px]
+          sm:h-[280px]
+          md:h-[360px]
+          lg:h-auto
+        "
       >
         <img
           src={employeeEngagementImage5}
@@ -860,46 +1024,91 @@ function Corporates() {
       </div>
     </div>
   </div>
+
+
 {/* ================= BUSINESS SOLUTIONS ================= */}
 <section
   data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
 >
-  <div className="max-w-[1200px] bg-white mx-auto py-7">
+  <div className="max-w-[1200px] bg-white mx-auto py-6">
 
     {/* HEADING */}
     <h2
       data-aos="fade-up"
       data-aos-delay="100"
       className="
-        text-[16px]
+        text-[13px]
+        sm:text-[14px]
+        md:text-[15px]
+        lg:text-[16px]
         font-medium
-        leading-[20px]
         tracking-[1px]
         text-[#333333]
-        pr-0
-        pb-[12px]
-        pl-[40px]
+        pb-4
+        px-5
+        sm:px-6
+        lg:px-10
       "
     >
       OUR SUITE OF BUSINESS SOLUTIONS:
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-3">
+    {/* CARDS */}
+    <div
+      className="
+        grid
+        grid-cols-1
+        sm:grid-cols-2
+        md:grid-cols-3
+      "
+    >
 
       {/* CARD 1 */}
       <div
         data-aos="zoom-in"
         data-aos-delay="200"
-        className="relative bg-[#6fb96f] h-[360px] px-10
-                   flex items-center overflow-hidden"
+        className="
+          relative
+          bg-[#6fb96f]
+          h-[220px]
+          sm:h-[260px]
+          md:h-[300px]
+          lg:h-[360px]
+          px-6
+          sm:px-8
+          lg:px-10
+          flex items-center
+          overflow-hidden
+        "
       >
         <img
           src={creativeIcon}
-          className="absolute right-6 bottom-6 w-[220px] opacity-20"
+          className="
+            absolute
+            right-4
+            bottom-4
+            w-[120px]
+            sm:w-[150px]
+            lg:w-[220px]
+            opacity-20
+          "
         />
-        <h3 className="relative text-white text-[34px]
-                       leading-[46px] font-medium max-w-[260px]">
+        <h3
+          className="
+            relative
+            text-white
+            text-[22px]
+            sm:text-[26px]
+            md:text-[28px]
+            lg:text-[34px]
+            leading-[30px]
+            sm:leading-[36px]
+            lg:leading-[46px]
+            font-medium
+            max-w-[260px]
+          "
+        >
           End to End Support
         </h3>
       </div>
@@ -908,15 +1117,47 @@ function Corporates() {
       <div
         data-aos="zoom-in"
         data-aos-delay="350"
-        className="relative bg-[#d64550] h-[360px] px-10
-                   flex items-center overflow-hidden"
+        className="
+          relative
+          bg-[#d64550]
+          h-[220px]
+          sm:h-[260px]
+          md:h-[300px]
+          lg:h-[360px]
+          px-6
+          sm:px-8
+          lg:px-10
+          flex items-center
+          overflow-hidden
+        "
       >
         <img
           src={marketingIcon}
-          className="absolute right-6 bottom-6 w-[220px] opacity-20"
+          className="
+            absolute
+            right-4
+            bottom-4
+            w-[120px]
+            sm:w-[150px]
+            lg:w-[220px]
+            opacity-20
+          "
         />
-        <h3 className="relative text-white text-[34px]
-                       leading-[46px] font-medium max-w-[260px]">
+        <h3
+          className="
+            relative
+            text-white
+            text-[22px]
+            sm:text-[26px]
+            md:text-[28px]
+            lg:text-[34px]
+            leading-[30px]
+            sm:leading-[36px]
+            lg:leading-[46px]
+            font-medium
+            max-w-[260px]
+          "
+        >
           Marketing & E-mail Guidance
         </h3>
       </div>
@@ -925,15 +1166,47 @@ function Corporates() {
       <div
         data-aos="zoom-in"
         data-aos-delay="500"
-        className="relative bg-[#f6d04d] h-[360px] px-10
-                   flex items-center overflow-hidden"
+        className="
+          relative
+          bg-[#f6d04d]
+          h-[220px]
+          sm:h-[260px]
+          md:h-[300px]
+          lg:h-[360px]
+          px-6
+          sm:px-8
+          lg:px-10
+          flex items-center
+          overflow-hidden
+        "
       >
         <img
           src={smsIcon}
-          className="absolute right-6 bottom-6 w-[220px] opacity-20"
+          className="
+            absolute
+            right-4
+            bottom-4
+            w-[120px]
+            sm:w-[150px]
+            lg:w-[220px]
+            opacity-20
+          "
         />
-        <h3 className="relative text-white text-[34px]
-                       leading-[46px] font-medium max-w-[260px]">
+        <h3
+          className="
+            relative
+            text-white
+            text-[22px]
+            sm:text-[26px]
+            md:text-[28px]
+            lg:text-[34px]
+            leading-[30px]
+            sm:leading-[36px]
+            lg:leading-[46px]
+            font-medium
+            max-w-[260px]
+          "
+        >
           Bulk SMS Communication
         </h3>
       </div>
@@ -941,6 +1214,7 @@ function Corporates() {
     </div>
   </div>
 </section>
+
 
 {/* ================= CTA STRIP ================= */}
 <section
@@ -952,12 +1226,19 @@ function Corporates() {
       max-w-[1200px]
       mx-auto
       bg-white
-      px-10
-      py-8
+      px-5
+      sm:px-6
+      lg:px-10
+      py-6
+      sm:py-7
+      lg:py-8
       flex
+      flex-col
+      md:flex-row
       items-center
       justify-between
-      gap-6
+      gap-4
+      md:gap-6
     "
   >
     {/* LEFT TEXT */}
@@ -965,10 +1246,18 @@ function Corporates() {
       data-aos="fade-right"
       data-aos-delay="100"
       className="
-        text-[18px]
-        leading-[28px]
+        text-[10px]
+        sm:text-[13px]
+        md:text-[14px]
+        lg:text-[18px]
+        leading-[22px]
+        sm:leading-[24px]
+        lg:leading-[28px]
         text-[#1f1f1f]
         font-normal
+        text-center
+        md:text-left
+        max-w-[720px]
       "
     >
       Get priority support from the experts in the entertainment industry.
@@ -981,10 +1270,15 @@ function Corporates() {
       className="
         bg-[#e15b64]
         text-white
-        text-[18px]
+        text-[14px]
+        sm:text-[15px]
+        lg:text-[18px]
         font-medium
-        px-8
-        py-3
+        px-6
+        sm:px-4
+        lg:px-8
+        py-2.5
+        sm:py-3
         rounded-md
         hover:bg-[#d84f58]
         transition
@@ -995,7 +1289,6 @@ function Corporates() {
     </button>
   </div>
 
-  
  {/* ================= OUR PRODUCTS ================= */}
 <section
   data-aos="fade-up"
@@ -1165,13 +1458,7 @@ function Corporates() {
     </section>
   </section>
 </section>
-
-
 </section>
-
-    
-
-
   )
 }
 
