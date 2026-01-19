@@ -21,17 +21,32 @@ import smsIcon from "../assets/bulk-sms.avif"
 import movieVoucherBg from "../assets/movie-voucher-bg.avif"
 import giftVoucherBg from "../assets/gift-voucher-bg.avif"
 
+//AOS ANUMATION
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
+
 
 
 
 
 function Corporates() {
+
+  //AOS ANIMATION 
+   useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 900,
+      easing: "ease-out-cubic",
+    })
+  }, [])
   return (
   <section className="w-full bg-white overflow-x-hidden">
 
 
      {/* ================= HERO ================= */}
 <div
+  data-aos="fade-up"
   className="
     relative
     w-full
@@ -67,6 +82,8 @@ function Corporates() {
 
       {/* LEFT CONTENT */}
       <div
+        data-aos="fade-right"
+        data-aos-delay="150"
         className="
           text-white
           max-w-[520px]
@@ -74,16 +91,34 @@ function Corporates() {
           lg:text-left
         "
       >
-        <h1 className="text-[26px] sm:text-[30px] lg:text-[36px] font-semibold leading-[36px] lg:leading-[44px]">
+        <h1
+          data-aos="fade-up"
+          data-aos-delay="250"
+          className="text-[26px] sm:text-[30px] lg:text-[36px]
+                     font-semibold leading-[36px] lg:leading-[44px]"
+        >
           Entertainment you can gift.
         </h1>
 
-        <p className="mt-4 text-[14px] sm:text-[16px] lg:text-[20px] leading-[22px] sm:leading-[26px] lg:leading-[30px] text-white/90">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="350"
+          className="mt-4 text-[14px] sm:text-[16px] lg:text-[20px]
+                     leading-[22px] sm:leading-[26px] lg:leading-[30px]
+                     text-white/90"
+        >
           A variety of solutions to skyrocket your business with vouchers,
           promotions, loyalty, employee recognition & rewards.
         </p>
 
-        <div className="mt-6 flex items-center justify-center lg:justify-start gap-6 text-[14px] sm:text-[16px] lg:text-[20px] font-medium">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="450"
+          className="mt-6 flex items-center justify-center
+                     lg:justify-start gap-6
+                     text-[14px] sm:text-[16px] lg:text-[20px]
+                     font-medium"
+        >
           <button className="flex items-center gap-2 hover:underline">
             <FiPlayCircle className="text-[#eb4e62] text-[18px]" />
             Watch video
@@ -96,8 +131,10 @@ function Corporates() {
         </div>
       </div>
 
-      {/* RIGHT FORM  */}
+      {/* RIGHT FORM */}
       <div
+        data-aos="fade-left"
+        data-aos-delay="200"
         className="
           hidden
           lg:block
@@ -111,7 +148,6 @@ function Corporates() {
         "
       >
         <form className="flex flex-col gap-4">
-
           <div>
             <label className="text-[12px] text-[#333]">
               <span className="text-red-500">*</span> Full Name
@@ -119,7 +155,9 @@ function Corporates() {
             <input
               type="text"
               placeholder="Name"
-              className="mt-1 w-full border border-gray-400 rounded-md px-3 py-2 text-[14px] outline-none"
+              className="mt-1 w-full border border-gray-400
+                         rounded-md px-3 py-2
+                         text-[14px] outline-none"
             />
           </div>
 
@@ -130,7 +168,9 @@ function Corporates() {
             <input
               type="email"
               placeholder="Company Email"
-              className="mt-1 w-full border border-gray-400 rounded-md px-3 py-2 text-[14px] outline-none"
+              className="mt-1 w-full border border-gray-400
+                         rounded-md px-3 py-2
+                         text-[14px] outline-none"
             />
           </div>
 
@@ -141,7 +181,9 @@ function Corporates() {
             <input
               type="text"
               placeholder="Company Name"
-              className="mt-1 w-full border border-gray-400 rounded-md px-3 py-2 text-[14px] outline-none"
+              className="mt-1 w-full border border-gray-400
+                         rounded-md px-3 py-2
+                         text-[14px] outline-none"
             />
           </div>
 
@@ -152,7 +194,9 @@ function Corporates() {
             <input
               type="text"
               placeholder="eg: 91480XXXXX"
-              className="mt-1 w-full border border-gray-400 rounded-md px-3 py-2 text-[14px] outline-none"
+              className="mt-1 w-full border border-gray-400
+                         rounded-md px-3 py-2
+                         text-[14px] outline-none"
             />
           </div>
 
@@ -171,7 +215,6 @@ function Corporates() {
           >
             Receive a callback
           </button>
-
         </form>
       </div>
 
@@ -179,8 +222,11 @@ function Corporates() {
   </div>
 </div>
 
-          {/* ================= OUR PARTNERS ================= */}
-<section className="w-full bg-[#f2f2f2] py-3">
+         {/* ================= OUR PARTNERS ================= */}
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-3"
+>
   {/* WHITE CONTAINER */}
   <div
     className="
@@ -193,6 +239,8 @@ function Corporates() {
   >
     {/* HEADING */}
     <h2
+      data-aos="fade-up"
+      data-aos-delay="100"
       className="
         text-center
         text-[14px]
@@ -215,17 +263,50 @@ function Corporates() {
         flex-wrap
       "
     >
-      <img src={hp} alt="HP" className="h-[48px] object-contain" />
-      <img src={ola} alt="Ola" className="h-[48px] object-contain" />
-      <img src={axis} alt="Axis Bank" className="h-[48px] object-contain" />
-      <img src={mastercard} alt="Mastercard" className="h-[48px] object-contain" />
-      <img src={icici} alt="ICICI Bank" className="h-[48px] object-contain" />
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="0"
+        src={hp}
+        alt="HP"
+        className="h-[48px] object-contain"
+      />
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="120"
+        src={ola}
+        alt="Ola"
+        className="h-[48px] object-contain"
+      />
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="240"
+        src={axis}
+        alt="Axis Bank"
+        className="h-[48px] object-contain"
+      />
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="360"
+        src={mastercard}
+        alt="Mastercard"
+        className="h-[48px] object-contain"
+      />
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="480"
+        src={icici}
+        alt="ICICI Bank"
+        className="h-[48px] object-contain"
+      />
     </div>
   </div>
 </section>
 
 {/* ================= STATS ================= */}
-<section className="w-full bg-[#f2f2f2] py-20">
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-20"
+>
   <div
     className="
       max-w-[1200px]
@@ -240,7 +321,7 @@ function Corporates() {
     "
   >
     {/* ITEM 1 */}
-    <div>
+    <div data-aos="fade-up" data-aos-delay="0">
       <h3 className="text-[28px] font-semibold text-[#222]">1000+</h3>
       <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
         CITIES
@@ -248,47 +329,49 @@ function Corporates() {
     </div>
 
     {/* ITEM 2 */}
-    <div>
+    <div data-aos="fade-up" data-aos-delay="120">
       <h3 className="text-[28px] font-semibold text-[#222]">6000</h3>
-      <p className="mt-2 text-[14px]  font-semibold  tracking-wide text-[#555]">
+      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
         SCREENS
       </p>
     </div>
 
     {/* ITEM 3 */}
-    <div>
+    <div data-aos="fade-up" data-aos-delay="240">
       <h3 className="text-[28px] font-semibold text-[#222]">1000+</h3>
-      <p className="mt-2 text-[14px] font-semibold  tracking-wide text-[#555]">
+      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
         CORPORATES<br />WHO TRUST US
       </p>
     </div>
 
     {/* ITEM 4 */}
-    <div>
+    <div data-aos="fade-up" data-aos-delay="360">
       <h3 className="text-[28px] font-semibold text-[#222]">
         15 MILLION+
       </h3>
-      <p className="mt-2 text-[14px]  font-semibold  tracking-wide text-[#555]">
+      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
         TICKETS SOLD<br />PER MONTHS
       </p>
     </div>
 
     {/* ITEM 5 */}
-    <div>
+    <div data-aos="fade-up" data-aos-delay="480">
       <h3 className="text-[28px] font-semibold text-[#222]">
         4 Billion
       </h3>
-      <p className="mt-2 text-[14px]  font-semibold  tracking-wide text-[#555]">
+      <p className="mt-2 text-[14px] font-semibold tracking-wide text-[#555]">
         PAGE VIEWS<br />PER MONTH
       </p>
     </div>
   </div>
-  </section>
-
+</section>
 
 
       {/* ================= BRAND PROMOTIONS ================= */}
-<section className="w-full bg-[#f2f2f2] ">
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2]"
+>
   {/* WHITE CONTAINER */}
   <div
     className="
@@ -306,8 +389,14 @@ function Corporates() {
       "
     >
       {/* LEFT CONTENT */}
-      <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
+      <div
+        data-aos="fade-right"
+        data-aos-delay="100"
+        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+      >
         <p
+          data-aos="fade-up"
+          data-aos-delay="200"
           className="
             text-[16px]
             font-medium
@@ -321,24 +410,28 @@ function Corporates() {
         </p>
 
         <h2
+          data-aos="fade-up"
+          data-aos-delay="300"
           className="
-           text-[34px]
-           font-medium
-           text-[#333333]
-           pb-4
-           leading-[48px]
+            text-[34px]
+            font-medium
+            text-[#333333]
+            pb-4
+            leading-[48px]
           "
         >
           Brand Promotions
         </h2>
 
         <p
+          data-aos="fade-up"
+          data-aos-delay="400"
           className="
-          text-[18px]
-          font-normal
-          leading-[28px]
-          text-[#333333]
-          pb-8
+            text-[18px]
+            font-normal
+            leading-[28px]
+            text-[#333333]
+            pb-8
           "
         >
           Gifting entertainment is a fun way to push your brand’s message.
@@ -347,18 +440,20 @@ function Corporates() {
         </p>
 
         <button
+          data-aos="fade-up"
+          data-aos-delay="500"
           className="
-              w-[270px]
-              h-[50px]
-              rounded
-              border
-              border-[#EB4E62]
-              text-center
-              font-medium
-              m-0
-              leading-[50px]
-              cursor-pointer
-              text-[#EB4E62]
+            w-[270px]
+            h-[50px]
+            rounded
+            border
+            border-[#EB4E62]
+            text-center
+            font-medium
+            m-0
+            leading-[50px]
+            cursor-pointer
+            text-[#EB4E62]
           "
         >
           Promote your brand
@@ -366,21 +461,24 @@ function Corporates() {
       </div>
 
       {/* RIGHT IMAGE – FULL COVER */}
-      <div className="w-full h-full">
+      <div
+        data-aos="fade-left"
+        data-aos-delay="200"
+        className="w-full h-full"
+      >
         <img
           src={brandPromotionImage}
           alt="Brand Promotion"
-          className="
-            w-full
-            h-full
-            object-cover
-          "
+          className="w-full h-full object-cover"
         />
       </div>
     </div>
   </div>
 
-<section className="w-full bg-[#f2f2f2] py-2">
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-2"
+>
   {/* WHITE CONTAINER */}
   <div className="max-w-[1200px] mx-auto bg-white">
     <div
@@ -392,21 +490,27 @@ function Corporates() {
       "
     >
       {/* LEFT IMAGE – FULL COVER */}
-      <div className="w-full h-full">
+      <div
+        data-aos="fade-right"
+        data-aos-delay="150"
+        className="w-full h-full"
+      >
         <img
-          src={employeeEngagementImage}   
+          src={employeeEngagementImage}
           alt="Employee Engagement"
-          className="
-            w-full
-            h-full
-            object-cover
-          "
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* RIGHT CONTENT */}
-      <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
+      <div
+        data-aos="fade-left"
+        data-aos-delay="200"
+        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+      >
         <h2
+          data-aos="fade-up"
+          data-aos-delay="300"
           className="
             text-[34px]
             leading-[48px]
@@ -421,6 +525,8 @@ function Corporates() {
         </h2>
 
         <p
+          data-aos="fade-up"
+          data-aos-delay="400"
           className="
             text-[18px]
             font-normal
@@ -434,18 +540,20 @@ function Corporates() {
         </p>
 
         <button
+          data-aos="fade-up"
+          data-aos-delay="500"
           className="
             w-[270px]
-              h-[50px]
-              rounded
-              border
-              border-[#EB4E62]
-              text-center
-              font-medium
-              m-0
-              leading-[50px]
-              cursor-pointer
-              text-[#EB4E62]
+            h-[50px]
+            rounded
+            border
+            border-[#EB4E62]
+            text-center
+            font-medium
+            m-0
+            leading-[50px]
+            cursor-pointer
+            text-[#EB4E62]
           "
         >
           Engage your employees
@@ -453,7 +561,10 @@ function Corporates() {
       </div>
     </div>
   </div>
-    <section className="w-full bg-[#f2f2f2] py-2 ">
+    <section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-2"
+>
   {/* WHITE CONTAINER */}
   <div
     className="
@@ -471,8 +582,14 @@ function Corporates() {
       "
     >
       {/* LEFT CONTENT */}
-      <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
+      <div
+        data-aos="fade-right"
+        data-aos-delay="100"
+        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+      >
         <p
+          data-aos="fade-up"
+          data-aos-delay="200"
           className="
             text-[16px]
             font-medium
@@ -486,6 +603,8 @@ function Corporates() {
         </p>
 
         <h2
+          data-aos="fade-up"
+          data-aos-delay="300"
           className="
             text-[34px]
             leading-[48px]
@@ -498,8 +617,10 @@ function Corporates() {
         </h2>
 
         <p
+          data-aos="fade-up"
+          data-aos-delay="400"
           className="
-           text-[18px]
+            text-[18px]
             font-normal
             leading-[28px]
             text-[#333333]
@@ -512,18 +633,20 @@ function Corporates() {
         </p>
 
         <button
+          data-aos="fade-up"
+          data-aos-delay="500"
           className="
             w-[270px]
-              h-[50px]
-              rounded
-              border
-              border-[#EB4E62]
-              text-center
-              font-medium
-              m-0
-              leading-[50px]
-              cursor-pointer
-              text-[#EB4E62]
+            h-[50px]
+            rounded
+            border
+            border-[#EB4E62]
+            text-center
+            font-medium
+            m-0
+            leading-[50px]
+            cursor-pointer
+            text-[#EB4E62]
           "
         >
           Promote your brand
@@ -531,21 +654,23 @@ function Corporates() {
       </div>
 
       {/* RIGHT IMAGE – FULL COVER */}
-      <div className="w-full h-full">
+      <div
+        data-aos="fade-left"
+        data-aos-delay="200"
+        className="w-full h-full"
+      >
         <img
           src={employeeEngagementImage3}
           alt="Brand Promotion"
-          className="
-            w-full
-            h-full
-            object-cover
-          "
+          className="w-full h-full object-cover"
         />
       </div>
     </div>
   </div>
-
-<section className="w-full bg-[#f2f2f2] py-2">
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-2"
+>
   {/* WHITE CONTAINER */}
   <div className="max-w-[1200px] mx-auto bg-white">
     <div
@@ -557,23 +682,29 @@ function Corporates() {
       "
     >
       {/* LEFT IMAGE – FULL COVER */}
-      <div className="w-full h-full">
+      <div
+        data-aos="fade-right"
+        data-aos-delay="150"
+        className="w-full h-full"
+      >
         <img
-          src={employeeEngagementImage4}   
+          src={employeeEngagementImage4}
           alt="Employee Engagement"
-          className="
-            w-full
-            h-full
-            object-cover
-          "
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* RIGHT CONTENT */}
-      <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
+      <div
+        data-aos="fade-left"
+        data-aos-delay="200"
+        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+      >
         <h2
+          data-aos="fade-up"
+          data-aos-delay="300"
           className="
-             text-[34px]
+            text-[34px]
             leading-[48px]
             font-medium
             text-[#333333]
@@ -586,6 +717,8 @@ function Corporates() {
         </h2>
 
         <p
+          data-aos="fade-up"
+          data-aos-delay="400"
           className="
             text-[18px]
             font-normal
@@ -599,18 +732,20 @@ function Corporates() {
         </p>
 
         <button
+          data-aos="fade-up"
+          data-aos-delay="500"
           className="
             w-[270px]
-              h-[50px]
-              rounded
-              border
-              border-[#EB4E62]
-              text-center
-              font-medium
-              m-0
-              leading-[50px]
-              cursor-pointer
-              text-[#EB4E62]
+            h-[50px]
+            rounded
+            border
+            border-[#EB4E62]
+            text-center
+            font-medium
+            m-0
+            leading-[50px]
+            cursor-pointer
+            text-[#EB4E62]
           "
         >
           Engage your employees
@@ -619,7 +754,10 @@ function Corporates() {
     </div>
   </div>
 
-  <section className="w-full bg-[#f2f2f2] py-2 ">
+ <section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-2"
+>
   {/* WHITE CONTAINER */}
   <div
     className="
@@ -637,10 +775,16 @@ function Corporates() {
       "
     >
       {/* LEFT CONTENT */}
-      <div className="px-10 py-16 flex flex-col justify-center max-w-[520px]">
+      <div
+        data-aos="fade-right"
+        data-aos-delay="100"
+        className="px-10 py-16 flex flex-col justify-center max-w-[520px]"
+      >
         <p
+          data-aos="fade-up"
+          data-aos-delay="200"
           className="
-           text-[16px]
+            text-[16px]
             font-medium
             leading-[20px]
             tracking-[1px]
@@ -652,6 +796,8 @@ function Corporates() {
         </p>
 
         <h2
+          data-aos="fade-up"
+          data-aos-delay="300"
           className="
             text-[34px]
             leading-[48px]
@@ -664,6 +810,8 @@ function Corporates() {
         </h2>
 
         <p
+          data-aos="fade-up"
+          data-aos-delay="400"
           className="
             text-[18px]
             font-normal
@@ -678,18 +826,20 @@ function Corporates() {
         </p>
 
         <button
+          data-aos="fade-up"
+          data-aos-delay="500"
           className="
             w-[270px]
-              h-[50px]
-              rounded
-              border
-              border-[#EB4E62]
-              text-center
-              font-medium
-              m-0
-              leading-[50px]
-              cursor-pointer
-              text-[#EB4E62]
+            h-[50px]
+            rounded
+            border
+            border-[#EB4E62]
+            text-center
+            font-medium
+            m-0
+            leading-[50px]
+            cursor-pointer
+            text-[#EB4E62]
           "
         >
           Promote your brand
@@ -697,65 +847,93 @@ function Corporates() {
       </div>
 
       {/* RIGHT IMAGE – FULL COVER */}
-      <div className="w-full h-full">
+      <div
+        data-aos="fade-left"
+        data-aos-delay="200"
+        className="w-full h-full"
+      >
         <img
           src={employeeEngagementImage5}
           alt="Brand Promotion"
-          className="
-            w-full
-            h-full
-            object-cover
-          "
+          className="w-full h-full object-cover"
         />
       </div>
     </div>
   </div>
-  {/* ================= BUSINESS SOLUTIONS ================= */}
-<section className="w-full bg-[#f2f2f2] py-2 ">
-  <div className="max-w-[1200px] bg-white mx-auto  py-7">
+{/* ================= BUSINESS SOLUTIONS ================= */}
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-2"
+>
+  <div className="max-w-[1200px] bg-white mx-auto py-7">
 
-    <h2 className="text-[16px]
-    font-medium
-    leading-[20px]
-    tracking-[1px]
-    text-[#333333]
-    pr-0
-    pb-[12px]
-    pl-[40px]">
+    {/* HEADING */}
+    <h2
+      data-aos="fade-up"
+      data-aos-delay="100"
+      className="
+        text-[16px]
+        font-medium
+        leading-[20px]
+        tracking-[1px]
+        text-[#333333]
+        pr-0
+        pb-[12px]
+        pl-[40px]
+      "
+    >
       OUR SUITE OF BUSINESS SOLUTIONS:
     </h2>
 
     <div className="grid grid-cols-1 md:grid-cols-3">
 
       {/* CARD 1 */}
-      <div className="relative bg-[#6fb96f] h-[360px] px-10 flex items-center overflow-hidden">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="200"
+        className="relative bg-[#6fb96f] h-[360px] px-10
+                   flex items-center overflow-hidden"
+      >
         <img
           src={creativeIcon}
           className="absolute right-6 bottom-6 w-[220px] opacity-20"
         />
-        <h3 className="relative text-white text-[34px] leading-[46px] font-medium max-w-[260px]">
+        <h3 className="relative text-white text-[34px]
+                       leading-[46px] font-medium max-w-[260px]">
           End to End Support
         </h3>
       </div>
 
       {/* CARD 2 */}
-      <div className="relative bg-[#d64550] h-[360px] px-10 flex items-center overflow-hidden">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="350"
+        className="relative bg-[#d64550] h-[360px] px-10
+                   flex items-center overflow-hidden"
+      >
         <img
           src={marketingIcon}
           className="absolute right-6 bottom-6 w-[220px] opacity-20"
         />
-        <h3 className="relative text-white text-[34px] leading-[46px] font-medium max-w-[260px]">
+        <h3 className="relative text-white text-[34px]
+                       leading-[46px] font-medium max-w-[260px]">
           Marketing & E-mail Guidance
         </h3>
       </div>
 
       {/* CARD 3 */}
-      <div className="relative bg-[#f6d04d] h-[360px] px-10 flex items-center overflow-hidden">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="500"
+        className="relative bg-[#f6d04d] h-[360px] px-10
+                   flex items-center overflow-hidden"
+      >
         <img
           src={smsIcon}
           className="absolute right-6 bottom-6 w-[220px] opacity-20"
         />
-        <h3 className="relative text-white text-[34px] leading-[46px] font-medium max-w-[260px]">
+        <h3 className="relative text-white text-[34px]
+                       leading-[46px] font-medium max-w-[260px]">
           Bulk SMS Communication
         </h3>
       </div>
@@ -763,8 +941,12 @@ function Corporates() {
     </div>
   </div>
 </section>
+
 {/* ================= CTA STRIP ================= */}
-<section className="w-full bg-[#f2f2f2] ">
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2]"
+>
   <div
     className="
       max-w-[1200px]
@@ -780,6 +962,8 @@ function Corporates() {
   >
     {/* LEFT TEXT */}
     <p
+      data-aos="fade-right"
+      data-aos-delay="100"
       className="
         text-[18px]
         leading-[28px]
@@ -792,6 +976,8 @@ function Corporates() {
 
     {/* RIGHT BUTTON */}
     <button
+      data-aos="fade-left"
+      data-aos-delay="200"
       className="
         bg-[#e15b64]
         text-white
@@ -808,20 +994,27 @@ function Corporates() {
       Access the complete suite
     </button>
   </div>
-  {/* ================= OUR PRODUCTS ================= */}
-<section className="w-full bg-[#f2f2f2] py-2">
+
+  
+ {/* ================= OUR PRODUCTS ================= */}
+<section
+  data-aos="fade-up"
+  className="w-full bg-[#f2f2f2] py-2"
+>
   <div className="max-w-[1200px] bg-white mx-auto">
 
     {/* HEADING */}
     <h2
+      data-aos="fade-up"
+      data-aos-delay="100"
       className="
         text-[16px]
-    font-medium
-    tracking-[1px]
-    text-[#333333]
-    pb-[25px]
-    pl-[40px]
-    pt-[10px]
+        font-medium
+        tracking-[1px]
+        text-[#333333]
+        pb-[25px]
+        pl-[40px]
+        pt-[10px]
       "
     >
       OUR PRODUCTS
@@ -832,6 +1025,8 @@ function Corporates() {
 
       {/* LEFT – MOVIE VOUCHERS */}
       <div
+        data-aos="fade-right"
+        data-aos-delay="200"
         className="
           relative
           min-h-[420px]
@@ -848,25 +1043,39 @@ function Corporates() {
           backgroundPosition: "center",
         }}
       >
-        {/* OVERLAY (to keep text readable) */}
+        {/* OVERLAY */}
         <div className="absolute inset-0 bg-[#c7353a]/90"></div>
 
         <div className="relative z-10 max-w-[420px]">
-          <h3 className="text-[34px] font-medium text-white mb-[18px]">
+          <h3
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="text-[34px] font-medium text-white mb-[18px]"
+          >
             Movie Vouchers
           </h3>
 
-          <p className="text-[20px] leading-[32px] font-normal mb-4">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="text-[20px] leading-[32px] font-normal mb-4"
+          >
             Highly customizable, single usage, promotional codes in the form
             of set amount / value or a percentage of discount on the ticket cost.
           </p>
 
-          <p className="text-[20px] leading-[32px] font-normal mb-10">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="text-[20px] leading-[32px] font-normal mb-10"
+          >
             An ideal suit for movie and product promotions, consumer activation
             and countless more!
           </p>
 
           <button
+            data-aos="fade-up"
+            data-aos-delay="600"
             className="
               bg-white
               text-[#DC354B]
@@ -886,6 +1095,8 @@ function Corporates() {
 
       {/* RIGHT – GIFT VOUCHERS */}
       <div
+        data-aos="fade-left"
+        data-aos-delay="250"
         className="
           relative
           min-h-[420px]
@@ -906,19 +1117,29 @@ function Corporates() {
         <div className="absolute inset-0 bg-[#3e3a45]/95"></div>
 
         <div className="relative z-10 max-w-[420px]">
-          <h3 className="text-[34px] leading-[42px] font-medium mb-6">
+          <h3
+            data-aos="fade-up"
+            data-aos-delay="350"
+            className="text-[34px] leading-[42px] font-medium mb-6"
+          >
             Gift Vouchers
           </h3>
 
-          <p className="text-[20px] leading-[28px] font-normal mb-10">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="450"
+            className="text-[20px] leading-[28px] font-normal mb-10"
+          >
             Amazing little pre-loaded cash cards which can be used to purchase
             tickets across all categories for 6 months. Be it employee rewards,
             trade channel incentive or consumer engagement, a gift voucher fits all.
           </p>
 
           <button
+            data-aos="fade-up"
+            data-aos-delay="550"
             className="
-               bg-white
+              bg-white
               text-[#DC354B]
               text-[16px]
               font-medium
@@ -936,7 +1157,8 @@ function Corporates() {
 
     </div>
   </div>
-              </section>
+</section>
+
           </section>
         </section>
       </section>

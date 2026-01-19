@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Carousel from "../components/Carousel"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
-import FooterCTA from "../components/FooterCTA"
+// import FooterCTA from "../components/FooterCTA"
 
 // CAROUSEL ADS
 import ad1 from "../assets/ad1.avif"
@@ -72,17 +72,25 @@ function ListYourShow() {
     <div className="bg-white">
 
       {/* ================= CAROUSEL ================= */}
-      <Carousel slides={slides} />
+      <div data-aos="fade-up">
+        <Carousel slides={slides} />
+      </div>
 
-      {/* ================= WHAT CAN YOU HOST1 ================= */}
+      {/* ================= WHAT CAN YOU HOST 1 ================= */}
       <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-14">
 
-          <h2 className="text-center text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-[#1f2533]">
+          <h2
+            data-aos="fade-up"
+            className="text-center text-[32px] sm:text-[40px] lg:text-[48px]
+                       font-bold text-[#1f2533]"
+          >
             What can you host?
           </h2>
 
           <p
+            data-aos="fade-up"
+            data-aos-delay="150"
             className="text-center mt-4 max-w-[770px] mx-auto
                        text-[16px] sm:text-[17px] lg:text-[18px]
                        leading-[22px] sm:leading-[24px] lg:leading-[20px]
@@ -94,10 +102,12 @@ function ListYourShow() {
             the event. Let’s look at what you can host.
           </p>
 
-          <div className="py-8 -mx-[-16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
-            {hostItems.map((item) => (
+          <div className="py-8 -mx-[-16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {hostItems.map((item, index) => (
               <div
                 key={item.title}
+                data-aos="zoom-in"
+                data-aos-delay={index * 120}
                 className="
                   bg-[rgb(236,245,255)]
                   rounded-lg
@@ -117,45 +127,29 @@ function ListYourShow() {
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="
-                    w-[64px] h-[64px]
-                    sm:w-[80px] sm:h-[80px]
-                    lg:w-[96px] lg:h-[96px]
-                  "
+                  className="w-[64px] h-[64px] sm:w-[80px] sm:h-[80px] lg:w-[96px] lg:h-[96px]"
                 />
 
-                <h3 className="mt-4 sm:mt-5 lg:mt-6 text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#1f2533]">
+                <h3 className="mt-4 sm:mt-5 lg:mt-6 text-[18px] sm:text-[20px] lg:text-[24px]
+                               font-bold text-[#1f2533]">
                   {item.title}
                 </h3>
 
-                <div
-                  className="mt-5 w-[24px] h-[24px] rounded-full border
-                             border-[#eb4e62]
-                             text-[#eb4e62]
-                             flex items-center justify-center
-                             text-[12px] font-semibold"
-                >
+                <div className="mt-5 w-[24px] h-[24px] rounded-full border
+                                border-[#eb4e62] text-[#eb4e62]
+                                flex items-center justify-center
+                                text-[12px] font-semibold">
                   i
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-5 flex justify-center">
-            <button
-              className="
-                bg-[#f25d6c]
-                text-white
-                font-['Roboto']
-                text-[16px]
-                font-medium
-                px-14 sm:px-18 lg:px-20
-                py-4
-                rounded-lg
-                hover:bg-[#e44f5f]
-                transition
-              "
-            >
+          <div data-aos="fade-up" className="mt-5 flex justify-center">
+            <button className="bg-[#f25d6c] text-white font-['Roboto']
+                               text-[16px] font-medium
+                               px-14 sm:px-18 lg:px-20 py-4
+                               rounded-lg hover:bg-[#e44f5f] transition">
               List your show
             </button>
           </div>
@@ -163,30 +157,33 @@ function ListYourShow() {
         </div>
       </section>
 
-      {/* ================= WHAT CAN YOU HOST2 ================= */}
+      {/* ================= WHAT CAN YOU HOST 2 ================= */}
       <section className="py-10">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-14">
 
-          <h2 className="text-center text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-[#1f2533]">
+          <h2 data-aos="fade-up"
+              className="text-center text-[32px] sm:text-[40px] lg:text-[48px]
+                         font-bold text-[#1f2533]">
             What are the services we offers?
           </h2>
 
-          <p
-            className="text-center mt-4 max-w-[770px] mx-auto
-                       text-[16px] sm:text-[17px] lg:text-[18px]
-                       leading-[22px] sm:leading-[24px] lg:leading-[20px]
-                       text-[rgb(31,37,58)]
-                       font-normal font-['Roboto']"
-          >
+          <p data-aos="fade-up" data-aos-delay="150"
+             className="text-center mt-4 max-w-[770px] mx-auto
+                        text-[16px] sm:text-[17px] lg:text-[18px]
+                        leading-[22px] sm:leading-[24px] lg:leading-[20px]
+                        text-[rgb(31,37,58)]
+                        font-normal font-['Roboto']">
             As the purveyor of entertainment, BookMyShow enables your event with
             end to end solutions from the time you register to the completion of
-            the event. Let’s look at what you can host.
+            the event.
           </p>
 
           <div className="py-8 -mx-[-16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hostItems.map((item) => (
+            {hostItems.map((item, index) => (
               <div
                 key={item.title}
+                data-aos="zoom-in"
+                data-aos-delay={index * 120}
                 className="
                   bg-[rgb(252,241,241)]
                   rounded-lg
@@ -205,47 +202,22 @@ function ListYourShow() {
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="
-                    w-[64px] h-[64px]
-                    sm:w-[80px] sm:h-[80px]
-                    lg:w-[96px] lg:h-[96px]
-                  "
+                  className="w-[64px] h-[64px] sm:w-[80px] sm:h-[80px] lg:w-[96px] lg:h-[96px]"
                 />
 
-                <h3 className="mt-4 sm:mt-5 lg:mt-6 text-[18px] sm:text-[20px] lg:text-[24px] font-bold text-[#1f2533]">
+                <h3 className="mt-4 sm:mt-5 lg:mt-6 text-[18px] sm:text-[20px] lg:text-[24px]
+                               font-bold text-[#1f2533]">
                   {item.title}
                 </h3>
 
-                <div
-                  className="mt-5 w-[24px] h-[24px] rounded-full border
-                             border-[#eb4e62]
-                             text-[#eb4e62]
-                             flex items-center justify-center
-                             text-[12px] font-semibold"
-                >
+                <div className="mt-5 w-[24px] h-[24px] rounded-full border
+                                border-[#eb4e62] text-[#eb4e62]
+                                flex items-center justify-center
+                                text-[12px] font-semibold">
                   i
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-5 flex justify-center">
-            <button
-              className="
-                bg-[#f25d6c]
-                text-white
-                font-['Roboto']
-                text-[16px]
-                font-medium
-                px-14 sm:px-18 lg:px-20
-                py-4
-                rounded-lg
-                hover:bg-[#e44f5f]
-                transition
-              "
-            >
-              List your show
-            </button>
           </div>
 
         </div>
@@ -255,10 +227,14 @@ function ListYourShow() {
       <section className="w-full relative overflow-hidden lg:-mt-[100px]">
 
         <div className="absolute inset-0 flex items-center justify-between px-2 sm:px-4 lg:px-6 z-20 pointer-events-none">
-          <button onClick={prev} className="pointer-events-auto bg-black/50 w-10 h-10 lg:w-14 lg:h-14 rounded-md flex items-center justify-center">
+          <button onClick={prev}
+                  className="pointer-events-auto bg-black/50 w-10 h-10 lg:w-14 lg:h-14
+                             rounded-md flex items-center justify-center">
             <FiChevronLeft className="text-white text-lg lg:text-2xl" />
           </button>
-          <button onClick={next} className="pointer-events-auto bg-black/50 w-10 h-10 lg:w-14 lg:h-14 rounded-md flex items-center justify-center">
+          <button onClick={next}
+                  className="pointer-events-auto bg-black/50 w-10 h-10 lg:w-14 lg:h-14
+                             rounded-md flex items-center justify-center">
             <FiChevronRight className="text-white text-lg lg:text-2xl" />
           </button>
         </div>
@@ -266,8 +242,11 @@ function ListYourShow() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-14 py-20">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
 
-            <div className="flex-1 max-w-[520px] text-center lg:text-left">
-              <p className="text-[14px] sm:text-[15px] font-normal lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[26px] text-[#1f2533]">
+            <div data-aos="fade-right"
+                 className="flex-1 max-w-[520px] text-center lg:text-left">
+              <p className="text-[14px] sm:text-[15px] lg:text-[18px]
+                            leading-[20px] sm:leading-[22px] lg:leading-[26px]
+                            text-[#1f2533]">
                 {item.text}
               </p>
 
@@ -276,17 +255,13 @@ function ListYourShow() {
               </div>
             </div>
 
-            <div className="flex-1 flex justify-center lg:justify-end">
+            <div data-aos="fade-left"
+                 className="flex-1 flex justify-center lg:justify-end">
               <img
                 src={item.image}
                 alt="testimonial"
-                className="
-                  w-auto
-                  object-contain
-                  max-h-[180px]
-                  sm:max-h-[260px]
-                  lg:max-h-[560px]
-                "
+                className="w-auto object-contain
+                           max-h-[180px] sm:max-h-[260px] lg:max-h-[560px]"
               />
             </div>
 
@@ -294,7 +269,6 @@ function ListYourShow() {
         </div>
       </section>
 
-      {/* <FooterCTA /> */}
     </div>
   )
 }
