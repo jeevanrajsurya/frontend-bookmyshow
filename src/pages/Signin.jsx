@@ -41,7 +41,7 @@ function Signin({ onClose }) {
         <div
           data-aos="zoom-in"
           data-aos-duration="400"
-          className="w-full max-w-[420px] bg-white rounded-lg p-10 relative font-['Roboto']"
+          className="w-full max-w-[420px] bg-white rounded-lg p-6 sm:p-10 relative font-['Roboto']"
         >
           {/* CLOSE */}
           <button
@@ -52,40 +52,40 @@ function Signin({ onClose }) {
           </button>
 
           {/* TITLE */}
-          <h2 className="text-center text-[16px] font-medium mb-6">
+          <h2 className="text-center text-[14px] sm:text-[16px] font-medium mb-5 sm:mb-6">
             Get Started
           </h2>
 
           {/* GOOGLE */}
           <button
-            className="w-full border border-gray-400 rounded-md py-2.5
+            className="w-full border border-gray-400 rounded-md  py-2 sm:py-2.5 text-[13px] sm:text-sm
                        flex items-center justify-center gap-3 mb-5
                        text-sm font-medium hover:bg-gray-50
                        hover:border-gray-300 transition"
           >
-            <FcGoogle size={18} />
+            <FcGoogle size={18} className="sm:text-[18px]"  />
             Continue with Google
           </button>
 
           {/* EMAIL */}
           <button
-            className="w-full border border-gray-400 rounded-md py-2.5
+            className="w-full border border-gray-400 rounded-md  py-2 sm:py-2.5 text-[13px] sm:text-sm
                        flex items-center justify-center gap-3 mb-5
                        text-sm font-medium hover:bg-gray-50
                        hover:border-gray-300 transition"
           >
-            <FiMail size={18} />
+            <FiMail size={18} className="sm:text-[18px]"  />
             Continue with Email
           </button>
 
           {/* APPLE */}
           <button
-            className="w-full border border-gray-400 rounded-md py-2.5
+            className="w-full border border-gray-400 rounded-md  py-2 sm:py-2.5 text-[13px] sm:text-sm
                        flex items-center justify-center gap-3 mb-5
                        text-sm font-medium hover:bg-gray-50
                        hover:border-gray-300 transition"
           >
-            <FaApple size={18} />
+            <FaApple size={18} className="sm:text-[18px]"  />
             Continue with Apple
           </button>
 
@@ -96,10 +96,10 @@ function Signin({ onClose }) {
 
           {/* PHONE INPUT */}
           <div className="mb-6">
-            <div className="flex items-end gap-2">
-              <BsFlagFill className="text-[#138808] text-[14px] mb-[3px]" />
+            <div className="flex items-end gap-1.5 sm:gap-2">
+              <BsFlagFill  className="text-[#138808] text-[14px] mb-[3px]" />
 
-              <div className="flex items-center gap-1 text-sm text-gray-700 mb-[2px]">
+              <div className="flex items-center gap-1 text-[13px] sm:text-sm text-gray-700 mb-[2px]">
                 +91 <FiChevronDown size={14} />
               </div>
 
@@ -128,8 +128,7 @@ function Signin({ onClose }) {
           {/* CONTINUE */}
           <button
             disabled={!isValid}
-            className={`w-full py-2.5 rounded-md
-              text-white text-sm font-medium transition
+            className={`w-full py-2 sm:py-2.5 rounded-md text-[13px] sm:text-sm font-medium transition
               ${
                 isValid
                   ? "bg-[#EB4E62] hover:bg-[#e03b52]"
@@ -140,7 +139,7 @@ function Signin({ onClose }) {
           </button>
 
           {/* TERMS */}
-          <p className="text-[11px] text-center text-gray-500 mt-4">
+          <p className="text-[10px] sm:text-[11px] text-center text-gray-500 mt-4">
             I agree to{" "}
             <span className="text-blue-600 cursor-pointer">
               Terms & Conditions

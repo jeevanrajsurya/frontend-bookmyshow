@@ -80,7 +80,7 @@ function Location({ onClose }) {
         data-aos-offset="200"
         className="
           fixed z-50 top-[64px] left-1/2 -translate-x-1/2
-          w-[96%] max-w-[1100px]
+          w-[96%] max-w-[1000px]
           bg-white rounded-lg
         "
       >
@@ -138,7 +138,7 @@ function Location({ onClose }) {
                 <img
                   src={city.img}
                   alt={city.name}
-                  className="mx-auto h-[40px] sm:h-[64px] xl:h-[90px] mb-2"
+                  className="mx-auto h-[40px] sm:h-[54px] xl:h-[70px] mb-2"
                 />
                 <p className="text-[11px] sm:text-[13px] xl:text-[14px]
                               font-['Roboto'] text-[#666]">
