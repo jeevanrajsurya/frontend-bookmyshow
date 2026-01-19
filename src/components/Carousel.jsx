@@ -58,7 +58,7 @@ function Carousel() {
   const prev = () => setIndex((i) => i - 1)
 
   return (
-    <section className="w-full bg-[#F5F5F5] py-4 overflow-hidden">
+    <section className="w-full bg-[#F5F5F5] py-2 sm:py-4 overflow-hidden">
       {/* AOS : FADE-UP (ONE TIME) */}
       <div
         data-aos="fade-up"
@@ -88,17 +88,13 @@ function Carousel() {
                     rounded-xl
                     overflow-hidden
                     aspect-[16/4]
-                    max-h-[130px]
-                    sm:max-h-[190px]
-                    md:max-h-[230px]
-                    lg:max-h-[420px]
-                    lg:aspect-auto
+                     
                   "
                 >
                   <img
                     src={ad.image}
                     alt="ad"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               </div>
@@ -106,8 +102,8 @@ function Carousel() {
           ))}
         </div>
 
-        {/* ===== ARROWS (HIDDEN – KEEP AS IS) ===== */}
-        <button
+        {/* ===== ARROWS (HIDDEN ) ===== */}
+        {/* <button
           onClick={prev}
           className="absolute left-3 top-1/2 -translate-y-1/2
                      bg-black/50 rounded-lg z-30
@@ -127,7 +123,7 @@ function Carousel() {
                      hidden"
         >
           <FiChevronRight className="text-white text-lg" />
-        </button>
+        </button> */}
 
         {/* ===== DOTS ===== */}
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
@@ -135,7 +131,7 @@ function Carousel() {
             <span
               key={i}
               onClick={() => setIndex(startIndex + i)}
-              className={`h-2 w-2 rounded-full cursor-pointer ${
+              className={`h-1 w-1 sm:h-2 sm:w-2 rounded-full cursor-pointer ${
                 index % ads.length === i ? "bg-white" : "bg-white/50"
               }`}
             />
