@@ -33,17 +33,25 @@ import "aos/dist/aos.css"
 function Corporates() {
 
   //AOS ANIMATION 
-   useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 900,
-      easing: "ease-out-cubic",
-    })
-  }, [])
+ useEffect(() => {
+  AOS.init({
+    once: true,
+    duration: 600,          // 🔥 faster
+    easing: "ease-out",
+    offset: 60,             // 🔥 EARLY trigger
+    delay: 0,
+    anchorPlacement: "top-bottom", // 🔥 scroll panna udane
+  })
+
+  // 🔥 images load aana apram refresh
+  window.addEventListener("load", () => {
+    AOS.refreshHard()
+  })
+}, [])
+
   return (
+
   <section className="w-full bg-white overflow-x-hidden">
-
-
      {/* ================= HERO ================= */}
 <div
   data-aos="fade-up"
@@ -242,7 +250,7 @@ function Corporates() {
     {/* HEADING */}
     <h2
       data-aos="fade-up"
-      data-aos-delay="100"
+      data-aos-offset="50"
       className="
         text-center
         text-[12px]
@@ -271,7 +279,6 @@ function Corporates() {
     >
       <img
         data-aos="zoom-in"
-        data-aos-delay="0"
         src={hp}
         alt="HP"
         className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
@@ -279,7 +286,6 @@ function Corporates() {
 
       <img
         data-aos="zoom-in"
-        data-aos-delay="120"
         src={ola}
         alt="Ola"
         className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
@@ -287,7 +293,6 @@ function Corporates() {
 
       <img
         data-aos="zoom-in"
-        data-aos-delay="240"
         src={axis}
         alt="Axis Bank"
         className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
@@ -295,7 +300,6 @@ function Corporates() {
 
       <img
         data-aos="zoom-in"
-        data-aos-delay="360"
         src={mastercard}
         alt="Mastercard"
         className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
@@ -303,7 +307,6 @@ function Corporates() {
 
       <img
         data-aos="zoom-in"
-        data-aos-delay="480"
         src={icici}
         alt="ICICI Bank"
         className="h-[32px] sm:h-[40px] lg:h-[48px] object-contain"
@@ -334,7 +337,7 @@ function Corporates() {
     "
   >
     {/* ITEM 1 */}
-    <div data-aos="fade-up" data-aos-delay="0">
+    <div data-aos="fade-up"  data-aos-offset="40">
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         1000+
       </h3>
@@ -345,7 +348,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 2 */}
-    <div data-aos="fade-up" data-aos-delay="120">
+    <div data-aos="fade-up"  data-aos-offset="40">
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         6000
       </h3>
@@ -356,7 +359,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 3 */}
-    <div data-aos="fade-up" data-aos-delay="240">
+    <div data-aos="fade-up"  data-aos-offset="40">
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         1000+
       </h3>
@@ -367,7 +370,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 4 */}
-    <div data-aos="fade-up" data-aos-delay="360">
+    <div data-aos="fade-up"  data-aos-offset="40">
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         15 MILLION+
       </h3>
@@ -378,7 +381,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 5 */}
-    <div data-aos="fade-up" data-aos-delay="480">
+    <div data-aos="fade-up"  data-aos-offset="40">
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         4 Billion
       </h3>
@@ -409,7 +412,7 @@ function Corporates() {
       {/* LEFT CONTENT */}
       <div
         data-aos="fade-right"
-        data-aos-delay="100"
+        data-aos-offset="60"
         className="
           px-5 py-10
           sm:px-6 sm:py-12
@@ -421,7 +424,7 @@ function Corporates() {
       >
         <p
           data-aos="fade-up"
-          data-aos-delay="200"
+          data-aos-offset="60"
           className="
             text-[13px]
             sm:text-[14px]
@@ -438,7 +441,7 @@ function Corporates() {
 
         <h2
           data-aos="fade-up"
-          data-aos-delay="300"
+         data-aos-offset="60"
           className="
             text-[24px]
             sm:text-[26px]
@@ -457,7 +460,7 @@ function Corporates() {
 
         <p
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-offset="60"
           className="
             text-[14px]
             sm:text-[15px]
@@ -478,7 +481,7 @@ function Corporates() {
 
         <button
           data-aos="fade-up"
-          data-aos-delay="500"
+         data-aos-offset="60"
           className="
             w-[200px]
             sm:w-[220px]
@@ -506,7 +509,7 @@ function Corporates() {
       {/* RIGHT IMAGE */}
       <div
         data-aos="fade-left"
-        data-aos-delay="200"
+       data-aos-offset="60"
         className="
           w-full
           h-[220px]
@@ -540,7 +543,7 @@ function Corporates() {
       {/* LEFT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-right"
-        data-aos-delay="150"
+        data-aos-offset="60"
         className="
           w-full
           h-[220px]
@@ -559,7 +562,7 @@ function Corporates() {
       {/* RIGHT CONTENT */}
       <div
         data-aos="fade-left"
-        data-aos-delay="200"
+       data-aos-offset="60"
         className="
           px-5 py-10
           sm:px-6 sm:py-12
@@ -571,7 +574,7 @@ function Corporates() {
       >
         <h2
           data-aos="fade-up"
-          data-aos-delay="300"
+           data-aos-offset="60"
           className="
             text-[24px]
             sm:text-[26px]
@@ -592,7 +595,7 @@ function Corporates() {
 
         <p
           data-aos="fade-up"
-          data-aos-delay="400"
+           data-aos-offset="60"
           className="
             text-[14px]
             sm:text-[15px]
@@ -613,7 +616,7 @@ function Corporates() {
 
         <button
           data-aos="fade-up"
-          data-aos-delay="500"
+          data-aos-offset="60"
           className="
             w-[200px]
             sm:w-[220px]
@@ -657,7 +660,7 @@ function Corporates() {
       {/* LEFT CONTENT */}
       <div
         data-aos="fade-right"
-        data-aos-delay="100"
+        data-aos-offset="60"
         className="
           px-5 py-10
           sm:px-6 sm:py-12
@@ -669,7 +672,7 @@ function Corporates() {
       >
         <p
           data-aos="fade-up"
-          data-aos-delay="200"
+          data-aos-offset="60"
           className="
             text-[13px]
             sm:text-[14px]
@@ -686,7 +689,7 @@ function Corporates() {
 
         <h2
           data-aos="fade-up"
-          data-aos-delay="300"
+          data-aos-offset="60"
           className="
             text-[24px]
             sm:text-[26px]
@@ -705,7 +708,7 @@ function Corporates() {
 
         <p
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-offset="60"
           className="
             text-[14px]
             sm:text-[15px]
@@ -727,7 +730,7 @@ function Corporates() {
 
         <button
           data-aos="fade-up"
-          data-aos-delay="500"
+          data-aos-offset="60"
           className="
             w-[200px]
             sm:w-[220px]
@@ -755,7 +758,7 @@ function Corporates() {
       {/* RIGHT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-left"
-        data-aos-delay="200"
+        data-aos-offset="60"
         className="
           w-full
           h-[220px]
@@ -791,7 +794,7 @@ function Corporates() {
       {/* LEFT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-right"
-        data-aos-delay="150"
+         data-aos-offset="60"
         className="
           w-full
           h-[220px]
@@ -810,7 +813,7 @@ function Corporates() {
       {/* RIGHT CONTENT */}
       <div
         data-aos="fade-left"
-        data-aos-delay="200"
+       data-aos-offset="60"
         className="
           px-5 py-10
           sm:px-6 sm:py-12
@@ -822,7 +825,7 @@ function Corporates() {
       >
         <h2
           data-aos="fade-up"
-          data-aos-delay="300"
+          data-aos-offset="60"
           className="
             text-[24px]
             sm:text-[26px]
@@ -843,7 +846,7 @@ function Corporates() {
 
         <p
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-offset="60"
           className="
             text-[14px]
             sm:text-[15px]
@@ -864,7 +867,7 @@ function Corporates() {
 
         <button
           data-aos="fade-up"
-          data-aos-delay="500"
+          data-aos-offset="60"
           className="
             w-[200px]
             sm:w-[220px]
@@ -909,7 +912,7 @@ function Corporates() {
       {/* LEFT CONTENT */}
       <div
         data-aos="fade-right"
-        data-aos-delay="100"
+         data-aos-offset="60"
         className="
           px-5 py-10
           sm:px-6 sm:py-12
@@ -921,7 +924,7 @@ function Corporates() {
       >
         <p
           data-aos="fade-up"
-          data-aos-delay="200"
+           data-aos-offset="60"
           className="
             text-[13px]
             sm:text-[14px]
@@ -938,7 +941,7 @@ function Corporates() {
 
         <h2
           data-aos="fade-up"
-          data-aos-delay="300"
+          data-aos-offset="60"
           className="
             text-[24px]
             sm:text-[26px]
@@ -957,7 +960,7 @@ function Corporates() {
 
         <p
           data-aos="fade-up"
-          data-aos-delay="400"
+         data-aos-offset="60"
           className="
             text-[14px]
             sm:text-[15px]
@@ -979,7 +982,7 @@ function Corporates() {
 
         <button
           data-aos="fade-up"
-          data-aos-delay="500"
+          data-aos-offset="60"
           className="
             w-[200px]
             sm:w-[220px]
@@ -1007,7 +1010,7 @@ function Corporates() {
       {/* RIGHT IMAGE – RESPONSIVE */}
       <div
         data-aos="fade-left"
-        data-aos-delay="200"
+       data-aos-offset="60"
         className="
           w-full
           h-[220px]
