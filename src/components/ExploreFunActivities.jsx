@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
-// 🔟 FUN ACTIVITY IMAGES
+//  FUN ACTIVITY IMAGES
 import fa1 from "../assets/fa1.avif"
 import fa2 from "../assets/fa2.avif"
 import fa3 from "../assets/fa3.avif"

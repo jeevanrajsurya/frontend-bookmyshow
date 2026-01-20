@@ -9,24 +9,12 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
 
   return (
     <header className="w-full bg-white">
-      {/* 
-        < 640px (mobile):
-        - Navbar height = 64px
-        - Search bar hidden
-        - Location hidden
-        - Logo + Sign in + Hamburger visible
-      */}
       <div className="w-full h-16">
-        {/* 
-          lg: ≥1024px
-          - Content centered
-          - max width applied
-        */}
         <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4">
 
           {/* LEFT SECTION */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
-            {/* LOGO (all breakpoints) */}
+            {/* LOGO */}
             <Link to="/">
               <img
                 src={logo}
@@ -41,18 +29,12 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
             </Link>
 
             {/* SEARCH BAR */}
-            {/* 
-              sm: ≥640px   → visible
-              md: ≥768px   → width increases
-              lg: ≥1024px  → wider search
-              xl: ≥1280px  → max width
-            */}
             <div
               onClick={() => navigate("/search")}
               className="
-                hidden sm:flex        /* <640px hidden, ≥640px show */
+                hidden sm:flex        
                 items-center
-                h-10                  /* search bar height */
+                h-10                  
                 px-3
                 rounded-md
                 border
@@ -60,11 +42,11 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
                 bg-white
                 cursor-pointer
                 flex-shrink-0
-                w-[240px]             /* default (sm) */
-                sm:w-[260px]          /* ≥640px */
-                md:w-[320px]          /* ≥768px */
-                lg:w-[420px]          /* ≥1024px */
-                xl:w-[520px]          /* ≥1280px */
+                w-[240px]             
+                sm:w-[260px]          
+                md:w-[320px]       
+                lg:w-[420px]          
+                xl:w-[520px]         
               "
             >
               <TbSearch className="text-gray-500 text-lg mr-2 flex-shrink-0" />
@@ -80,27 +62,17 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
                   text-gray-600
                   placeholder-gray-400
                   truncate
-                  pointer-events-none   /* click opens search page */
+                  pointer-events-none   
                 "
               />
             </div>
           </div>
-
-          {/* GAP BETWEEN LEFT & RIGHT */}
-          {/* 
-            sm: ≥640px → small gap
-            md: ≥768px → bigger gap
-          */}
           <div className="w-4 sm:w-6 md:w-8"></div>
 
           {/* RIGHT SECTION */}
           <div className="flex items-center gap-4 flex-shrink-0">
 
             {/* LOCATION */}
-            {/* 
-              <640px  → hidden
-              sm: ≥640px → visible
-            */}
             <div
               onClick={onLocationClick}
               className="
@@ -116,7 +88,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               <IoChevronDown className="text-gray-400 text-sm" />
             </div>
 
-            {/* SIGN IN BUTTON (all views) */}
+            {/* SIGN IN BUTTON  */}
             <button
               onClick={onSigninClick}
               className="
@@ -132,7 +104,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               Sign in
             </button>
 
-            {/* HAMBURGER MENU (all views) */}
+            {/* HAMBURGER MENU */}
             <RxHamburgerMenu
               onClick={onMenuClick}
               className="text-2xl cursor-pointer"

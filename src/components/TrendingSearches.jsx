@@ -24,7 +24,7 @@ function TrendingSearches() {
           {items.map((item, index) => (
             <div
               key={item}
-              /* ================= AOS : ZOOM-IN (BOX LEVEL) ================= */
+              /* ================= AOS : ZOOM-IN ================= */
               data-aos="zoom-in"
               data-aos-duration="500"
               data-aos-delay={index * 80}

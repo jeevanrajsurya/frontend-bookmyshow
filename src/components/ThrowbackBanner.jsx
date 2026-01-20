@@ -10,7 +10,7 @@ const throwbackBanner = {
 const ThrowbackBanner = () => {
   return (
     <section className="w-full bg-[#f5f5f5] py-5 sm:py-10 lg:py-20">
-      {/* Same container as other sections */}
+      {/* Same container */}
       <div className="max-w-7xl mx-auto px-4">
         <div
           data-aos="zoom-in"
