@@ -32,21 +32,18 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 
 const ads = [
-  { id: 1, bg: img2,  card: img2a,  pos: "object-center" },
-  { id: 2, bg: img1,  card: img1a,  pos: "object-center" },
-  { id: 3, bg: img3,  card: img3a,  pos: "object-top" },
-  { id: 4, bg: img4,  card: img4a,  pos: "object-top" },
-  { id: 5, bg: img5,  card: img5a,  pos: "object-center" },
-  { id: 6, bg: img6,  card: img6a,  pos: "object-[50%_25%]" },
-  { id: 7, bg: img7,  card: img7a,  pos: "object-center" },
-  { id: 8, bg: img8,  card: img8a,  pos: "object-top" },
-  { id: 9, bg: img9,  card: img9a,  pos: "object-[50%_30%]" },
-  { id: 10, bg: img10, card: img10a, pos: "object-top" },
+  { id: 1, bg: img2, card: img2a, pos: "object-center" },
+  { id: 2, bg: img1, card: img1a, pos: "object-center" },
+  { id: 3, bg: img3, card: img3a, pos: "object-top" },
+  { id: 4, bg: img4, card: img4a, pos: "object-top" },
+  { id: 5, bg: img5, card: img5a, pos: "object-center" },
+  { id: 6, bg: img6, card: img6a, pos: "object-[50%_25%]" },
+  { id: 7, bg: img7, card: img7a, pos: "object-center" },
 ]
 
 const track = [...ads, ...ads, ...ads]
 
-function Stream() {
+function StreamCarousel() {
   const startIndex = ads.length
   const [index, setIndex] = useState(startIndex)
   const [animate, setAnimate] = useState(true)
@@ -82,7 +79,7 @@ function Stream() {
 
   return (
     <section className="w-full overflow-hidden bg-black">
-      <div className="relative w-full h-[480px]">
+      <div className="relative w-full h-[260px] sm:h-[340px] md:h-[400px] lg:h-[480px]">
         <div
           className={`flex h-full ${
             animate ? "transition-transform duration-700 ease-in-out" : ""
@@ -92,65 +89,137 @@ function Stream() {
           {track.map((ad, i) => (
             <div key={i} className="relative w-full h-full flex-shrink-0">
               
-              {/* ===== BG IMAGE ===== */}
+              {/* ===== BG IMAGE (FINAL FIX) ===== */}
               <img
                 src={ad.bg}
                 alt=""
-                className={`absolute inset-0 w-full h-full object-cover ${ad.pos}`}
+                className="
+                  absolute inset-0 w-full h-full
+                  object-cover
+                  object-[50%_20%]
+                  sm:object-[50%_25%]
+                  lg:object-[60%_30%]
+                  2xl:object-[60%_35%]
+                "
                 data-aos="zoom-out"
               />
 
               {/* ===== DARK GRADIENT ===== */}
               <div
-                className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/10 md:from-black/80 md:via-black/50"
+                className="
+                  absolute inset-0
+                  bg-gradient-to-r
+                  from-black/95 via-black/70 to-black/20
+                  sm:from-black/90 sm:via-black/60
+                  lg:from-black/90 lg:via-black/60
+                "
                 data-aos="fade"
               />
 
               {/* ===== CONTENT ===== */}
-              <div className="relative z-10 h-full max-w-7xl mx-auto px-6 flex items-center gap-10">
-                
-                {/* LEFT CARD */}
+              <div
+                className="
+                  relative z-10 h-full
+                  max-w-7xl mx-auto
+                  px-4 sm:px-6
+                  flex
+                  items-end sm:items-center lg:items-center
+                "
+              >
                 <div
-                  className="hidden md:block w-[240px] lg:w-[280px] rounded-xl overflow-hidden shadow-xl"
-                  data-aos="fade-right"
+                  className="
+                    w-full
+                    flex
+                    flex-col
+                    sm:flex-col
+                    lg:flex-row
+                    gap-4 sm:gap-6 lg:gap-10
+                    pb-4 sm:pb-6 lg:pb-0
+                  "
                 >
-                  <img
-                    src={ad.card}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* RIGHT CONTENT */}
-                <div
-                  className="text-white max-w-2xl -mt-[50px]"
-                  data-aos="fade-up"
-                >
-                  <img src={premiereLogo} alt="" className="h-6" />
-
-                  <div className="flex items-center gap-2 mb-10">
-                    <span className="mt-2 break-words text-white font-roboto text-[16px] font-normal leading-[1.5] overflow-hidden text-ellipsis line-clamp-1">
-                      Brand new releases every Friday
-                    </span>
+                  {/* LEFT CARD */}
+                  <div
+                    className="hidden lg:block w-[240px] lg:w-[280px] rounded-xl overflow-hidden shadow-xl"
+                    data-aos="fade-right"
+                  >
+                    <img
+                      src={ad.card}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
-                  <h1 className="mt-8 break-words text-white font-roboto text-[36px] font-bold leading-[42px] overflow-hidden text-ellipsis line-clamp-2">
-                    Wicked: For Good
-                  </h1>
+                  {/* RIGHT CONTENT */}
+                  <div
+                    className="
+                      text-white
+                      max-w-2xl
+                      lg:mt-[50px]
+                    "
+                    data-aos="fade-up"
+                  >
+                    <img
+                      src={premiereLogo}
+                      alt=""
+                      className="h-3 sm:h-5 lg:h-6"
+                    />
 
-                  <p className="mt-4 break-words text-white font-roboto text-[16px] font-normal leading-[1.5] overflow-hidden text-ellipsis line-clamp-3">
-                    2h 17m • Family, Fantasy, Musical • UA16+
-                  </p>
+                    <div className="mt-2 mb-3 sm:mb-4 lg:mb-10">
+                      <span
+                        className="
+                          block
+                          text-[10px] sm:text-[14px] lg:text-[16px]
+                          leading-[1.4] lg:leading-[1.5]
+                          line-clamp-1
+                        "
+                      >
+                        Brand new releases every Friday
+                      </span>
+                    </div>
 
-                  <p className="mt-4 break-words text-white font-roboto text-[16px] font-normal leading-[1.5] overflow-hidden text-ellipsis line-clamp-3">
-                    English
-                  </p>
+                    <h1
+                      className="
+                        text-[16px] sm:text-[24px] lg:text-[36px]
+                        font-bold
+                        leading-[24px] sm:leading-[32px] lg:leading-[42px]
+                        line-clamp-2
+                      "
+                    >
+                      Wicked: For Good
+                    </h1>
 
-                  <p className="mt-4 break-words text-white font-roboto text-[16px] font-normal leading-[1.5] overflow-hidden line-clamp-3">
-                    Now demonized as the Wicked Witch of the West, Elphaba
-                    lives in exile while Glinda enjoys fame in Emerald City.
-                    As unrest rises, the two must reunite to change destiny...
-                  </p>
+                    <p
+                      className="
+                        mt-1 sm:mt-3 lg:mt-4
+                        text-[10px] sm:text-[14px] lg:text-[16px]
+                        line-clamp-2
+                      "
+                    >
+                      2h 17m • Family, Fantasy, Musical • UA16+
+                    </p>
+
+                    <p
+                      className="
+                        mt-1 sm:mt-2 lg:mt-4
+                        text-[10px] sm:text-[14px] lg:text-[16px]
+                      "
+                    >
+                      English
+                    </p>
+
+                    <p
+                      className="
+                        mt-1 mb-2 sm:mt-3 lg:mt-4
+                        text-[10px] sm:text-[14px] lg:text-[16px]
+                        leading-[1.5]
+                        line-clamp-3
+                      "
+                    >
+                      Now demonized as the Wicked Witch of the West, Elphaba
+                      lives in exile while Glinda enjoys fame in Emerald City.
+                      As unrest rises, the two must reunite to change destiny...
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,14 +227,18 @@ function Stream() {
         </div>
 
         {/* DOTS */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2 z-20">
           {ads.map((_, i) => (
             <span
               key={i}
               onClick={() => setIndex(startIndex + i)}
-              className={`h-2 w-2 rounded-full cursor-pointer ${
-                index % ads.length === i ? "bg-white" : "bg-white/40"
-              }`}
+              className={`
+                rounded-full cursor-pointer transition
+                h-1 w-1
+                sm:h-2 sm:w-2
+                lg:h-2 lg:w-2
+                ${index % ads.length === i ? "bg-white" : "bg-white/40"}
+              `}
             />
           ))}
         </div>
@@ -174,4 +247,4 @@ function Stream() {
   )
 }
 
-export default Stream
+export default StreamCarousel
