@@ -56,7 +56,7 @@ function BestOfLiveEvents() {
               {Array.from({ length: totalPages }).map((_, p) => (
                 <div
                   key={p}
-                  className="grid grid-cols-5 gap-x-10 w-full flex-shrink-0"
+                  className="grid grid-cols-5 gap-x-10 w-full "
                 >
                   {events
                     .slice(p * CARDS_PER_PAGE, (p + 1) * CARDS_PER_PAGE)
@@ -119,7 +119,7 @@ function EventCard({ img, delay = 0 }) {
       data-aos="fade-right"
       data-aos-duration="600"
       data-aos-delay={delay}
-      className="w-full max-w-[216px] mx-auto"
+      className="w-full max-w-sm mx-auto"
     >
       <div className="aspect-square rounded-xl overflow-hidden">
         <img
