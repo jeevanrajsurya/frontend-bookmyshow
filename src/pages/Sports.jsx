@@ -106,7 +106,7 @@ function Sports() {
        {/* ================= TOP CAROUSEL ================= */}
   <Carousel />
 
-      <div className="max-w-7xl mx-auto px-4 flex gap-10 py-[60px]">
+      <div className="max-w-7xl mx-auto px-4 flex gap-10 py-[20px] sm:py-[60px]">
 
         {/* ================= LEFT FILTERS ================= */}
         <aside className="w-[360px] lg:w-[300px]  hidden lg:block">

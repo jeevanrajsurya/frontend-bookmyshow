@@ -8,14 +8,14 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
   const navigate = useNavigate()
 
   return (
-    <header className="w-full bg-white border-b border-gray-200">
-      <div className="w-full h-16">
-        <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4">
+    <header className="w-full bg-white border-b border-gray-200 ">
+      <div className="w-full h-16 ">
+        <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4 sm:px-4">
 
           {/* ================= LEFT SECTION ================= */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
 
-            {/* LOGO (TAB + DESKTOP ONLY) */}
+            {/* LOGO  */}
             <Link to="/" className="hidden sm:block">
               <img
                 src={logo}
@@ -24,7 +24,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               />
             </Link>
 
-            {/* ===== MOBILE TEXT BLOCK (IMAGE MATCH) ===== */}
+            {/* ===== MOBILE TEXT BLOCK  ===== */}
             <div className="sm:hidden flex flex-col leading-tight">
               <span className="text-xl font-semibold text-black">
                 It All Starts Here!
@@ -39,7 +39,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               </div>
             </div>
 
-            {/* ===== SEARCH BAR (TAB + DESKTOP SAME) ===== */}
+            {/* ===== SEARCH BAR (TAB + DESKTOP) ===== */}
             <div
               onClick={() => navigate("/search")}
               className="
@@ -95,7 +95,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               className="sm:hidden text-[20px] text-gray-500 cursor-pointer"
             />
 
-            {/* ===== LOCATION (TAB + DESKTOP SAME) ===== */}
+            {/* ===== LOCATION (TAB + DESKTOP) ===== */}
             <div
               onClick={onLocationClick}
               className="
@@ -111,7 +111,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               <IoChevronDown className="text-gray-400 text-sm" />
             </div>
 
-            {/* ===== SIGN IN (TAB + DESKTOP ONLY) ===== */}
+            {/* ===== SIGN IN (TAB + DESKTOP ) ===== */}
             <button
               onClick={onSigninClick}
               className="
@@ -128,7 +128,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               Sign in
             </button>
 
-            {/* ===== HAMBURGER (TAB + DESKTOP ONLY) ===== */}
+            {/* ===== HAMBURGER (TAB + DESKTOP) ===== */}
             <RxHamburgerMenu
               onClick={onMenuClick}
               className="hidden sm:block text-2xl cursor-pointer"

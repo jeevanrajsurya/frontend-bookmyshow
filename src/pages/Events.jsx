@@ -100,7 +100,7 @@ function Events() {
   }
 
   return (
-    <section className="bg-[#F5F7FA] min-h-screen py-[60px]">
+    <section className="bg-[#F5F7FA] min-h-screen py-[20px] sm:py-[60px]">
       <div className="max-w-7xl mx-auto px-4 flex gap-10">
 
         {/* ================= LEFT FILTERS ================= */}

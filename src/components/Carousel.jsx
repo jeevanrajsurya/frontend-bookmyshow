@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react"
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
+/* ===== DESKTOP ADS ===== */
 import ad1 from "../assets/ad1.avif"
 import ad2 from "../assets/ad2.avif"
 import ad3 from "../assets/ad3.avif"
 import ad4 from "../assets/ad4.avif"
+
+/* ===== MOBILE ADS ===== */
+import mAd1 from "../assets/mobile-ad1.avif"
+import mAd2 from "../assets/mobile-ad2.avif"
+import mAd3 from "../assets/mobile-ad3.avif"
+import mAd4 from "../assets/mobile-ad4.avif"
+
+/* ===== TABLET ADS ===== */
+import tAd1 from "../assets/tablet-ad1.avif"
+import tAd2 from "../assets/tablet-ad2.avif"
+import tAd3 from "../assets/tablet-ad3.avif"
+import tAd4 from "../assets/tablet-ad4.avif"
 
 const ads = [
   { id: 1, image: ad1 },
@@ -13,8 +25,23 @@ const ads = [
   { id: 4, image: ad4 },
 ]
 
-// infinite track
+const mobileAds = [
+  { id: 1, image: mAd1 },
+  { id: 2, image: mAd2 },
+  { id: 3, image: mAd3 },
+  { id: 4, image: mAd4 },
+]
+
+const tabletAds = [
+  { id: 1, image: tAd1 },
+  { id: 2, image: tAd2 },
+  { id: 3, image: tAd3 },
+  { id: 4, image: tAd4 },
+]
+
 const track = [...ads, ...ads, ...ads]
+const mobileTrack = [...mobileAds, ...mobileAds, ...mobileAds]
+const tabletTrack = [...tabletAds, ...tabletAds, ...tabletAds]
 
 function Carousel() {
   const startIndex = ads.length
@@ -54,12 +81,9 @@ function Carousel() {
     }
   }, [animate])
 
-  const next = () => setIndex((i) => i + 1)
-  const prev = () => setIndex((i) => i - 1)
-
   return (
     <section className="w-full bg-[#F5F5F5] py-2 sm:py-4 overflow-hidden">
-      {/* AOS : FADE-UP (ONE TIME) */}
+
       <div
         data-aos="fade-up"
         data-aos-duration="700"
@@ -74,56 +98,70 @@ function Carousel() {
           }`}
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
-          {track.map((ad, i) => (
-            <div key={i} className="flex-shrink-0 w-full">
-              {/* SAME CONTAINER AS OTHER SECTIONS */}
-              <div className="max-w-7xl mx-auto px-4">
-                {/* IMAGE WRAPPER : ZOOM-IN */}
-                <div
-                  data-aos="zoom-in"
-                  data-aos-duration="600"
-                  data-aos-delay="100"
-                  className="
-                    w-full
-                    rounded-xl
-                    overflow-hidden
-                    aspect-[16/4]
-                     
-                  "
-                >
-                  <img
-                    src={ad.image}
-                    alt="ad"
-                    className="w-full h-full object-cover object-center"
-                  />
+
+          {/* ===== MOBILE ===== */}
+          <div className="flex md:hidden w-full">
+            {mobileTrack.map((ad, i) => (
+              <div key={i} className="flex-shrink-0 w-full">
+                <div className="px-4">
+                  <div className="rounded-xl overflow-hidden shadow-sm">
+                    <img
+                      src={ad.image}
+                      alt="mobile-ad"
+                      className="w-full h-auto object-cover rounded-xl"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* ===== TABLET ===== */}
+          <div className="hidden sm:flex lg:hidden w-full">
+            {tabletTrack.map((ad, i) => (
+              <div key={i} className="flex-shrink-0 w-full">
+                {/* FULL WIDTH */}
+                <div className="w-full">
+                  <div className="px-4">
+                    <div className="rounded-xl overflow-hidden shadow-sm">
+                      <img
+                        src={ad.image}
+                        alt="tablet-ad"
+                        className="w-full h-auto object-cover rounded-xl"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ===== DESKTOP ===== */}
+          <div className="hidden lg:flex w-full">
+            {track.map((ad, i) => (
+              <div key={i} className="flex-shrink-0 w-full">
+                {/* FULL WIDTH  */}
+                <div className="w-full">
+                  <div className="px-4">
+                    <div
+                      data-aos="zoom-in"
+                      data-aos-duration="600"
+                      data-aos-delay="100"
+                      className="w-full rounded-xl overflow-hidden aspect-[16/3.5]"
+                    >
+                      <img
+                        src={ad.image}
+                        alt="ad"
+                        className="w-full h-full object-cover object-center rounded-xl"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
-
-        {/* ===== ARROWS (HIDDEN ) ===== */}
-        {/* <button
-          onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2
-                     bg-black/50 rounded-lg z-30
-                     h-8 w-8 sm:h-10 sm:w-10
-                     flex items-center justify-center
-                     hidden"
-        >
-          <FiChevronLeft className="text-white text-lg" />
-        </button>
-
-        <button
-          onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2
-                     bg-black/50 rounded-lg z-30
-                     h-8 w-8 sm:h-10 sm:w-10
-                     flex items-center justify-center
-                     hidden"
-        >
-          <FiChevronRight className="text-white text-lg" />
-        </button> */}
 
         {/* ===== DOTS ===== */}
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
@@ -137,6 +175,7 @@ function Carousel() {
             />
           ))}
         </div>
+
       </div>
     </section>
   )
