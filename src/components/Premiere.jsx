@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
-
 import premiereIconImg from "../assets/premiere-icon.avif"
+import { useNavigate } from "react-router-dom"
+
+
 
 // IMAGES
 import p1 from "../assets/p1.avif"
@@ -34,6 +36,8 @@ const cardsPerPage = 5
 function PremiereMovies() {
   const [page, setPage] = useState(0)
   const totalPages = Math.ceil(movies.length / cardsPerPage)
+  const navigate = useNavigate()
+
 
   return (
     <section className="bg-[#2B3148] py-10">
@@ -59,10 +63,14 @@ function PremiereMovies() {
             </p>
           </div>
 
-          <div className="flex items-center gap-1 cursor-pointer text-[#dc3558]">
+          <div
+            onClick={() => navigate("/events")}
+            className="flex items-center gap-1 cursor-pointer text-[#dc3558] hover:opacity-80 transition"
+          >
             <span className="text-[13px] sm:text-[14px]">See All</span>
             <FiChevronRight className="text-[16px]" />
           </div>
+
         </div>
 
         {/* ================= DESKTOP ================= */}

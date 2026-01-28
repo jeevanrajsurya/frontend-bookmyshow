@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
+import { useNavigate } from "react-router-dom"
 
 // EVENT IMAGES
 import e1 from "../assets/e1.avif"
@@ -30,6 +31,7 @@ function YourMusicStudio() {
   const [page, setPage] = useState(0)
   const cardsPerPage = 5
   const totalPages = Math.ceil(events.length / cardsPerPage)
+  const navigate = useNavigate()
 
   return (
     <section className="bg-[#F5F7FA] pt-10">
@@ -41,11 +43,12 @@ function YourMusicStudio() {
             Your Music Studio
           </h2>
 
-          <div className="flex items-center gap-1 cursor-pointer">
-            <span className="text-[13px] sm:text-[14px] text-[#dc3558]">
-              See All
-            </span>
-            <FiChevronRight className="text-[#dc3558] text-[16px]" />
+         <div
+            onClick={() => navigate("/events")}
+            className="flex items-center gap-1 cursor-pointer text-[#dc3558] hover:opacity-80 transition"
+          >
+            <span className="text-[13px] sm:text-[14px]">See All</span>
+            <FiChevronRight className="text-[16px]" />
           </div>
         </div>
 

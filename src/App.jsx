@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
+import ScrollToTop from "./components/ScrollToTop"
+
 
 /* ================= AOS ================= */
 import AOS from "aos"
@@ -53,7 +55,8 @@ function App() {
 
       {/* ================= BOTTOM NAVBAR ================= */}
       <BottomNavbar />
-
+      {/* ================= SCROLL ================= */}
+      <ScrollToTop />
       {/* ================= ROUTES ================= */}
       <Routes>
         {/* Common */}
