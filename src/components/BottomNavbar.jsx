@@ -16,11 +16,11 @@ function BottomNavbar() {
 
   const leftMenu = [
     { label: "Movies", path: "/movies", icon: moviesIcon },
-    { label: "Stream", path: "/stream", icon: streamIcon },
     { label: "Events", path: "/events", icon: eventsIcon },
     { label: "Plays", path: "/plays", icon: playsIcon },
     { label: "Sports", path: "/sports", icon: sportsIcon },
     { label: "Activities", path: "/activities", icon: activitiesIcon },
+    { label: "Stream", path: "/stream", icon: streamIcon },
   ]
 
   return (

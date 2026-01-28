@@ -173,35 +173,35 @@ function GiftCards() {
     </div>
 
     {/* Cards grid */}
-    <div className="flex flex-wrap justify-center sm:justify-between">
-      {giftCardsData.map((item, index) => (
-        <div
-          key={item.id}
-          data-aos="zoom-in"
-          data-aos-delay={(index % 4) * 80}
-          className="
-            w-[calc(50%-12px)]     
-            sm:w-[calc(33.333%-16px)] 
-            lg:w-[calc(25%-18px)]   
-            mb-4
-            sm:mb-6
-            rounded-[10px]
-            sm:rounded-[12px]
-            overflow-hidden
-            cursor-pointer
-            shadow-[0px_1px_5px_rgba(0,0,0,0.25)]
-            hover:shadow-[0px_6px_16px_rgba(0,0,0,0.3)]
-            transition
-          "
-        >
-          <img
-            src={item.image}
-            alt="gift card"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      ))}
+    <div className="flex flex-wrap justify-between gap-x-3 gap-y-4 sm:gap-x-4 sm:gap-y-6">
+  {giftCardsData.map((item, index) => (
+    <div
+      key={item.id}
+      data-aos="zoom-in"
+      data-aos-delay={(index % 4) * 80}
+      className="
+        w-[calc(50%-8px)]     
+        sm:w-[calc(33.333%-16px)] 
+        lg:w-[calc(25%-18px)]   
+        mb-0
+        rounded-[10px]
+        sm:rounded-[12px]
+        overflow-hidden
+        cursor-pointer
+        shadow-[0px_1px_5px_rgba(0,0,0,0.25)]
+        hover:shadow-[0px_6px_16px_rgba(0,0,0,0.3)]
+        transition
+      "
+    >
+      <img
+        src={item.image}
+        alt="gift card"
+        className="w-full h-full object-cover"
+      />
     </div>
+  ))}
+</div>
+
 
   </div>
 )}

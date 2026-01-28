@@ -8,7 +8,7 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
   const navigate = useNavigate()
 
   return (
-    <header className="w-full bg-white border-b border-gray-200 ">
+    <header className="w-full bg-white border-b border-gray-200 sm:border-gray-200 ">
       <div className="w-full h-16 ">
         <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4 sm:px-4">
 
@@ -25,7 +25,10 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
             </Link>
 
             {/* ===== MOBILE TEXT BLOCK  ===== */}
-            <div className="sm:hidden flex flex-col leading-tight">
+            <div 
+              onClick={() => navigate("/")}
+              className="sm:hidden flex flex-col leading-tight cursor-pointer"
+            >
               <span className="text-xl font-semibold text-black">
                 It All Starts Here!
               </span>
@@ -34,10 +37,13 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
                 onClick={onLocationClick}
                 className="flex items-center gap-1 text-[11px] text-gray-600 cursor-pointer"
               >
-                <span className="text-[#EB4E62] text-[14px]  font-bold">Coimbatore</span>
-                <IoChevronDown className="text-[14px]  text-[#EB4E62]" />
+                <span className="text-[#EB4E62] text-[14px] font-bold">
+                  Coimbatore
+                </span>
+                <IoChevronDown className="text-[14px] text-[#EB4E62]" />
               </div>
             </div>
+
 
             {/* ===== SEARCH BAR (TAB + DESKTOP) ===== */}
             <div
