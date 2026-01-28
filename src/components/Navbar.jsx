@@ -8,27 +8,38 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
   const navigate = useNavigate()
 
   return (
-    <header className="w-full bg-white">
+    <header className="w-full bg-white border-b border-gray-200">
       <div className="w-full h-16">
         <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4">
 
-          {/* LEFT SECTION */}
+          {/* ================= LEFT SECTION ================= */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
-            {/* LOGO */}
-            <Link to="/">
+
+            {/* LOGO (TAB + DESKTOP ONLY) */}
+            <Link to="/" className="hidden sm:block">
               <img
                 src={logo}
                 alt="BookMyShow"
-                className="
-                  h-7              /* all views */
-                  object-contain
-                  flex-shrink-0
-                  cursor-pointer
-                "
+                className="h-7 object-contain flex-shrink-0 cursor-pointer"
               />
             </Link>
 
-            {/* SEARCH BAR */}
+            {/* ===== MOBILE TEXT BLOCK (IMAGE MATCH) ===== */}
+            <div className="sm:hidden flex flex-col leading-tight">
+              <span className="text-xl font-semibold text-black">
+                It All Starts Here!
+              </span>
+
+              <div
+                onClick={onLocationClick}
+                className="flex items-center gap-1 text-[11px] text-gray-600 cursor-pointer"
+              >
+                <span className="text-[#EB4E62] text-[14px]  font-bold">Coimbatore</span>
+                <IoChevronDown className="text-[14px]  text-[#EB4E62]" />
+              </div>
+            </div>
+
+            {/* ===== SEARCH BAR (TAB + DESKTOP SAME) ===== */}
             <div
               onClick={() => navigate("/search")}
               className="
@@ -67,12 +78,24 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               />
             </div>
           </div>
+
           <div className="w-4 sm:w-6 md:w-8"></div>
 
-          {/* RIGHT SECTION */}
-          <div className="flex items-center gap-4 flex-shrink-0">
+          {/* ================= RIGHT SECTION ================= */}
+          <div className="flex items-center gap-3 flex-shrink-0">
 
-            {/* LOCATION */}
+            {/* ===== MOBILE USE APP BUTTON ===== */}
+            <button  onClick={onSigninClick} className="sm:hidden text-[11px] px-3 py-1 border rounded-md border-gray-400 text-gray-700">
+              Sign in
+            </button>
+
+            {/* ===== MOBILE SEARCH ICON ===== */}
+            <TbSearch
+              onClick={() => navigate("/search")}
+              className="sm:hidden text-[20px] text-gray-500 cursor-pointer"
+            />
+
+            {/* ===== LOCATION (TAB + DESKTOP SAME) ===== */}
             <div
               onClick={onLocationClick}
               className="
@@ -88,10 +111,11 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               <IoChevronDown className="text-gray-400 text-sm" />
             </div>
 
-            {/* SIGN IN BUTTON  */}
+            {/* ===== SIGN IN (TAB + DESKTOP ONLY) ===== */}
             <button
               onClick={onSigninClick}
               className="
+                hidden sm:block
                 h-[28px]
                 px-4
                 bg-[#EB4E62]
@@ -104,10 +128,10 @@ function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
               Sign in
             </button>
 
-            {/* HAMBURGER MENU */}
+            {/* ===== HAMBURGER (TAB + DESKTOP ONLY) ===== */}
             <RxHamburgerMenu
               onClick={onMenuClick}
-              className="text-2xl cursor-pointer"
+              className="hidden sm:block text-2xl cursor-pointer"
             />
           </div>
 
