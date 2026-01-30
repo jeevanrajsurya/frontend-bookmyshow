@@ -19,7 +19,7 @@ import tAd3 from "../assets/tablet-ad3.avif"
 import tAd4 from "../assets/tablet-ad4.avif"
 
 const ads = [
-  { id: 1, image: ad1 },
+  // { id: 1, image: ad1 },
   { id: 2, image: ad2 },
   { id: 3, image: ad3 },
   { id: 4, image: ad4 },
@@ -135,7 +135,7 @@ function Carousel() {
                   <div className="rounded-xl overflow-hidden aspect-[16/4.8] shadow-md">
                     <img
                       src={ad.image}
-                      className="w-full h-full  object-fit rounded-xl"
+                      className="w-full h-full object-cover object-center rounded-xl"
                     />
                   </div>
                 </div>
