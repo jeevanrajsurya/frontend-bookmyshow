@@ -36,14 +36,14 @@ function Corporates() {
  useEffect(() => {
   AOS.init({
     once: true,
-    duration: 600,          // 🔥 faster
+    duration: 600,          
     easing: "ease-out",
-    offset: 60,             // 🔥 EARLY trigger
+    offset: 60,            
     delay: 0,
-    anchorPlacement: "top-bottom", // 🔥 scroll panna udane
+    anchorPlacement: "top-bottom", 
   })
 
-  // 🔥 images load aana apram refresh
+  //  images load  refresh
   window.addEventListener("load", () => {
     AOS.refreshHard()
   })
@@ -755,7 +755,7 @@ function Corporates() {
         </button>
       </div>
 
-      {/* RIGHT IMAGE – RESPONSIVE */}
+      {/* RIGHT IMAGE */}
       <div
         data-aos="fade-left"
         data-aos-offset="60"
@@ -791,7 +791,7 @@ function Corporates() {
         items-stretch
       "
     >
-      {/* LEFT IMAGE – RESPONSIVE */}
+      {/* LEFT IMAGE  */}
       <div
         data-aos="fade-right"
          data-aos-offset="60"
@@ -1007,7 +1007,7 @@ function Corporates() {
         </button>
       </div>
 
-      {/* RIGHT IMAGE – RESPONSIVE */}
+      {/* RIGHT IMAGE  */}
       <div
         data-aos="fade-left"
        data-aos-offset="60"

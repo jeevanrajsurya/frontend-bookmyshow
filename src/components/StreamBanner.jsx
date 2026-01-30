@@ -10,7 +10,7 @@ const streamBanner = {
 const StreamBanner = () => {
   return (
     <section className="w-full bg-[#f5f5f5] py-2 sm:py-4 lg:py-5">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 ">
         <div
           data-aos="zoom-in"
           data-aos-duration="600"

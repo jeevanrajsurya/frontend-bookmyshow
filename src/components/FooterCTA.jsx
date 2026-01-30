@@ -257,7 +257,6 @@ function FooterCTA() {
         key={i}
         onClick={() => {
           navigate(item.path)
-          window.scrollTo({ top: 0, behavior: "smooth" })
         }}
         className="cursor-pointer flex flex-col items-center"
       >
