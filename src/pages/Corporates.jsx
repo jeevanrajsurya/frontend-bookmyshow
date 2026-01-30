@@ -318,7 +318,7 @@ function Corporates() {
 
 {/* ================= STATS ================= */}
 <section
-  data-aos="fade-up"
+  // data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-14 sm:py-16 lg:py-20"
 >
   <div
@@ -337,7 +337,7 @@ function Corporates() {
     "
   >
     {/* ITEM 1 */}
-    <div data-aos="fade-up"  data-aos-offset="40">
+    <div>
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         1000+
       </h3>
@@ -348,7 +348,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 2 */}
-    <div data-aos="fade-up"  data-aos-offset="40">
+    <div >
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         6000
       </h3>
@@ -359,7 +359,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 3 */}
-    <div data-aos="fade-up"  data-aos-offset="40">
+    <div >
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         1000+
       </h3>
@@ -370,7 +370,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 4 */}
-    <div data-aos="fade-up"  data-aos-offset="40">
+    <div >
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         15 MILLION+
       </h3>
@@ -381,7 +381,7 @@ function Corporates() {
     </div>
 
     {/* ITEM 5 */}
-    <div data-aos="fade-up"  data-aos-offset="40">
+    <div >
       <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#222]">
         4 Billion
       </h3>
@@ -396,7 +396,7 @@ function Corporates() {
 
       {/* ================= BRAND PROMOTIONS ================= */}
 <section
-  data-aos="fade-up"
+ 
   className="w-full bg-[#f2f2f2]"
 >
   {/* WHITE CONTAINER */}
@@ -423,8 +423,8 @@ function Corporates() {
         "
       >
         <p
-          data-aos="fade-up"
-          data-aos-offset="60"
+        data-aos="fade-up"
+        data-aos-offset="60"
           className="
             text-[13px]
             sm:text-[14px]
@@ -436,12 +436,12 @@ function Corporates() {
             pb-1
           "
         >
-          WHAT&apos;S IN IT FOR YOU
+          WHAT & apos;S IN IT FOR YOU
         </p>
 
         <h2
-          data-aos="fade-up"
-         data-aos-offset="60"
+         data-aos="fade-right"
+        data-aos-offset="60"
           className="
             text-[24px]
             sm:text-[26px]
@@ -459,8 +459,8 @@ function Corporates() {
         </h2>
 
         <p
-          data-aos="fade-up"
-          data-aos-offset="60"
+         data-aos="fade-right"
+        data-aos-offset="60"
           className="
             text-[14px]
             sm:text-[15px]
@@ -480,8 +480,8 @@ function Corporates() {
         </p>
 
         <button
-          data-aos="fade-up"
-         data-aos-offset="60"
+          data-aos="fade-right"
+          data-aos-offset="60"
           className="
             w-[200px]
             sm:w-[220px]
@@ -509,7 +509,7 @@ function Corporates() {
       {/* RIGHT IMAGE */}
       <div
         data-aos="fade-left"
-       data-aos-offset="60"
+        data-aos-offset="60"
         className="
           w-full
           h-[220px]
@@ -526,8 +526,8 @@ function Corporates() {
       </div>
     </div>
   </div>
+
 <section
-  data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
 >
   {/* WHITE CONTAINER */}
@@ -644,7 +644,6 @@ function Corporates() {
   </div>
    
    <section
-  data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
 >
   {/* WHITE CONTAINER */}
@@ -778,7 +777,7 @@ function Corporates() {
 
 
 <section
-  data-aos="fade-up"
+
   className="w-full bg-[#f2f2f2] py-2"
 >
   {/* WHITE CONTAINER */}
@@ -896,7 +895,6 @@ function Corporates() {
 
 
  <section
-  data-aos="fade-up"
   className="w-full bg-[#f2f2f2] py-2"
 >
   {/* WHITE CONTAINER */}
