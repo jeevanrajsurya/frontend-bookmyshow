@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
+import { useNavigate } from "react-router-dom";
+
 
 import m1 from "../assets/m1.avif"
 import m2 from "../assets/m2.avif"
@@ -29,6 +31,8 @@ function RecommendedMovies() {
   const [page, setPage] = useState(0)
   const cardsPerPage = 5
   const totalPages = Math.ceil(movies.length / cardsPerPage)
+  const navigate = useNavigate();
+
 
   return (
     <section className="bg-[#F5F7FA] py-5">
@@ -39,10 +43,14 @@ function RecommendedMovies() {
           <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold">
             Recommended Movies
           </h2>
-          <div className="flex items-center gap-1 text-[#dc3558] cursor-pointer">
-            <span className="text-sm">See All</span>
-            <FiChevronRight />
-          </div>
+         <div
+            onClick={() => navigate("/movies")}
+            className="flex items-center gap-1 text-[#dc3558] cursor-pointer"
+            >
+        <span className="text-sm">See All</span>
+        <FiChevronRight />
+        </div>
+
         </div>
 
         {/* ================= DESKTOP ================= */}

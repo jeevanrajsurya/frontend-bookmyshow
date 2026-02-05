@@ -1,8 +1,11 @@
 import Carousel from "../components/Carousel"
 import { useState, useEffect } from "react"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
+import FooterCTA from "../components/FooterCTA";
 
-/* ================= EVENT IMAGES ================= */
+
+
+/* ================= IMAGES ================= */
 import e1 from "../assets/m1.avif"
 import e2 from "../assets/m2.avif"
 import e3 from "../assets/m3.avif"
@@ -67,6 +70,9 @@ function Movies() {
 
       {/*  EVENTS SECTION */}
       <EventsSection />
+
+      {/*  EVENTS SECTION */}
+      <FooterCTA />
     </div>
   )
 }
