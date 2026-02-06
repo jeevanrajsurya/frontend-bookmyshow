@@ -30,6 +30,7 @@ import Events from "./pages/Events"
 import Plays from "./pages/Plays"
 import Sports from "./pages/Sports"
 import Activities from "./pages/Activities"
+import MovieDetails from "./pages/MovieDetails"
 
 function App() {
   const [showLocation, setShowLocation] = useState(false)
