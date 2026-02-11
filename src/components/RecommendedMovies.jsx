@@ -1,18 +1,17 @@
-import { useState } from "react"
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
+import { useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-
-import m1 from "../assets/m1.avif"
-import m2 from "../assets/m2.avif"
-import m3 from "../assets/m3.avif"
-import m4 from "../assets/m4.avif"
-import m5 from "../assets/m5.avif"
-import m6 from "../assets/m6.avif"
-import m7 from "../assets/m7.avif"
-import m8 from "../assets/m8.avif"
-import m9 from "../assets/m9.avif"
-import m10 from "../assets/m10.avif"
+import m1 from "../assets/m1.avif";
+import m2 from "../assets/m2.avif";
+import m3 from "../assets/m3.avif";
+import m4 from "../assets/m4.avif";
+import m5 from "../assets/m5.avif";
+import m6 from "../assets/m6.avif";
+import m7 from "../assets/m7.avif";
+import m8 from "../assets/m8.avif";
+import m9 from "../assets/m9.avif";
+import m10 from "../assets/m10.avif";
 
 const movies = [
   { id: 1, title: "Tu Meri Main Tera Main Tera Tu Meri", genre: "Action/Adventure/Fantasy/Sci-Fi", image: m1 },
@@ -25,14 +24,13 @@ const movies = [
   { id: 8, title: "Zootapia", genre: "Thriller", image: m8 },
   { id: 9, title: "Koompuseevi", genre: "Action/Drama", image: m9 },
   { id: 10, title: "Mission Santa", genre: "Family/Animation", image: m10 }
-]
+];
 
 function RecommendedMovies() {
-  const [page, setPage] = useState(0)
-  const cardsPerPage = 5
-  const totalPages = Math.ceil(movies.length / cardsPerPage)
+  const [page, setPage] = useState(0);
+  const cardsPerPage = 5;
+  const totalPages = Math.ceil(movies.length / cardsPerPage);
   const navigate = useNavigate();
-
 
   return (
     <section className="bg-[#F5F7FA] py-5">
@@ -43,17 +41,17 @@ function RecommendedMovies() {
           <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold">
             Recommended Movies
           </h2>
-         <div
+
+          <div
             onClick={() => navigate("/movies")}
             className="flex items-center gap-1 text-[#dc3558] cursor-pointer"
-            >
-        <span className="text-sm">See All</span>
-        <FiChevronRight />
+          >
+            <span className="text-sm">See All</span>
+            <FiChevronRight />
+          </div>
         </div>
 
-        </div>
-
-        {/* ================= DESKTOP ================= */}
+        {/* DESKTOP */}
         <div className="relative hidden lg:block">
           {page > 0 && (
             <button
@@ -100,7 +98,7 @@ function RecommendedMovies() {
           )}
         </div>
 
-        {/* ================= MOBILE + TABLET ================= */}
+        {/* MOBILE + TABLET */}
         <div
           className="
             lg:hidden
@@ -125,16 +123,20 @@ function RecommendedMovies() {
 
       </div>
     </section>
-  )
+  );
 }
 
 /* ================= MOVIE CARD ================= */
 function MovieCard({ movie, delay = 0 }) {
+  const navigate = useNavigate();
+
   return (
     <div
       data-aos="fade-right"
       data-aos-duration="600"
       data-aos-delay={delay}
+      onClick={() => navigate(`/movie/${movie.id}`)}
+      className="cursor-pointer"
     >
       <div className="aspect-[20/33] rounded-lg overflow-hidden">
         <img
@@ -152,7 +154,7 @@ function MovieCard({ movie, delay = 0 }) {
         {movie.genre}
       </p>
     </div>
-  )
+  );
 }
 
-export default RecommendedMovies
+export default RecommendedMovies;
