@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-import m1 from "../assets/m1.avif";
+import m1 from "../assets/withlove.avif";
 import m2 from "../assets/m2.avif";
 import m3 from "../assets/m3.avif";
 import m4 from "../assets/m4.avif";
@@ -14,7 +14,7 @@ import m9 from "../assets/m9.avif";
 import m10 from "../assets/m10.avif";
 
 const movies = [
-  { id: 1, title: "Tu Meri Main Tera Main Tera Tu Meri", genre: "Action/Adventure/Fantasy/Sci-Fi", image: m1 },
+  { id: 1, title: "With Love", genre: "Action/Adventure/Fantasy/Sci-Fi", image: m1 },
   { id: 2, title: "Avatar: Fire and Ash", genre: "Action/Drama/Thriller", image: m2 },
   { id: 3, title: "Sirai", genre: "Action/Thriller", image: m3 },
   { id: 4, title: "Retta Thala", genre: "Action/Adventure/Horror", image: m4 },
