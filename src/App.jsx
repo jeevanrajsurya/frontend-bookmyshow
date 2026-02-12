@@ -73,7 +73,7 @@ function App() {
         <Route path="/offers" element={<Offers />} />
         <Route path="/gift-cards" element={<GiftCards />} />
 
-        {/* 👉 IMPORTANT: MOVIE DETAILS ROUTE */}
+        {/*   MOVIE DETAILS ROUTE */}
         <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
 
