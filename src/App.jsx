@@ -30,7 +30,7 @@ import Plays from "./pages/Plays";
 import Sports from "./pages/Sports";
 import Activities from "./pages/Activities";
 
-/* ================= NEW MOVIE DETAILS PAGE ================= */
+/* ================= MOVIEDETAILS PAGE ================= */
 import MovieDetails from "./pages/MovieDetails";
 
 function App() {
@@ -73,7 +73,7 @@ function App() {
         <Route path="/offers" element={<Offers />} />
         <Route path="/gift-cards" element={<GiftCards />} />
 
-        {/*   MOVIE DETAILS ROUTE */}
+        {/*   MOVIEDETAILS ROUTE */}
         <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
 
