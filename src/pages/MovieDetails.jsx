@@ -340,7 +340,7 @@ const MovieDetails = () => {
     </span>
   </div>
 
-  {/* FIXED BOOK TICKETS BUTTON */}
+  {/*  BOOK TICKETS BUTTON */}
   <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
     Book tickets
   </button>
