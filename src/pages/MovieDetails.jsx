@@ -126,6 +126,29 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
+      {/* ===== DESKTOP ABOUT SECTION  ===== */}
+      <div className="hidden lg:block bg-[#ffffff] text-black py-12">
+      <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+
+      <h2 className="text-[26px] font-medium leading-[30px] text-[#1a1a1a] mb-4">
+        About the movie
+      </h2>
+
+      <p className="text-[18px] leading-[28px] text-[#404040] max-w-5xl">
+      Sathya, wary of arranged matches, agrees to a blind date set up by his sister 
+      and meets Monisha, only to discover they once shared the same school as senior 
+      and junior.
+      </p>
+
+      <p className="text-[18px] leading-[28px] text-[#404040] max-w-4xl mt-6">
+      As they bond over memories, old crushes, and unspoken feelings, their journey 
+      reconnects them with the past and unexpectedly draws them closer, paving the 
+      way for new love.
+      </p>
+
+    </div>
+  </div>
+
 
     {/* ================== TABLET VIEW  ================== */}
 <div className="hidden sm:block lg:hidden bg-[#ffffff] min-h-screen">
