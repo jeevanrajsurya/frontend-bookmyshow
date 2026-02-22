@@ -13,6 +13,25 @@ import tabPoster from "../assets/movie-poster-tab.avif";
 import mobilePoster from "../assets/movie-poster-mobile.avif"; 
 import offerIcon from "../assets/offer-icon.avif";
 
+import cast1 from "../assets/cast1.avif";
+import cast2 from "../assets/cast2.avif";
+import cast3 from "../assets/cast3.avif";
+import cast4 from "../assets/cast4.avif";
+import cast5 from "../assets/cast5.avif";
+import cast6 from "../assets/cast6.avif";
+import cast7 from "../assets/cast7.avif";
+import cast8 from "../assets/cast8.avif";
+
+const castList = [
+  { name: "Kavya Anil", role: "as Aneesha", img: cast1 },
+  { name: "Sacchin Nachiappan", role: "as Sathya", img: cast2 },
+  { name: "Ananthi Iyappan", role: "Actor", img: cast3 },
+  { name: "Abishan Jeevinth", role: "as Sathya Sheelan", img: cast4 },
+  { name: "Anaswara Rajan", role: "as Monisha", img: cast5 },
+  { name: "Saravanan", role: "Actor", img: cast6 },
+  { name: "Harish", role: "Actor", img: cast7 },
+  { name: "Nivetha", role: "Actor", img: cast8 },
+];
 
 
 const MovieDetails = () => {
@@ -21,8 +40,10 @@ const MovieDetails = () => {
 
   const [offerIndex, setOfferIndex] = React.useState(0);
 
+  const [castIndex, setCastIndex] = React.useState(0);
+
   return (
-    <div className="w-full bg-[#1a1a1a] text-white">
+    <div className="w-full bg-white text-white">
       {/* ===== BACKGROUND SECTION ===== */}
       <div
         className="relative w-full h-[550px] hidden lg:flex items-center"
@@ -171,7 +192,7 @@ const MovieDetails = () => {
         <button
           onClick={() => setOfferIndex((p) => Math.max(p - 1, 0))}
           className="absolute -left-6 top-1/2 -translate-y-1/2 z-20
-                     w-12 h-12 rounded-full bg-[#6b6b6b] text-white
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
                      flex items-center justify-center shadow-lg"
         >
           <FiChevronRight className="rotate-180" size={26} />
@@ -183,7 +204,7 @@ const MovieDetails = () => {
         <button
           onClick={() => setOfferIndex((p) => Math.min(p + 1, 3))}
           className="absolute -right-6 top-1/2 -translate-y-1/2 z-20
-                     w-12 h-12 rounded-full bg-[#6b6b6b] text-white
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
                      flex items-center justify-center shadow-lg"
         >
           <FiChevronRight size={26} />
@@ -203,7 +224,7 @@ const MovieDetails = () => {
            rounded-xl p-5 flex items-center gap-4
            border-[2px] border-[#f3d27a]
            [border-style:dashed]
-           [border-dasharray:14_10]"
+           [border-dasharray:18_16]"
 
 
             >
@@ -221,11 +242,82 @@ const MovieDetails = () => {
           ))}
         </div>
       </div>
+    </div>
+  </div>
+</div>
+{/* ===== DESKTOP CAST ===== */}
+<div className="hidden lg:block bg-white text-black pb-20">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+    
+    <h2 className="text-[24px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-6">
+      Cast
+    </h2>
+
+    <div className="relative max-w-5xl">
+      
+      {/* RIGHT FADE */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      {/* LEFT ARROW */}
+      {castIndex > 0 && (
+        <button
+          onClick={() => setCastIndex((p) => Math.max(p - 1, 0))}
+          className="absolute -left-6 top-1/3 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight className="rotate-180" size={26} />
+        </button>
+      )}
+
+      {/* RIGHT ARROW */}
+      {castIndex < castList.length - 6 && (
+        <button
+          onClick={() => setCastIndex((p) => Math.min(p + 1, castList.length - 6))}
+          className="absolute -right-6 top-1/3 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight size={26} />
+        </button>
+      )}
+
+      {/* TRACK */}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-2 transition-transform duration-500"
+          style={{ transform: `translateX(-${castIndex * 180}px)` }}
+        >
+          {castList.map((c, i) => (
+            <div key={i} className="min-w-[160px]">
+              
+              {/* IMAGE */}
+              <div className="w-[140px] h-[140px] rounded-2xl overflow-hidden">
+                <img
+                  src={c.img}
+                  alt={c.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* NAME */}
+              <p className="mt-3 text-[18px] font-medium text-[#1a1a1a]">
+                {c.name}
+              </p>
+
+              {/* ROLE */}
+              <p className="text-[16px] text-[#666]">
+                {c.role}
+              </p>
+
+            </div>
+          ))}
+        </div>
+      </div>
 
     </div>
   </div>
 </div>
-
 
     {/* ================== TABLET VIEW  ================== */}
 <div className="hidden sm:block lg:hidden bg-[#ffffff] min-h-screen">
@@ -330,10 +422,10 @@ const MovieDetails = () => {
       </span>
     </div>
 
-    
+
     {/* ===== TOP OFFERS ===== */}
 <div className="mt-6">
-  <h3 className="text-[18px] font-semibold text-[#1a1a1a] mb-4">
+  <h3 className="text-[20px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
     Top offers for you
   </h3>
 
@@ -368,6 +460,44 @@ const MovieDetails = () => {
     ))}
       </div>
     </div>
+
+      {/* ===== TABLET CAST ===== */}
+<div className="mt-4">
+  <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
+    Cast
+  </h3>
+
+  <div
+    className="flex gap-5 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {castList.map((c, i) => (
+      <div
+        key={i}
+        className="snap-start min-w-[22%]"
+      >
+        <div className="w-full aspect-square rounded-2xl overflow-hidden">
+          <img
+            src={c.img}
+            alt={c.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <p className="mt-3 text-[15px] font-medium text-[#1a1a1a]">
+          {c.name}
+        </p>
+        <p className="text-[13px] text-[#666]">
+          {c.role}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
   </div>
 </div>
 
@@ -499,7 +629,7 @@ const MovieDetails = () => {
         className="snap-start min-w-[85%]
                    bg-[#fff1cc]
                    rounded-xl p-3 flex items-center gap-3
-                   border-[2px] border-[#f3d27a]
+                   border-[1px] border-[#f3d27a]
                    [border-style:dashed]
                    [border-dasharray:14_10]"
       >
@@ -513,6 +643,43 @@ const MovieDetails = () => {
             Tap to view details
           </p>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+{/* ===== MOBILE CAST ===== */}
+<div className="mt-3 mb-8">
+  <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
+    Cast
+  </h3>
+
+  <div
+    className="flex gap-3 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {castList.map((c, i) => (
+      <div
+        key={i}
+        className="snap-start min-w-[32%]"
+      >
+        <div className="w-full aspect-square rounded-xl overflow-hidden">
+          <img
+            src={c.img}
+            alt={c.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <p className="mt-2 text-[13px] font-medium text-[#1a1a1a]">
+          {c.name}
+        </p>
+        <p className="text-[11px] text-[#666]">
+          {c.role}
+        </p>
       </div>
     ))}
   </div>
