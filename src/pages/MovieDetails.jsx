@@ -11,11 +11,15 @@ import bgImage from "../assets/movie-bg.avif";
 import poster from "../assets/movie-poster.avif";          
 import tabPoster from "../assets/movie-poster-tab.avif";   
 import mobilePoster from "../assets/movie-poster-mobile.avif"; 
+import offerIcon from "../assets/offer-icon.avif";
+
 
 
 const MovieDetails = () => {
   
   const [showMore, setShowMore] = React.useState(false);
+
+  const [offerIndex, setOfferIndex] = React.useState(0);
 
   return (
     <div className="w-full bg-[#1a1a1a] text-white">
@@ -126,28 +130,101 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-      {/* ===== DESKTOP ABOUT SECTION  ===== */}
-      <div className="hidden lg:block bg-[#ffffff] text-black py-12">
-      <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+          {/* ===== DESKTOP ABOUT SECTION  ===== */}
+          <div className="hidden lg:block bg-[#ffffff] text-black py-12">
+          <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
 
-      <h2 className="text-[26px] font-medium leading-[30px] text-[#1a1a1a] mb-4">
-        About the movie
-      </h2>
+          <h2 className="text-[26px] font-medium leading-[30px] text-[#1a1a1a] mb-4">
+            About the movie
+          </h2>
 
-      <p className="text-[18px] leading-[28px] text-[#404040] max-w-5xl">
-      Sathya, wary of arranged matches, agrees to a blind date set up by his sister 
-      and meets Monisha, only to discover they once shared the same school as senior 
-      and junior.
-      </p>
+          <p className="text-[18px] leading-[28px] text-[#404040] max-w-5xl">
+          Sathya, wary of arranged matches, agrees to a blind date set up by his sister 
+          and meets Monisha, only to discover they once shared the same school as senior 
+          and junior.
+          </p>
 
-      <p className="text-[18px] leading-[28px] text-[#404040] max-w-4xl mt-6">
-      As they bond over memories, old crushes, and unspoken feelings, their journey 
-      reconnects them with the past and unexpectedly draws them closer, paving the 
-      way for new love.
-      </p>
+          <p className="text-[18px] leading-[28px] text-[#404040] max-w-4xl mt-6">
+          As they bond over memories, old crushes, and unspoken feelings, their journey 
+          reconnects them with the past and unexpectedly draws them closer, paving the 
+          way for new love.
+          </p>
+
+        </div>
+      </div>
+
+{/* ===== DESKTOP TOP OFFERS ===== */}
+<div className="hidden lg:block bg-white text-black pb-16">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+    
+    <h2 className="text-[24px] font-bold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
+      Top offers for you
+    </h2>
+
+    <div className="relative max-w-5xl">
+      
+      {/* RIGHT FADE */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      {/* LEFT ARROW */}
+      {offerIndex > 0 && (
+        <button
+          onClick={() => setOfferIndex((p) => Math.max(p - 1, 0))}
+          className="absolute -left-6 top-1/2 -translate-y-1/2 z-20
+                     w-12 h-12 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight className="rotate-180" size={26} />
+        </button>
+      )}
+
+      {/* RIGHT ARROW */}
+      {offerIndex < 3 && (
+        <button
+          onClick={() => setOfferIndex((p) => Math.min(p + 1, 3))}
+          className="absolute -right-6 top-1/2 -translate-y-1/2 z-20
+                     w-12 h-12 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight size={26} />
+        </button>
+      )}
+
+      {/* TRACK */}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-10 transition-transform duration-500"
+          style={{ transform: `translateX(-${offerIndex * 420}px)` }}
+        >
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+            className="min-w-[490px] bg-[#fff1cc]
+           rounded-xl p-5 flex items-center gap-4
+           border-[2px] border-[#f3d27a]
+           [border-style:dashed]
+           [border-dasharray:14_10]"
+
+
+            >
+              <img src={offerIcon} className="w-6 h-6" />
+
+              <div>
+                <p className="text-[16px] font-medium text-[#1a1a1a]">
+                  YES Private Debit Card Offer
+                </p>
+                <p className="text-[14px] text-[#666] mt-1">
+                  Tap to view details
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
     </div>
   </div>
+</div>
 
 
     {/* ================== TABLET VIEW  ================== */}
@@ -252,9 +329,49 @@ const MovieDetails = () => {
         22.67K tickets booked in last 24 hours
       </span>
     </div>
+
+    
+    {/* ===== TOP OFFERS ===== */}
+<div className="mt-6">
+  <h3 className="text-[18px] font-semibold text-[#1a1a1a] mb-4">
+    Top offers for you
+  </h3>
+
+  <div
+    className="flex gap-4 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {[1,2,3,4].map((i) => (
+      <div
+        key={i}
+        className="snap-start min-w-[70%]
+                   bg-[#fff1cc]
+                   rounded-xl p-4 flex items-center gap-3
+                   border-[2px] border-[#f3d27a]
+                   [border-style:dashed]
+                   [border-dasharray:14_10]"
+      >
+        <img src={offerIcon} className="w-6 h-6" />
+
+        <div>
+          <p className="text-[14px] font-medium text-[#1a1a1a]">
+            YES Private Debit Card Offer
+          </p>
+          <p className="text-[12px] text-[#666] mt-0.5">
+            Tap to view details
+          </p>
+        </div>
+      </div>
+    ))}
+      </div>
+    </div>
   </div>
 </div>
 
+      
 
 
       {/* ================== MOBILE VIEW ================== */}
@@ -362,6 +479,44 @@ const MovieDetails = () => {
       2.67K booked in last 24 hours
     </span>
   </div>
+  
+{/* ===== TOP OFFERS  ===== */}
+<div className="mt-5">
+  <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
+    Top offers for you
+  </h3>
+
+  <div
+    className="flex gap-3 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {[1,2,3,4].map((i) => (
+      <div
+        key={i}
+        className="snap-start min-w-[85%]
+                   bg-[#fff1cc]
+                   rounded-xl p-3 flex items-center gap-3
+                   border-[2px] border-[#f3d27a]
+                   [border-style:dashed]
+                   [border-dasharray:14_10]"
+      >
+        <img src={offerIcon} className="w-5 h-5" />
+
+        <div>
+          <p className="text-[13px] font-medium text-[#1a1a1a]">
+            YES Private Debit Card Offer
+          </p>
+          <p className="text-[11px] text-[#666] mt-0.5">
+            Tap to view details
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
   {/*  BOOK TICKETS BUTTON */}
   <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
