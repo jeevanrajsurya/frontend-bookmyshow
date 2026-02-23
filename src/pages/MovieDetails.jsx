@@ -3,7 +3,9 @@ import { FiPlay, FiShare } from "react-icons/fi";
 import { AiFillStar } from "react-icons/ai";
 import { IoTrendingUp } from "react-icons/io5";
 import { FiChevronRight } from "react-icons/fi";
-
+import userIcon from "../assets/user.avif";
+import bmsLogo from "../assets/bookmyshow-logo.svg";
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 
 
 // ===== IMAGES =====
@@ -12,7 +14,7 @@ import poster from "../assets/movie-poster.avif";
 import tabPoster from "../assets/movie-poster-tab.avif";   
 import mobilePoster from "../assets/movie-poster-mobile.avif"; 
 import offerIcon from "../assets/offer-icon.avif";
-
+//cast
 import cast1 from "../assets/cast1.avif";
 import cast2 from "../assets/cast2.avif";
 import cast3 from "../assets/cast3.avif";
@@ -21,6 +23,14 @@ import cast5 from "../assets/cast5.avif";
 import cast6 from "../assets/cast6.avif";
 import cast7 from "../assets/cast7.avif";
 import cast8 from "../assets/cast8.avif";
+//crew
+import crew1 from "../assets/crew1.avif";
+import crew2 from "../assets/crew2.avif";
+import crew3 from "../assets/crew3.avif";
+import crew4 from "../assets/crew4.avif";
+import crew5 from "../assets/crew5.avif";
+import crew6 from "../assets/crew6.avif";
+import crew7 from "../assets/crew7.avif";
 
 const castList = [
   { name: "Kavya Anil", role: "as Aneesha", img: cast1 },
@@ -32,15 +42,45 @@ const castList = [
   { name: "Harish", role: "Actor", img: cast7 },
   { name: "Nivetha", role: "Actor", img: cast8 },
 ];
+const crewList = [
+  { name: "Madhan", role: "Director", img: crew1 },
+  { name: "Soundarya Rajinikanth", role: "producer", img: crew2 },
+  { name: "Magesh Raj Pasilian", role: "Producer", img: crew3 },
+  { name: "Sean Roldan", role: "Musician", img: crew4 },
+  { name: "Mohan Rajan", role: "Lyricist", img: crew5 },
+  { name: "Dr. Uma Devi", role: "Lyricist", img: crew6 },
+  { name: "Shreyaas Krishna", role: "Cinematographer", img: crew7 },
+];
+const reviewTags=[
+ {label:"SuperDirection",count:4522},
+ {label:"AwesomeStory",count:3875},
+ {label:"GreatActing",count:3829},
+ {label:"Wellmade",count:3717},
+ {label:"Blockbuster",count:3600},
+ {label:"FamilyEntertainer",count:3300},
+ {label:"MustWatch",count:3100},
+ {label:"FeelGood",count:2900},
+ {label:"Classic",count:2500},
+];
+const reviewCards=[
+ {rating:1,text:"#OneTimeWatch",likes:380,days:16},
+ {rating:10,text:"#SuperDirection #GreatActing #Wellmade",likes:334,days:16},
+ {rating:8,text:"#Super",likes:177,days:12},
+ {rating:9,text:"#MustWatch",likes:220,days:8},
+ {rating:7,text:"#Good",likes:150,days:5},
+];
+
 
 
 const MovieDetails = () => {
   
   const [showMore, setShowMore] = React.useState(false);
-
   const [offerIndex, setOfferIndex] = React.useState(0);
-
   const [castIndex, setCastIndex] = React.useState(0);
+  const [crewIndex, setCrewIndex] = React.useState(0);
+  const [reviewTagIndex,setReviewTagIndex]=React.useState(0);
+  const [reviewCardIndex,setReviewCardIndex]=React.useState(0);
+
 
   return (
     <div className="w-full bg-white text-white">
@@ -246,7 +286,7 @@ const MovieDetails = () => {
   </div>
 </div>
 {/* ===== DESKTOP CAST ===== */}
-<div className="hidden lg:block bg-white text-black pb-20">
+<div className="hidden lg:block bg-white text-black pb-20 ">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
     
     <h2 className="text-[24px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-6">
@@ -316,6 +356,235 @@ const MovieDetails = () => {
       </div>
 
     </div>
+  </div>
+</div>
+
+{/* ===== DESKTOP CREW ===== */}
+<div className="hidden lg:block bg-white text-black pb-20 -mt-10">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+    
+    <h2 className="text-[24px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-6">
+      Crew
+    </h2>
+
+    <div className="relative max-w-5xl">
+      
+      {/* RIGHT FADE */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      {/* LEFT ARROW */}
+      {crewIndex > 0 && (
+        <button
+          onClick={() => setCrewIndex((p) => Math.max(p - 1, 0))}
+          className="absolute -left-6 top-1/3 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight className="rotate-180" size={26} />
+        </button>
+      )}
+
+      {/* RIGHT ARROW */}
+      {crewIndex < crewList.length - 6 && (
+        <button
+          onClick={() => setCrewIndex((p) => Math.min(p + 1, crewList.length - 6))}
+          className="absolute -right-6 top-1/3 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight size={26} />
+        </button>
+      )}
+
+      {/* TRACK */}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-2 transition-transform duration-500"
+          style={{ transform: `translateX(-${crewIndex * 180}px)` }}
+        >
+          {crewList.map((c, i) => (
+            <div key={i} className="min-w-[160px]">
+              
+              {/* IMAGE */}
+              <div className="w-[140px] h-[140px] rounded-2xl overflow-hidden">
+                <img
+                  src={c.img}
+                  alt={c.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* NAME */}
+              <p className="mt-3 text-[18px] font-medium text-[#1a1a1a]">
+                {c.name}
+              </p>
+
+              {/* ROLE */}
+              <p className="text-[16px] text-[#666]">
+                {c.role}
+              </p>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+          {/* ===== DESKTOP TOP REVIEWS ===== */}
+<div className="hidden lg:block bg-white text-black pb-24">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+
+    {/* HEADER */}
+    <div className="flex items-center justify-between mb-6">
+      <h2 className="text-[24px] font-bold leading-[30px] tracking-[0.2px] text-[#1a1a1a]">
+        Top reviews
+      </h2>
+    </div>
+
+    {/* SUMMARY TEXT */}
+    <p className="text-[18px] font-normal leading-[24px] tracking-[0.2px] text-[#666666] mb-3">
+      Summary of 7.2K reviews.
+    </p>
+
+    {/* TAG SLIDER */}
+    <div className="relative max-w-5xl mb-8">
+
+      {/* RIGHT FADE */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      {/* LEFT ARROW */}
+      {reviewTagIndex > 0 && (
+        <button
+          onClick={() => setReviewTagIndex(p => Math.max(p - 1, 0))}
+          className="absolute -left-6 top-1/2 -translate-y-1/2 z-20
+                     w-7 h-7 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight className="rotate-180" />
+        </button>
+      )}
+
+      {/* RIGHT ARROW */}
+      {reviewTagIndex < 5 && (
+        <button
+          onClick={() => setReviewTagIndex(p => Math.min(p + 1, 5))}
+          className="absolute -right-6 top-1/2 -translate-y-1/2 z-20
+                     w-7 h-7 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight />
+        </button>
+      )}
+
+      {/* TRACK */}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-4 transition-transform duration-500"
+          style={{ transform: `translateX(-${reviewTagIndex * 220}px)` }}
+        >
+          {reviewTags.map((t,i)=>(
+            <div
+              key={i}
+              className="min-w-[200px] border border-[#999] rounded-[16px] bg-white px-[4px] py-[6px] flex items-center justify-between"
+            >
+              <span className="text-[16px] font-normal leading-[24px] tracking-[0.2px] text-[#dc354b] pl-[16px]">
+                #{t.label}
+              </span>
+              <span className="bg-gray-200 px-2 py-0.5 rounded uppercase text-[14px] font-normal leading-[20px] tracking-[0.2px] text-black">
+                {t.count}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* REVIEW CARDS SLIDER */}
+    <div className="relative max-w-5xl">
+
+      {/* RIGHT FADE */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      {/* LEFT ARROW */}
+      {reviewCardIndex > 0 && (
+        <button
+          onClick={() => setReviewCardIndex(p => Math.max(p - 1, 0))}
+          className="absolute -left-6 top-1/2 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight className="rotate-180"size={24} />
+        </button>
+      )}
+
+      {/* RIGHT ARROW */}
+      {reviewCardIndex < 4 && (
+        <button
+          onClick={() => setReviewCardIndex(p => Math.min(p + 1, 4))}
+          className="absolute -right-6 top-1/2 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight size={24}  />
+        </button>
+      )}
+
+      {/* TRACK */}
+<div className="overflow-hidden">
+  <div
+    className="flex gap-6 transition-transform duration-500"
+    style={{ transform: `translateX(-${reviewCardIndex * 420}px)` }}
+  >
+    {reviewCards.map((r, i) => (
+      <div
+        key={i}
+        className="min-w-[400px] min-h-[240px] border border-[#999] rounded-[8px] p-5 flex flex-col justify-between"
+      >
+        {/* USER */}
+        <div>
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex gap-3">
+              <img src={userIcon} className="w-10 h-10" />
+              <div>
+                <p className="text-[16px] font-normal leading-[24px] tracking-[0.2px]">User</p>
+                <p className="text-[14px] font-normal tracking-[0.2px] text-[#666666] flex items-center gap-1 leading-none">
+                  Booked on
+                  <img src={bmsLogo}  className="h-[18px]" />
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1 text-black font-semibold">
+              <AiFillStar className="text-red-400 " size={20} />
+              <span className="font-normal">{r.rating}/10</span>
+            </div>
+          </div>
+
+          {/* TEXT */}
+          <p className="text-[18px] font-medium leading-[24px] tracking-[0.2px] text-[#333333]  mb-6">
+            {r.text}
+          </p>
+        </div>
+
+        {/* FOOTER */}
+        <div className="flex items-center justify-between text-gray-500 text-sm">
+          <div className="flex gap-4 items-center">
+            <span className="flex items-center gap-1">
+              <AiOutlineLike size={20} /> {r.likes}
+            </span>
+            {/* <AiOutlineDislike size={20} /> */}
+          </div>
+          <span className="text-[#cccccc]">{r.days} Days ago</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+    </div>
+
   </div>
 </div>
 
@@ -477,7 +746,44 @@ const MovieDetails = () => {
     {castList.map((c, i) => (
       <div
         key={i}
-        className="snap-start min-w-[22%]"
+        className="snap-start min-w-[22.5%]"
+      >
+        <div className="w-full aspect-square rounded-2xl overflow-hidden">
+          <img
+            src={c.img}
+            alt={c.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <p className="mt-3 text-[15px] font-medium text-[#1a1a1a]">
+          {c.name}
+        </p>
+        <p className="text-[13px] text-[#666]">
+          {c.role}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
+ {/* ===== TABLET CREW ===== */}
+<div className="mt-4">
+  <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
+    Crew
+  </h3>
+
+  <div
+    className="flex gap-5 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {crewList.map((c, i) => (
+      <div
+        key={i}
+        className="snap-start min-w-[22.5%]"
       >
         <div className="w-full aspect-square rounded-2xl overflow-hidden">
           <img
@@ -649,7 +955,7 @@ const MovieDetails = () => {
 </div>
 
 {/* ===== MOBILE CAST ===== */}
-<div className="mt-3 mb-8">
+<div className="mt-4">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
     Cast
   </h3>
@@ -664,7 +970,7 @@ const MovieDetails = () => {
     {castList.map((c, i) => (
       <div
         key={i}
-        className="snap-start min-w-[32%]"
+        className="snap-start min-w-[22%]"
       >
         <div className="w-full aspect-square rounded-xl overflow-hidden">
           <img
@@ -674,10 +980,48 @@ const MovieDetails = () => {
           />
         </div>
 
-        <p className="mt-2 text-[13px] font-medium text-[#1a1a1a]">
+        <p className="mt-2 text-[12px] font-medium text-[#1a1a1a]">
           {c.name}
         </p>
-        <p className="text-[11px] text-[#666]">
+        <p className="text-[10px] text-[#666]">
+          {c.role}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+{/* ===== MOBILE CREW ===== */}
+<div className="mb-8">
+  <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
+    Crew
+  </h3>
+
+  <div
+    className="flex gap-3 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {crewList.map((c, i) => (
+      <div
+        key={i}
+        className="snap-start min-w-[22%]"
+      >
+        <div className="w-full aspect-square rounded-xl overflow-hidden">
+          <img
+            src={c.img}
+            alt={c.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <p className="mt-2 text-[12px] font-medium text-[#1a1a1a]">
+          {c.name}
+        </p>
+        <p className="text-[10px] text-[#666]">
           {c.role}
         </p>
       </div>
