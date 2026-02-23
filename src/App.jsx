@@ -33,6 +33,9 @@ import Activities from "./pages/Activities";
 /* ================= MOVIEDETAILS PAGE ================= */
 import MovieDetails from "./pages/MovieDetails";
 
+/* ✅ NEW — THEATERDETAILS PAGE */
+import TheaterDetails from "./pages/TheaterDetails";
+
 function App() {
   const [showLocation, setShowLocation] = useState(false);
   const [showSignin, setShowSignin] = useState(false);
@@ -73,8 +76,11 @@ function App() {
         <Route path="/offers" element={<Offers />} />
         <Route path="/gift-cards" element={<GiftCards />} />
 
-        {/*   MOVIEDETAILS ROUTE */}
+        {/* MOVIEDETAILS */}
         <Route path="/movie/:id" element={<MovieDetails />} />
+
+        {/*   THEATER ROUTE */}
+        <Route path="/theaters/:id" element={<TheaterDetails />} />
       </Routes>
 
       {showLocation && (

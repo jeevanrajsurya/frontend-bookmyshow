@@ -9,6 +9,7 @@ import { AiOutlineLike} from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 
 import FooterCTA from "../components/FooterCTA";
+import { useNavigate } from "react-router-dom";
 
 // ===== IMAGES =====
 import bgImage from "../assets/movie-bg.avif";
@@ -97,6 +98,8 @@ const likeMovies = [
 
 
 const MovieDetails = () => {
+
+  const navigate = useNavigate();
   
   const [showMore, setShowMore] = React.useState(false);
   const [offerIndex, setOfferIndex] = React.useState(0);
@@ -105,6 +108,7 @@ const MovieDetails = () => {
   const [reviewTagIndex,setReviewTagIndex]=React.useState(0);
   const [reviewCardIndex,setReviewCardIndex]=React.useState(0);
   const [likeIndex, setLikeIndex] = React.useState(0);
+
 
 
   return (
@@ -195,7 +199,9 @@ const MovieDetails = () => {
                 </span>
               </div>
 
-              <button className="mt-8 bg-[#dc3558] text-white px-18 py-4 rounded-lg text-[18px] font-medium leading-[24px] whitespace-nowrap">
+              <button 
+              onClick={() => navigate("/theaters/1")}
+              className="mt-8 bg-[#dc3558] text-white px-18 py-4 rounded-lg text-[18px] font-medium leading-[24px] whitespace-nowrap">
                 Book tickets
               </button>
             </div>
@@ -1128,11 +1134,7 @@ const MovieDetails = () => {
 </div>
   </div>
 </div>
-                                          {/* TABLET CTA */}
-
-<div className="hidden sm:block lg:hidden">
-  <FooterCTA />
-</div>
+                                         
 
 
       
@@ -1479,6 +1481,7 @@ const MovieDetails = () => {
 </div>
 
                                                 {/* ===== MOBILE FOOTER LINKS ===== */}
+                                                
 <div className="sm:hidden bg-white pb-20">
 
   {/* REPORT */}
@@ -1496,18 +1499,20 @@ const MovieDetails = () => {
     <span className="text-[#1a1a1a]">Latest Movies</span>
     < FiArrowRight size={12} />
     <span className="text-[#1a1a1a]">With Love</span>
-  </div>
-
-</div>
-
-
-                                          {/*  BOOK TICKETS BUTTON */}
-
-      <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
-        Book tickets
-      </button>
+    </div>
+      </div>
     </div>
   </div>
+
+                {/* ===== MOBILE + TAB BOOK BUTTON ===== */}
+      <div className="lg:hidden fixed bottom-0 left-0 w-full z-50">
+        <button
+          onClick={() => navigate("/theaters/1")}
+          className="w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
+          Book tickets
+        </button>
+      </div>
+
 </div>
   );
 };
