@@ -5,8 +5,10 @@ import { IoTrendingUp } from "react-icons/io5";
 import { FiChevronRight } from "react-icons/fi";
 import userIcon from "../assets/user.avif";
 import bmsLogo from "../assets/bookmyshow-logo.svg";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineLike} from "react-icons/ai";
+import { FiArrowRight } from "react-icons/fi";
 
+import FooterCTA from "../components/FooterCTA";
 
 // ===== IMAGES =====
 import bgImage from "../assets/movie-bg.avif";
@@ -31,6 +33,17 @@ import crew4 from "../assets/crew4.avif";
 import crew5 from "../assets/crew5.avif";
 import crew6 from "../assets/crew6.avif";
 import crew7 from "../assets/crew7.avif";
+//like
+import like1 from "../assets/like1.avif";
+import like2 from "../assets/like2.avif";
+import like3 from "../assets/like3.avif";
+import like4 from "../assets/like4.avif";
+import like5 from "../assets/like5.avif";
+import like6 from "../assets/like6.avif";
+import like7 from "../assets/like7.avif";
+// import like8 from "../assets/like8.avif";
+// import like9 from "../assets/like9.avif";
+// import like10 from "../assets/like10.avif";
 
 const castList = [
   { name: "Kavya Anil", role: "as Aneesha", img: cast1 },
@@ -69,7 +82,18 @@ const reviewCards=[
  {rating:9,text:"#MustWatch",likes:220,days:8},
  {rating:7,text:"#Good",likes:150,days:5},
 ];
-
+const likeMovies = [
+  { img: like1, rating: 9.2, votes: "7.5K+ votes", name: "Couple Friendly" },
+  { img: like2, rating: 9.8, votes: "95+ votes", name: "L.S.S: Love Subscribe " },
+  { img: like3, rating: 8.5, votes: "480+ votes", name: "Pookie" },
+  { img: like4, rating: 7.9, votes: "210+ votes", name: "Sweety Naughty" },
+  { img: like5, rating: 8.1, votes: "120+ votes", name: "Couple Friendly" },
+  { img: like6, rating: 7.5, votes: "90+ votes", name: "Sweety Naughty" },
+  { img: like7, rating: 8.9, votes: "600+ votes", name: "L.S.S: Love Subscribe " },
+  // { img: like8, rating: 7.8, votes: "300+ votes", name: "Movie 8" },
+  // { img: like9, rating: 9.1, votes: "1K+ votes", name: "Movie 9" },
+  // { img: like10, rating: 8.3, votes: "410+ votes", name: "Movie 10" },
+];
 
 
 const MovieDetails = () => {
@@ -80,6 +104,7 @@ const MovieDetails = () => {
   const [crewIndex, setCrewIndex] = React.useState(0);
   const [reviewTagIndex,setReviewTagIndex]=React.useState(0);
   const [reviewCardIndex,setReviewCardIndex]=React.useState(0);
+  const [likeIndex, setLikeIndex] = React.useState(0);
 
 
   return (
@@ -584,8 +609,116 @@ const MovieDetails = () => {
   </div>
 </div>
     </div>
+  </div>
+</div>
+
+{/* ===== DESKTOP YOU MIGHT ALSO LIKE===== */}
+<div className="hidden lg:block bg-white text-black pb-24 -mt-10">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+
+    {/* HEADER */}
+    <h2 className="text-[24px] font-bold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-6">
+      You might also like
+    </h2>
+
+    {/* SLIDER */}
+    <div className="relative max-w-5xl">
+
+      {/* RIGHT FADE */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      {/* LEFT ARROW */}
+      {likeIndex > 0 && (
+        <button
+          onClick={() => setLikeIndex(p => Math.max(p - 1, 0))}
+          className="absolute -left-3 top-1/3 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight className="rotate-180" size={24} />
+        </button>
+      )}
+
+      {/* RIGHT ARROW */}
+      {likeIndex < likeMovies.length - 4 && (
+        <button
+          onClick={() => setLikeIndex(p => Math.min(p + 1, likeMovies.length - 4))}
+          className="absolute -right-6 top-1/3 -translate-y-1/2 z-20
+                     w-10 h-10 rounded-full bg-[#6b6b6b] text-white
+                     flex items-center justify-center shadow-lg"
+        >
+          <FiChevronRight size={24} />
+        </button>
+      )}
+
+      {/* TRACK */}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-8 transition-transform duration-500"
+          style={{ transform: `translateX(-${likeIndex * 260}px)` }}
+        >
+          {likeMovies.map((m, i) => (
+            <div key={i} className="min-w-[240px]">
+
+              {/* POSTER */}
+              <div className="w-[240px] h-[350px] rounded-xl overflow-hidden">
+                <img
+                  src={m.img}
+                  alt={m.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* RATING */}
+            <div className="flex items-center justify-between mt-2">             
+                <div className="flex items-center gap-2">
+                  <AiFillStar className="text-red-400" size={26} />
+                  <span className="text-[22px] font-medium">{m.rating}</span>
+                </div>
+                <span className="text-[20px] text-[#666666]">
+                  {m.votes}
+                </span>
+              </div>
+
+              {/* NAME */}
+              <p className="mt-3 text-[18px] font-medium leading-[24px] tracking-[0.2px] text-[#1a1a1a]">
+                {m.name}
+              </p>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{/* ===== DESKTOP FOOTER LINKS ===== */}
+<div className="hidden lg:block bg-white text-black pb-16 -mt-10">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
+
+    {/* REPORT */}
+    <div className="flex items-center gap-1 text-[12px]  font-normal tracking-[0.2px] text-[#666666] mb-6 cursor-pointer">
+      <span>Report content</span>
+      <FiChevronRight size={14} />
+    </div>
+
+    {/* BREADCRUMB */}
+    <div className="flex items-center gap-1 text-[11px] font-medium text-[#666666] mt-10">
+      <span className="text-[#1a1a1a]">Home</span>
+      < FiArrowRight size={14} />
+      <span className="text-[#1a1a1a]" >Movie tickets</span>
+      < FiArrowRight size={14} />
+      <span className="text-[#1a1a1a]">Latest Movies</span>
+      < FiArrowRight size={14} />
+      <span className="text-[#1a1a1a]">With Love</span>
+    </div>
 
   </div>
+</div>
+{/* DESKTOP CTA */}
+<div className="hidden lg:block">
+  <FooterCTA />
 </div>
 
     {/* ================== TABLET VIEW  ================== */}
@@ -884,9 +1017,78 @@ const MovieDetails = () => {
   </div>
 </div>
 
-   
+    {/* ===== TABLET YOU MIGHT ALSO LIKE ===== */}
+<div className="mt-6">
+  <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
+    You might also like
+  </h3>
+
+  <div
+    className="flex gap-5 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {likeMovies.map((m, i) => (
+      <div key={i} className="snap-start min-w-[28%]">
+
+        {/* POSTER */}
+        <div className="w-full aspect-[2/3] rounded-xl overflow-hidden">
+          <img
+            src={m.img}
+            alt={m.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* RATING ROW */}
+        <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center gap-1">
+            <AiFillStar className="text-red-400" size={20} />
+            <span className="text-[14px] text-black font-medium">{m.rating}</span>
+          </div>
+          <span className="text-[14px] text-[#666666]">{m.votes}</span>
+        </div>
+
+        {/* NAME */}
+        <p className="mt-1 text-[17px] font-medium leading-[22px] tracking-[0.2px] text-[#1a1a1a]">
+          {m.name}
+        </p>
+
+      </div>
+    ))}
   </div>
 </div>
+
+    {/* ===== TABLET FOOTER LINKS ===== */}
+<div className="hidden sm:block lg:hidden bg-white pb-12">
+
+  {/* REPORT */}
+  <div className="flex items-center gap-1 text-[12px] text-[#666666] mb-6 mt-6">
+    <span>Report content</span>
+    <FiChevronRight size={12} />
+  </div>
+
+  {/* BREADCRUMB */}
+  <div className="flex items-center gap-1 text-[12px] text-[#666666]">
+    <span className="text-[#1a1a1a]">Home</span>
+    < FiArrowRight size={13} />
+    <span className="text-[#1a1a1a]">Movie tickets</span>
+    < FiArrowRight size={13} />
+    <span className="text-[#1a1a1a]">Latest Movies</span>
+    < FiArrowRight size={13} />
+    <span className="text-[#1a1a1a]">With Love</span>
+  </div>
+
+</div>
+  </div>
+</div>
+{/* TABLET CTA */}
+<div className="hidden sm:block lg:hidden">
+  <FooterCTA />
+</div>
+
 
       
 
@@ -1151,7 +1353,7 @@ const MovieDetails = () => {
 
 
 {/* ===== MOBILE CREW ===== */}
-<div className="mb-8">
+<div className="mb-6">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
     Crew
   </h3>
@@ -1187,15 +1389,79 @@ const MovieDetails = () => {
   </div>
 </div>
 
+    {/* ===== MOBILE YOU MIGHT ALSO LIKE ===== */}
+<div className=" mb-4">
+  <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
+    You might also like
+  </h3>
+
+  <div
+    className="flex gap-3 overflow-x-auto pb-2
+               snap-x snap-mandatory
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+  >
+    {likeMovies.map((m, i) => (
+      <div key={i} className="snap-start min-w-[42%]">
+
+        {/* POSTER */}
+        <div className="w-full aspect-[2/3] rounded-lg overflow-hidden">
+          <img
+            src={m.img}
+            alt={m.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* RATING */}
+        <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center gap-1">
+            <AiFillStar className="text-red-400" size={14} />
+            <span className="text-[13px] text-black font-medium">{m.rating}</span>
+          </div>
+          <span className="text-[13px] text-[#666666]">{m.votes}</span>
+        </div>
+
+        {/* NAME */}
+        <p className="mt-1 text-[13px] font-medium text-[#1a1a1a] leading-[18px]">
+          {m.name}
+        </p>
+
+      </div>
+    ))}
+  </div>
+</div>
+
+{/* ===== MOBILE FOOTER LINKS ===== */}
+<div className="sm:hidden bg-white pb-20">
+
+  {/* REPORT */}
+  <div className="flex items-center gap-1 text-[12px] text-[#666666] mb-4">
+    <span>Report content</span>
+    <FiChevronRight size={14} />
+  </div>
+
+  {/* BREADCRUMB */}
+  <div className="flex items-center gap-1 text-[10px] text-[#666666] flex-wrap">
+    <span className="text-[#1a1a1a]">Home</span>
+    < FiArrowRight size={12} />
+    <span className="text-[#1a1a1a]">Movie tickets</span>
+    < FiArrowRight size={12} />
+    <span className="text-[#1a1a1a]">Latest Movies</span>
+    < FiArrowRight size={12} />
+    <span className="text-[#1a1a1a]">With Love</span>
+  </div>
+
+</div>
+
 
   {/*  BOOK TICKETS BUTTON */}
   <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
     Book tickets
   </button>
 </div>
-
 </div>
-
     </div>
   );
 };
