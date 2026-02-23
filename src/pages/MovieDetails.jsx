@@ -129,7 +129,8 @@ const MovieDetails = () => {
           backgroundColor: "rgb(26, 26, 26)",
         }}
       >
-        {/* ===== DESKTOP  ===== */}
+                             {/* ===== DESKTOP  ===== */}
+
         <div className="relative w-full">
           <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto px-4 sm:px-4 flex gap-10 items-center">
             {/* LEFT POSTER  */}
@@ -216,7 +217,8 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-          {/* ===== DESKTOP ABOUT SECTION  ===== */}
+                        {/* ===== DESKTOP ABOUT SECTION  ===== */}
+
           <div className="hidden lg:block bg-[#ffffff] text-black py-12">
           <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
 
@@ -239,7 +241,8 @@ const MovieDetails = () => {
         </div>
       </div>
 
-{/* ===== DESKTOP TOP OFFERS ===== */}
+                            {/* ===== DESKTOP TOP OFFERS ===== */}
+
 <div className="hidden lg:block bg-white text-black pb-16">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
     
@@ -251,6 +254,10 @@ const MovieDetails = () => {
       
       {/* RIGHT FADE */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+      {/* LEFT FADE */}
+      {offerIndex > 0 && (
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+      )}
 
       {/* LEFT ARROW */}
       {offerIndex > 0 && (
@@ -310,7 +317,8 @@ const MovieDetails = () => {
     </div>
   </div>
 </div>
-{/* ===== DESKTOP CAST ===== */}
+                                    {/* ===== DESKTOP CAST ===== */}
+
 <div className="hidden lg:block bg-white text-black pb-20 ">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
     
@@ -320,8 +328,14 @@ const MovieDetails = () => {
 
     <div className="relative max-w-5xl">
       
+     {/* LEFT FADE */}
+    {castIndex > 0 && (
+    <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+    )}
+
       {/* RIGHT FADE */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+            
 
       {/* LEFT ARROW */}
       {castIndex > 0 && (
@@ -384,7 +398,8 @@ const MovieDetails = () => {
   </div>
 </div>
 
-{/* ===== DESKTOP CREW ===== */}
+                                      {/* ===== DESKTOP CREW ===== */}
+
 <div className="hidden lg:block bg-white text-black pb-20 -mt-10">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
     
@@ -394,6 +409,11 @@ const MovieDetails = () => {
 
     <div className="relative max-w-5xl">
       
+      {/* LEFT FADE */}
+      {crewIndex > 0 && (
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+      )}
+
       {/* RIGHT FADE */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
@@ -458,7 +478,8 @@ const MovieDetails = () => {
   </div>
 </div>
 
-          {/* ===== DESKTOP TOP REVIEWS ===== */}
+                                {/* ===== DESKTOP TOP REVIEWS ===== */}
+
 <div className="hidden lg:block bg-white text-black pb-24">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
 
@@ -477,9 +498,13 @@ const MovieDetails = () => {
     {/* TAG SLIDER */}
     <div className="relative max-w-5xl mb-8">
 
+      {/* LEFT FADE */}
+      {reviewTagIndex > 0 && (
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+      )}
+
       {/* RIGHT FADE */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
-
       {/* LEFT ARROW */}
       {reviewTagIndex > 0 && (
         <button
@@ -530,6 +555,11 @@ const MovieDetails = () => {
     {/* REVIEW CARDS SLIDER */}
     <div className="relative max-w-5xl">
 
+      {/* LEFT FADE */}
+      {reviewCardIndex > 0 && (
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+      )}
+
       {/* RIGHT FADE */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
@@ -541,7 +571,7 @@ const MovieDetails = () => {
                      w-10 h-10 rounded-full bg-[#6b6b6b] text-white
                      flex items-center justify-center shadow-lg"
         >
-          <FiChevronRight className="rotate-180"size={24} />
+          <FiChevronRight className="rotate-180"size={26} />
         </button>
       )}
 
@@ -553,7 +583,7 @@ const MovieDetails = () => {
                      w-10 h-10 rounded-full bg-[#6b6b6b] text-white
                      flex items-center justify-center shadow-lg"
         >
-          <FiChevronRight size={24}  />
+          <FiChevronRight size={26}  />
         </button>
       )}
 
@@ -612,7 +642,8 @@ const MovieDetails = () => {
   </div>
 </div>
 
-{/* ===== DESKTOP YOU MIGHT ALSO LIKE===== */}
+                                {/* ===== DESKTOP YOU MIGHT ALSO LIKE===== */}
+
 <div className="hidden lg:block bg-white text-black pb-24 -mt-10">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
 
@@ -623,6 +654,11 @@ const MovieDetails = () => {
 
     {/* SLIDER */}
     <div className="relative max-w-5xl">
+
+      {/* LEFT FADE */}
+      {likeIndex > 0 && (
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+      )}
 
       {/* RIGHT FADE */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
@@ -635,7 +671,7 @@ const MovieDetails = () => {
                      w-10 h-10 rounded-full bg-[#6b6b6b] text-white
                      flex items-center justify-center shadow-lg"
         >
-          <FiChevronRight className="rotate-180" size={24} />
+          <FiChevronRight className="rotate-180" size={26} />
         </button>
       )}
 
@@ -647,7 +683,7 @@ const MovieDetails = () => {
                      w-10 h-10 rounded-full bg-[#6b6b6b] text-white
                      flex items-center justify-center shadow-lg"
         >
-          <FiChevronRight size={24} />
+          <FiChevronRight size={26} />
         </button>
       )}
 
@@ -693,7 +729,10 @@ const MovieDetails = () => {
     </div>
   </div>
 </div>
-{/* ===== DESKTOP FOOTER LINKS ===== */}
+
+
+                                        {/* ===== DESKTOP FOOTER LINKS ===== */}
+
 <div className="hidden lg:block bg-white text-black pb-16 -mt-10">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4">
 
@@ -721,7 +760,12 @@ const MovieDetails = () => {
   <FooterCTA />
 </div>
 
-    {/* ================== TABLET VIEW  ================== */}
+
+
+
+
+                              {/* ================== TABLET VIEW  ================== */}
+
 <div className="hidden sm:block lg:hidden bg-[#ffffff] min-h-screen">
 
   {/* TAB POSTER  */}
@@ -825,7 +869,7 @@ const MovieDetails = () => {
     </div>
 
 
-    {/* ===== TOP OFFERS ===== */}
+                                          {/* ===== TOP OFFERS ===== */}
 <div className="mt-6">
   <h3 className="text-[20px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
     Top offers for you
@@ -863,7 +907,7 @@ const MovieDetails = () => {
       </div>
     </div>
 
-     {/* ===== TABLET TOP REVIEWS ===== */}
+                                        {/* ===== TABLET TOP REVIEWS ===== */}
 <div className="mt-6">
   <h3 className="text-[20px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
     Top reviews
@@ -943,7 +987,7 @@ const MovieDetails = () => {
 </div>
 
 
-      {/* ===== TABLET CAST ===== */}
+                                                {/* ===== TABLET CAST ===== */}
 <div className="mt-4">
   <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
     Cast
@@ -980,7 +1024,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
- {/* ===== TABLET CREW ===== */}
+                                            {/* ===== TABLET CREW ===== */}
 <div className="mt-4">
   <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
     Crew
@@ -1017,7 +1061,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
-    {/* ===== TABLET YOU MIGHT ALSO LIKE ===== */}
+                                            {/* ===== TABLET YOU MIGHT ALSO LIKE ===== */}
 <div className="mt-6">
   <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
     You might also like
@@ -1061,7 +1105,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
-    {/* ===== TABLET FOOTER LINKS ===== */}
+                                                      {/* ===== TABLET FOOTER LINKS ===== */}
 <div className="hidden sm:block lg:hidden bg-white pb-12">
 
   {/* REPORT */}
@@ -1084,7 +1128,8 @@ const MovieDetails = () => {
 </div>
   </div>
 </div>
-{/* TABLET CTA */}
+                                          {/* TABLET CTA */}
+
 <div className="hidden sm:block lg:hidden">
   <FooterCTA />
 </div>
@@ -1093,7 +1138,7 @@ const MovieDetails = () => {
       
 
 
-      {/* ================== MOBILE VIEW ================== */}
+                                      {/* ================== MOBILE VIEW ================== */}
 <div className="sm:hidden bg-[#ffffff] min-h-screen">
 
 <div className="px-4 pt-4">
@@ -1199,7 +1244,7 @@ const MovieDetails = () => {
     </span>
   </div>
   
-{/* ===== TOP OFFERS  ===== */}
+                                                    {/* ===== TOP OFFERS  ===== */}
 <div className="mt-5">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
     Top offers for you
@@ -1237,7 +1282,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
-{/* ===== MOBILE TOP REVIEWS ===== */}
+                                                  {/* ===== MOBILE TOP REVIEWS ===== */}
 <div className="mt-5 mb-4">
   <h3 className="text-[16px] font-semibold tracking-[0.2px] text-[#1a1a1a] mb-3">
     Top reviews
@@ -1314,7 +1359,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
-{/* ===== MOBILE CAST ===== */}
+                                                        {/* ===== MOBILE CAST ===== */}
 <div className="mt-4">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
     Cast
@@ -1352,7 +1397,7 @@ const MovieDetails = () => {
 </div>
 
 
-{/* ===== MOBILE CREW ===== */}
+                                                    {/* ===== MOBILE CREW ===== */}
 <div className="mb-6">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
     Crew
@@ -1389,7 +1434,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
-    {/* ===== MOBILE YOU MIGHT ALSO LIKE ===== */}
+                                                {/* ===== MOBILE YOU MIGHT ALSO LIKE ===== */}
 <div className=" mb-4">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
     You might also like
@@ -1433,7 +1478,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
-{/* ===== MOBILE FOOTER LINKS ===== */}
+                                                {/* ===== MOBILE FOOTER LINKS ===== */}
 <div className="sm:hidden bg-white pb-20">
 
   {/* REPORT */}
@@ -1456,13 +1501,14 @@ const MovieDetails = () => {
 </div>
 
 
-  {/*  BOOK TICKETS BUTTON */}
-  <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
-    Book tickets
-  </button>
-</div>
-</div>
+                                          {/*  BOOK TICKETS BUTTON */}
+
+      <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
+        Book tickets
+      </button>
     </div>
+  </div>
+</div>
   );
 };
 
