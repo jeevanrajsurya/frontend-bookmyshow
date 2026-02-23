@@ -730,6 +730,86 @@ const MovieDetails = () => {
       </div>
     </div>
 
+     {/* ===== TABLET TOP REVIEWS ===== */}
+<div className="mt-6">
+  <h3 className="text-[20px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
+    Top reviews
+  </h3>
+
+  <p className="text-[16px] font-normal leading-[24px] tracking-[0.2px] text-[#666666] mb-3">
+    Summary of 7.2K reviews.
+  </p>
+
+  {/* TAG SCROLL */}
+  <div className="flex gap-4 overflow-x-auto pb-2
+                  snap-x snap-mandatory
+                  [-ms-overflow-style:none]
+                  [scrollbar-width:none]
+                  [&::-webkit-scrollbar]:hidden mb-6">
+    {reviewTags.map((t,i)=>(
+      <div
+        key={i}
+        className="snap-start min-w-[200px] border border-[#999] rounded-[16px] bg-white px-[4px] py-[6px] flex items-center justify-between"
+      >
+        <span className="text-[16px] font-normal leading-[24px] tracking-[0.2px] text-[#dc354b] pl-[16px]">
+          #{t.label}
+        </span>
+        <span className="bg-gray-200 px-2 py-0.5 rounded uppercase text-[14px] font-normal leading-[20px] tracking-[0.2px] text-black">
+          {t.count}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  {/* REVIEW CARDS */}
+  <div className="flex gap-6 overflow-x-auto pb-2
+                  snap-x snap-mandatory
+                  [-ms-overflow-style:none]
+                  [scrollbar-width:none]
+                  [&::-webkit-scrollbar]:hidden">
+    {reviewCards.map((r,i)=>(
+      <div
+        key={i}
+        className="snap-start min-w-[400px] min-h-[200px] border border-[#999] rounded-[8px] p-5 flex flex-col justify-between"
+      >
+        <div>
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex gap-3">
+              <img src={userIcon} className="w-10 h-10"/>
+              <div>
+                <p className="text-[14px] text-[#1a1a1a]">User</p>
+                <p className="text-[14px] font-normal tracking-[0.2px] text-[#666666] flex items-center gap-1 leading-none">
+                  Booked on
+                  <img src={bmsLogo} className="h-[18px]"/>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1 text-black font-semibold">
+              <AiFillStar className="text-red-400" size={20}/>
+              <span className="font-normal">{r.rating}/10</span>
+            </div>
+          </div>
+
+          <p className="text-[18px] font-medium leading-[24px] tracking-[0.2px] text-[#333333] mb-6">
+            {r.text}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between text-gray-500 text-sm">
+          <div className="flex gap-4 items-center">
+            <span className="flex items-center gap-1">
+              <AiOutlineLike size={20}/> {r.likes}
+            </span>
+          </div>
+          <span className="text-[#cccccc]">{r.days} Days ago</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
       {/* ===== TABLET CAST ===== */}
 <div className="mt-4">
   <h3 className="text-[22px] font-semibold leading-[30px] tracking-[0.2px] text-[#1a1a1a] mb-4">
@@ -804,6 +884,7 @@ const MovieDetails = () => {
   </div>
 </div>
 
+   
   </div>
 </div>
 
@@ -954,6 +1035,83 @@ const MovieDetails = () => {
   </div>
 </div>
 
+{/* ===== MOBILE TOP REVIEWS ===== */}
+<div className="mt-5 mb-4">
+  <h3 className="text-[16px] font-semibold tracking-[0.2px] text-[#1a1a1a] mb-3">
+    Top reviews
+  </h3>
+
+  <p className="text-[14px] font-normal leading-[20px] tracking-[0.2px] text-[#666666] mb-3">
+    Summary of 7.2K reviews.
+  </p>
+
+  {/* TAG SCROLL */}
+  <div className="flex gap-3 overflow-x-auto pb-2
+                  snap-x snap-mandatory
+                  [-ms-overflow-style:none]
+                  [scrollbar-width:none]
+                  [&::-webkit-scrollbar]:hidden mb-4">
+    {reviewTags.map((t,i)=>(
+      <div
+        key={i}
+        className="snap-start min-w-[180px] border border-[#999] rounded-[16px] bg-white px-[4px] py-[6px] flex items-center justify-between"
+      >
+        <span className="text-[14px] tracking-[0.2px] text-[#dc354b] pl-[12px]">
+          #{t.label}
+        </span>
+        <span className="bg-gray-200 px-2 py-0.5 rounded uppercase text-[12px] text-black">
+          {t.count}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  {/* REVIEW CARDS */}
+  <div className="flex gap-4 overflow-x-auto pb-2
+                  snap-x snap-mandatory
+                  [-ms-overflow-style:none]
+                  [scrollbar-width:none]
+                  [&::-webkit-scrollbar]:hidden">
+    {reviewCards.map((r,i)=>(
+      <div
+        key={i}
+        className="snap-start min-w-[320px] min-h-[180px] border border-[#999] rounded-[8px] p-4 flex flex-col justify-between"
+      >
+        <div>
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex gap-3">
+              <img src={userIcon} className="w-9 h-9"/>
+              <div>
+                <p className="text-[14px] text-[#1a1a1a]">User</p>
+                <p className="text-[12px] text-[#666666] flex items-center gap-1 leading-none">
+                  Booked on
+                  <img src={bmsLogo} className="h-[16px]"/>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1 text-black">
+              <AiFillStar className="text-red-400" size={16}/>
+              <span>{r.rating}/10</span>
+            </div>
+          </div>
+
+          <p className="text-[14px] font-medium text-[#333333] mb-4">
+            {r.text}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between text-[12px]">
+          <span className="flex items-center gap-1 text-[#666666]">
+            <AiOutlineLike size={16}/> {r.likes}
+          </span>
+          <span className="text-[#cccccc] text-[12px]">{r.days} Days ago</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 {/* ===== MOBILE CAST ===== */}
 <div className="mt-4">
   <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-3">
@@ -1028,6 +1186,7 @@ const MovieDetails = () => {
     ))}
   </div>
 </div>
+
 
   {/*  BOOK TICKETS BUTTON */}
   <button className="fixed bottom-0 left-0 w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
