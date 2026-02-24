@@ -33,7 +33,7 @@ import Activities from "./pages/Activities";
 /* ================= MOVIEDETAILS PAGE ================= */
 import MovieDetails from "./pages/MovieDetails";
 
-/* ✅ NEW — THEATERDETAILS PAGE */
+/*   THEATERDETAILS PAGE */
 import TheaterDetails from "./pages/TheaterDetails";
 
 function App() {
