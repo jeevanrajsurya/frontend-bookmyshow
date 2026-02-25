@@ -5,7 +5,7 @@ import lanIcon from "../assets/lan.png";
 function TheaterDetailsHeader() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // ✅ filter interaction state
+  //  filter interaction state
   const [openFilter, setOpenFilter] = useState(null);
   const [searchOpen, setSearchOpen] = useState(false);
 
