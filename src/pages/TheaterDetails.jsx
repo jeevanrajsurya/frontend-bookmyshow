@@ -113,9 +113,9 @@ function TheaterDetailsHeader() {
 
       {/* DROPDOWN — PRICE */}
       {openFilter === "Price Range" && f === "Price Range" && (
-        <div className="absolute top-full left-0  w-[150px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-3 space-y-3 z-50">
+        <div className="absolute top-full left-0  w-[120px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-2 space-y-2 z-50">
           {["₹0 - ₹100","₹101 - ₹200","₹201 - ₹300","₹301 - ₹400","₹401 - ₹500"].map((t,i)=>(
-            <label key={i} className="flex justify-between items-center text-[14px]">
+            <label key={i} className="flex justify-between items-center text-[12px]">
               {t}
               <input type="checkbox" className="w-4 h-4 " />
             </label>
@@ -125,9 +125,9 @@ function TheaterDetailsHeader() {
 
       {/* DROPDOWN — SPECIAL */}
       {openFilter === "Special Formats" && f === "Special Formats" && (
-        <div className="absolute top-full left-0  w-[200px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-3 space-y-2 z-50">
+        <div className="absolute top-full left-0  w-[145px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-2 space-y-2 z-50">
           {["Dolby Atmos","4K","Laser","Dolby"].map((t,i)=>(
-            <label key={i} className="flex justify-between items-center text-[14px]">
+            <label key={i} className="flex justify-between items-center text-[12px]">
               {t}
               <input type="checkbox" className="w-4 h-4" />
             </label>
@@ -137,7 +137,7 @@ function TheaterDetailsHeader() {
 
       {/* DROPDOWN — TIME */}
       {openFilter === "Preferred Time" && f === "Preferred Time" && (
-        <div className="absolute top-full left-0  w-[260px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-3 space-y-3 z-50">
+        <div className="absolute top-full left-0  w-[200px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-2 space-y-2 z-50">
           {[
             ["🌤️","Morning","12:00 AM - 11:59 AM"],
             ["☀️","Afternoon","12:00 PM - 3:59 PM"],
@@ -148,8 +148,8 @@ function TheaterDetailsHeader() {
               <div className="flex items-center gap-2">
                 <span>{t[0]}</span>
                 <div>
-                  <div className="text-[14px]">{t[1]}</div>
-                  <div className="text-[12px] text-[#666]">{t[2]}</div>
+                  <div className="text-[14px] font-medium">{t[1]}</div>
+                  <div className="text-[10px] text-[#666]">{t[2]}</div>
                 </div>
               </div>
               <input type="checkbox" className="w-4 h-4" />
@@ -160,7 +160,7 @@ function TheaterDetailsHeader() {
 
       {/* DROPDOWN — SORT */}
       {openFilter === "Sort By" && f === "Sort By" && (
-        <div className="absolute top-full left-0  w-[240px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-3 space-y-3 z-50">
+        <div className="absolute top-full left-0  w-[200px] bg-white border border-[#E5E5E5] rounded shadow-[0_8px_24px_rgba(0,0,0,0.15)] p-3 space-y-3 z-50">
           {[
             ["Relevance","Best options for you first"],
             ["Popularity","Show most popular first"],
@@ -168,8 +168,8 @@ function TheaterDetailsHeader() {
           ].map((t,i)=>(
             <label key={i} className="flex justify-between items-center">
               <div>
-                <div className="text-[14px]">{t[0]}</div>
-                <div className="text-[12px] text-[#666]">{t[1]}</div>
+                <div className="text-[14px] font-medium">{t[0]}</div>
+                <div className="text-[10px] text-[#666]">{t[1]}</div>
               </div>
               <input type="radio" name="sort" className="w-4 h-4" />
             </label>
