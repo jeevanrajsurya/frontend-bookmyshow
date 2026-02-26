@@ -60,7 +60,7 @@ function TheaterDetailsHeader() {
       <div className="bg-white border-b border-[#E5E5E5] shadow-[0_4px_24px_-8px_rgba(0,0,0,0.10)]">
         <div className="max-w-[1440px] lg:max-w-7xl mx-auto flex items-stretch px-4">
 
-          {/* LEFT — DATES */}
+          {/* LEFT —> DATES */}
           <div className="flex">
             {dates.map((d, i) => {
               const isActive = i === activeIndex;
