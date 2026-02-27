@@ -35,7 +35,7 @@ function RecommendedMovies() {
   return (
     <section className="bg-[#F5F7FA] py-5">
       <div className="max-w-7xl mx-auto px-4">
-
+        
         {/* HEADER */}
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-bold">
@@ -56,8 +56,7 @@ function RecommendedMovies() {
           {page > 0 && (
             <button
               onClick={() => setPage(page - 1)}
-              className="absolute left-[-15px] top-[35%] z-20 w-10 h-10
-                         rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute left-[-15px] top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronLeft className="text-white text-2xl" />
             </button>
@@ -76,11 +75,7 @@ function RecommendedMovies() {
                   {movies
                     .slice(p * cardsPerPage, (p + 1) * cardsPerPage)
                     .map((movie, i) => (
-                      <MovieCard
-                        key={movie.id}
-                        movie={movie}
-                        delay={i * 100}
-                      />
+                      <MovieCard key={movie.id} movie={movie} delay={i * 100} />
                     ))}
                 </div>
               ))}
@@ -90,8 +85,7 @@ function RecommendedMovies() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage(page + 1)}
-              className="absolute right-[-15px] top-[35%] z-20 w-10 h-10
-                         rounded-full bg-black/70 flex items-center justify-center"
+              className="absolute right-[-15px] top-[35%] z-20 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center"
             >
               <FiChevronRight className="text-white text-2xl" />
             </button>
@@ -99,34 +93,20 @@ function RecommendedMovies() {
         </div>
 
         {/* MOBILE + TABLET */}
-        <div
-          className="
-            lg:hidden
-            grid grid-flow-col
-            auto-cols-[calc(50%-0.75rem)]
-            sm:auto-cols-[calc(25%-0.75rem)]
-            gap-6
-            sm:gap-4
-            overflow-x-auto
-            snap-x snap-mandatory
-            [-ms-overflow-style:none]
-            [scrollbar-width:none]
-            [&::-webkit-scrollbar]:hidden
-          "
-        >
+        <div className="lg:hidden grid grid-flow-col auto-cols-[calc(50%-0.75rem)] sm:auto-cols-[calc(25%-0.75rem)] gap-6 sm:gap-4 overflow-x-auto snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {movies.map((movie, i) => (
             <div key={movie.id} className="snap-start">
               <MovieCard movie={movie} delay={i * 100} />
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
 
 /* ================= MOVIE CARD ================= */
+
 function MovieCard({ movie, delay = 0 }) {
   const navigate = useNavigate();
 

@@ -1,33 +1,32 @@
-import { useEffect, useState } from "react"
-import { FiX, FiMail, FiChevronDown } from "react-icons/fi"
-import { FcGoogle } from "react-icons/fc"
-import { FaApple } from "react-icons/fa"
-import { BsFlagFill } from "react-icons/bs"
+import { useEffect, useState } from "react";
+import { FiX, FiMail, FiChevronDown } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+import { BsFlagFill } from "react-icons/bs";
 
 function Signin({ onClose }) {
-  const [phone, setPhone] = useState("")
-  const [authMethod, setAuthMethod] = useState(null)
+  const [phone, setPhone] = useState("");
+  const [authMethod, setAuthMethod] = useState(null);
 
-  const isValid = phone.length === 10
+  const isValid = phone.length === 10;
 
   /* ============ LOCK BACKGROUND SCROLL ============ */
   useEffect(() => {
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [])
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   /* ============ PHONE INPUT HANDLER ============ */
   const handleChange = (e) => {
-    const value = e.target.value.replace(/\D/g, "")
-    if (value.length <= 10) setPhone(value)
-  }
+    const value = e.target.value.replace(/\D/g, "");
+    if (value.length <= 10) setPhone(value);
+  };
 
   return (
     <>
       {/* ================= OVERLAY ================= */}
-      {/* fade animation */}
       <div
         data-aos="fade-in"
         data-aos-duration="300"
@@ -37,7 +36,6 @@ function Signin({ onClose }) {
 
       {/* ================= MODAL ================= */}
       <div className="fixed z-50 inset-0 flex items-center justify-center px-4">
-        {/* zoom animation */}
         <div
           data-aos="zoom-in"
           data-aos-duration="400"
@@ -57,47 +55,30 @@ function Signin({ onClose }) {
           </h2>
 
           {/* GOOGLE */}
-          <button
-            className="w-full border border-gray-400 rounded-md  py-2 sm:py-2.5 text-[13px] sm:text-sm
-                       flex items-center justify-center gap-3 mb-5
-                       text-sm font-medium hover:bg-gray-50
-                       hover:border-gray-300 transition"
-          >
-            <FcGoogle size={18} className="sm:text-[18px]"  />
+          <button className="w-full border border-gray-400 rounded-md py-2 sm:py-2.5 text-[13px] sm:text-sm flex items-center justify-center gap-3 mb-5 font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+            <FcGoogle size={18} />
             Continue with Google
           </button>
 
           {/* EMAIL */}
-          <button
-            className="w-full border border-gray-400 rounded-md  py-2 sm:py-2.5 text-[13px] sm:text-sm
-                       flex items-center justify-center gap-3 mb-5
-                       text-sm font-medium hover:bg-gray-50
-                       hover:border-gray-300 transition"
-          >
-            <FiMail size={18} className="sm:text-[18px]"  />
+          <button className="w-full border border-gray-400 rounded-md py-2 sm:py-2.5 text-[13px] sm:text-sm flex items-center justify-center gap-3 mb-5 font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+            <FiMail size={18} />
             Continue with Email
           </button>
 
           {/* APPLE */}
-          <button
-            className="w-full border border-gray-400 rounded-md  py-2 sm:py-2.5 text-[13px] sm:text-sm
-                       flex items-center justify-center gap-3 mb-5
-                       text-sm font-medium hover:bg-gray-50
-                       hover:border-gray-300 transition"
-          >
-            <FaApple size={18} className="sm:text-[18px]"  />
+          <button className="w-full border border-gray-400 rounded-md py-2 sm:py-2.5 text-[13px] sm:text-sm flex items-center justify-center gap-3 mb-5 font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+            <FaApple size={18} />
             Continue with Apple
           </button>
 
           {/* OR */}
-          <div className="text-center text-xs text-gray-400 mb-6">
-            OR
-          </div>
+          <div className="text-center text-xs text-gray-400 mb-6">OR</div>
 
           {/* PHONE INPUT */}
           <div className="mb-6">
             <div className="flex items-end gap-1.5 sm:gap-2">
-              <BsFlagFill  className="text-[#138808] text-[14px] mb-[3px]" />
+              <BsFlagFill className="text-[#138808] text-[14px] mb-[3px]" />
 
               <div className="flex items-center gap-1 text-[13px] sm:text-sm text-gray-700 mb-[2px]">
                 +91 <FiChevronDown size={14} />
@@ -109,9 +90,7 @@ function Signin({ onClose }) {
                   value={phone}
                   onChange={handleChange}
                   placeholder="Continue with mobile number"
-                  className="w-full bg-transparent outline-none
-                             text-sm text-[#333]
-                             placeholder-gray-400"
+                  className="w-full bg-transparent outline-none text-sm text-[#333] placeholder-gray-400"
                 />
                 <div className="h-[1.5px] bg-[#EB4E62] mt-1" />
               </div>
@@ -128,12 +107,11 @@ function Signin({ onClose }) {
           {/* CONTINUE */}
           <button
             disabled={!isValid}
-            className={`w-full py-2 sm:py-2.5 rounded-md text-[13px] sm:text-sm font-medium transition
-              ${
-                isValid
-                  ? "bg-[#EB4E62] hover:bg-[#e03b52]"
-                  : "bg-gray-300 cursor-not-allowed"
-              }`}
+            className={`w-full py-2 sm:py-2.5 rounded-md text-[13px] sm:text-sm font-medium transition ${
+              isValid
+                ? "bg-[#EB4E62] hover:bg-[#e03b52]"
+                : "bg-gray-300 cursor-not-allowed"
+            }`}
           >
             Continue
           </button>
@@ -152,7 +130,7 @@ function Signin({ onClose }) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Signin
+export default Signin;
