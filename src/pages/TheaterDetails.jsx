@@ -73,7 +73,7 @@ function TheaterDetailsHeader() {
   <div className="flex items-center gap-4">
   <FiArrowLeft
     onClick={() => navigate(-1)}
-    className="text-[22px] text-[#333] cursor-pointer"
+    className="text-[20px] sm:text-[22px] text-[#333] cursor-pointer"
   />
     <div className="flex flex-col">
       <div className="text-[#333333] text-[18px] sm:text-[22px] font-medium leading-[18px] sm:leading-[20px] tracking-[0.2px] sm:tracking-[0.2px]">
@@ -87,8 +87,8 @@ function TheaterDetailsHeader() {
 
   {/* RIGHT ICONS */}
   <div className="flex items-center gap-4">
-    <FiSearch className="text-[20px] text-[#333]" />
-    <FiSliders className="text-[20px] text-[#333]" />
+    <FiSearch className="text-[18px] sm:text-[20px] text-[#333]" />
+    <FiSliders className="text-[18px] sm:text-[20px] text-[#333]" />
   </div>
 </div>
 
