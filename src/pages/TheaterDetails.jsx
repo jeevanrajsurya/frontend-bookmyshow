@@ -57,42 +57,93 @@ function TheaterDetailsHeader() {
       </div>
 
       {/* DATE + FILTER */}
-      <div className="bg-white border-b border-[#E5E5E5] shadow-[0_4px_24px_-8px_rgba(0,0,0,0.10)]">
-        <div className="max-w-[1440px] lg:max-w-7xl mx-auto flex items-stretch px-4">
+<div className="bg-white border-b border-[#E5E5E5] shadow-[0_4px_24px_-8px_rgba(0,0,0,0.10)]">
 
-          {/* LEFT —> DATES */}
-          <div className="flex">
-            {dates.map((d, i) => {
-              const isActive = i === activeIndex;
-              const isDisabled = !d.enabled;
+  {/* MOBILE + TAB */}
+  <div className="lg:hidden px-3 py-2 space-y-2">
 
-              return (
-                <button
-                  key={i}
-                  disabled={isDisabled}
-                  onClick={() => d.enabled && setActiveIndex(i)}
-                  className={`
-                    w-[60px] text-center
-                    ${isActive ? "bg-[#f84464] text-white my-[6px] rounded-md py-1" : "py-0"}
-                    ${
-                      isDisabled
-                        ? "text-[#C6C6C6] cursor-default"
-                        : "text-[#333333]"
-                    }
-                  `}
-                >
-                  <div className="text-[12px] leading-[16px]">{d.day}</div>
-                  <div className="text-[18px] font-semibold leading-[28px]">
-                    {d.date}
-                  </div>
-                  <div className="text-[12px] leading-[16px]">{d.month}</div>
-                </button>
-              );
-            })}
-          </div>
+    {/* TOP ROW */}
+    <div className="flex items-center justify-between">
+      <div className="text-[14px] font-medium text-[#333]">
+        Tamil • 2D
+      </div>
 
-         {/* RIGHT — FILTERS */}
-<div className="flex items-stretch ml-auto relative">
+      <div className="flex items-center gap-3">
+        <FiSearch className="text-[20px]" />
+        <FiChevronDown className="text-[20px]" />
+      </div>
+    </div>
+
+    {/* DATES SCROLL */}
+    <div className="flex gap-3 overflow-x-auto no-scrollbar">
+      {dates.map((d, i) => {
+        const isActive = i === activeIndex;
+        const isDisabled = !d.enabled;
+
+        return (
+          <button
+            key={i}
+            disabled={isDisabled}
+            onClick={() => d.enabled && setActiveIndex(i)}
+            className={`min-w-[48px] text-center ${
+              isActive
+                ? "bg-[#f84464] text-white rounded-md py-1"
+                : "text-[#333]"
+            } ${isDisabled && "text-[#C6C6C6]"}`}
+          >
+            <div className="text-[10px]">{d.day}</div>
+            <div className="text-[14px] font-semibold">{d.date}</div>
+            <div className="text-[10px]">{d.month}</div>
+          </button>
+        );
+      })}
+    </div>
+
+    {/* FILTER PILLS */}
+    <div className="flex gap-2 overflow-x-auto no-scrollbar">
+      {["Sort", "Formats", "Price", "Time"].map((f, i) => (
+        <button
+          key={i}
+          className="flex items-center gap-1 px-3 py-1 border border-[#E5E5E5] rounded-full text-[12px] text-[#333] whitespace-nowrap"
+        >
+          {f}
+          <FiChevronDown className="text-[14px] text-[#f84464]" />
+        </button>
+      ))}
+    </div>
+  </div>
+
+  {/* DESKTOP (EXISTING) */}
+  <div className="hidden lg:flex max-w-[1440px] lg:max-w-7xl mx-auto items-stretch px-4">
+    
+    {/* LEFT — DATES */}
+    <div className="flex">
+      {dates.map((d, i) => {
+        const isActive = i === activeIndex;
+        const isDisabled = !d.enabled;
+
+        return (
+          <button
+            key={i}
+            disabled={isDisabled}
+            onClick={() => d.enabled && setActiveIndex(i)}
+            className={`w-[60px] text-center ${
+              isActive
+                ? "bg-[#f84464] text-white my-[6px] rounded-md py-1"
+                : ""
+            } ${isDisabled ? "text-[#C6C6C6]" : "text-[#333]"}`}
+          >
+            <div className="text-[12px]">{d.day}</div>
+            <div className="text-[18px] font-semibold">{d.date}</div>
+            <div className="text-[12px]">{d.month}</div>
+          </button>
+        );
+      })}
+    </div>
+
+    {/* RIGHT — FILTERS (your original code untouched) */}
+    {/** 👉 paste your existing RIGHT FILTER code here exactly same */}
+    <div className="flex items-stretch ml-auto relative">
 
   {/* FILTER ITEMS */}
   {!searchOpen && filters.map((f, i) => (
@@ -214,7 +265,7 @@ function TheaterDetailsHeader() {
       <div className="h-[2px] shadow-[0_3px_6px_rgba(0,0,0,0.12)]"></div>
 
       {/* SUBTITLE + LEGEND */}
-      <div className="bg-white border-b border-[#E5E5E5]">
+      <div className="hidden lg:block bg-white border-b border-[#E5E5E5]">
         <div className="max-w-[1440px] lg:max-w-7xl mx-auto flex justify-between px-4 py-2 text-[13px] text-[#666666]">
           <div className="flex items-center gap-1">
             <img src={lanIcon} alt="LAN" className="w-7 h-5" />
@@ -236,10 +287,16 @@ function TheaterDetailsHeader() {
               FAST FILLING
             </div>
           </div>
-        </div>
-      </div>
+    
+    
+  </div>
+</div>
     </div>
   );
 }
 
 export default TheaterDetailsHeader;
+
+
+
+

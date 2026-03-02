@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
 /* ================= AOS ================= */
@@ -41,6 +41,22 @@ function App() {
   const [showSignin, setShowSignin] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
+  /* ===== ROUTE DETECT ===== */
+  const location = useLocation();
+  const isTheaterPage = location.pathname.startsWith("/theaters/");
+
+  /* ===== SCREEN SIZE DETECT ===== */
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  /* ===== AOS INIT ===== */
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -51,13 +67,18 @@ function App() {
 
   return (
     <>
-      <Navbar
-        onLocationClick={() => setShowLocation(true)}
-        onSigninClick={() => setShowSignin(true)}
-        onMenuClick={() => setShowMenu(true)}
-      />
+      {/* NAVBAR */}
+      {(!isTheaterPage || isDesktop) && (
+        <Navbar
+          onLocationClick={() => setShowLocation(true)}
+          onSigninClick={() => setShowSignin(true)}
+          onMenuClick={() => setShowMenu(true)}
+        />
+      )}
 
-      <BottomNavbar />
+      {/* BOTTOM NAVBAR */}
+      {(!isTheaterPage || isDesktop) && <BottomNavbar />}
+
       <ScrollToTop />
 
       <Routes>
@@ -79,7 +100,7 @@ function App() {
         {/* MOVIEDETAILS */}
         <Route path="/movie/:id" element={<MovieDetails />} />
 
-        {/*   THEATER ROUTE */}
+        {/* THEATERDETAILS */}
         <Route path="/theaters/:id" element={<TheaterDetails />} />
       </Routes>
 
