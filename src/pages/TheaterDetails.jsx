@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiChevronDown, FiSearch, FiX, FiArrowLeft, FiSliders, FiShuffle } from "react-icons/fi";
 import lanIcon from "../assets/lan.png";
 import { useNavigate } from "react-router-dom";
+import FooterCTA from "../components/FooterCTA";
 
 import broadwayLogo from "../assets/broadway.avif";
 import kgLogo from "../assets/kg.avif";
@@ -86,7 +87,7 @@ function TheaterDetailsHeader() {
     note: "Cancellation available",
   },
   {
-    id: 1,
+    id: 4,
     name: "INOX: Prozone Mall, Coimbatore",
     logo: InoxLogo,
     facilities: [foodIcon, mTicketIcon],
@@ -99,7 +100,7 @@ function TheaterDetailsHeader() {
     note: "Non-cancellable",
   },
   {
-    id: 1,
+    id: 5,
     name: "PVR: Brookefields Mall, Coimbatore",
     logo: PvrLogo,
     facilities: [foodIcon, mTicketIcon],
@@ -117,6 +118,7 @@ function TheaterDetailsHeader() {
     <div className="w-full">
       {/* TITLE */}
         <div className="hidden lg:block bg-white border-b border-[#E5E5E5]">
+        {/* <div className="hidden lg:block sticky top-0 z-50 bg-white border-b border-[#E5E5E5]"> */}
         <div className="max-w-[1440px] lg:max-w-7xl mx-auto px-4 py-4">
           <h1 className="text-[32px] font-medium leading-[36px]">
             With Love - (Tamil)
@@ -141,8 +143,8 @@ function TheaterDetailsHeader() {
 <div className="bg-white border-b border-[#E5E5E5] shadow-[0_4px_24px_-8px_rgba(0,0,0,0.10)]">
 
   {/* MOBILE + TAB */}
-  {/* <div className="lg:hidden px-3 py-2 space-y-2 "> */}
-  <div className="lg:hidden px-3 py-2 space-y-2 sticky top-0 z-40 bg-white">
+  <div className="lg:hidden sticky top-0 z-50 bg-white">
+  <div className="px-3 py-2 space-y-2">
   
    <div className="flex items-center justify-between py-1 w-full sm:max-w-[520px] sm:mx-auto ">
   
@@ -204,6 +206,7 @@ function TheaterDetailsHeader() {
   Tamil • 2D
 </div>
 
+
     {/* FILTER WRAPPER */}
 <div className="border-t border-b border-[#E5E5E5] -mx-3 px-3 py-2 sm:py-3">
 
@@ -238,9 +241,11 @@ function TheaterDetailsHeader() {
   </div>
 </div>
   </div>
+  </div>
 
   {/* DESKTOP  */}
-  <div className="hidden lg:flex max-w-[1440px] lg:max-w-7xl mx-auto items-stretch px-4">
+  {/* <div className="hidden lg:flex max-w-[1440px] lg:max-w-7xl mx-auto items-stretch px-4"> */}
+  <div className="hidden lg:flex sticky top-[90px] z-40 bg-white max-w-[1440px] lg:max-w-7xl mx-auto items-stretch px-4">
     
     {/* LEFT — DATES */}
     <div className="flex">
@@ -391,7 +396,8 @@ function TheaterDetailsHeader() {
       <div className="h-[2px] shadow-[0_3px_6px_rgba(0,0,0,0.12)]"></div>
 
       {/* SUBTITLE + LEGEND */}
-      <div className="hidden lg:block bg-white border-b border-[#E5E5E5]">
+      {/* <div className="hidden lg:block bg-white border-b border-[#E5E5E5]"> */}
+      <div className="hidden lg:block sticky top-[150px] z-30 bg-white border-b border-[#E5E5E5]">
         <div className="max-w-[1440px] lg:max-w-7xl mx-auto flex justify-between px-4 py-2 text-[13px] text-[#666666]">
           <div className="flex items-center gap-1">
             <img src={lanIcon} alt="LAN" className="w-7 h-5" />
@@ -417,7 +423,8 @@ function TheaterDetailsHeader() {
 
 
     {/* THEATRE LIST — DESKTOP */}
-<div className="hidden lg:block bg-[#F2F5F9] py-4">
+{/* <div className="hidden lg:block bg-[#F2F5F9] py-4"> */}
+ <div className="hidden lg:block bg-[#F2F5F9] py-4 overflow-y-auto h-[calc(100vh-220px)] [&::-webkit-scrollbar]:hidden">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto space-y-0">
 
     {theatres.map((t) => (
@@ -516,13 +523,92 @@ function TheaterDetailsHeader() {
   </button>
 </div>
 
-  </div>
-</div> 
+    </div>
+  </div> 
+  {/* end */}
+  
+  {/* FOOTER CTA — DESKTOP  */}
+<div className="hidden lg:block">
+  <FooterCTA />
+</div>
+
+</div>
 {/* end */}
 
 
+
+    {/* THEATRE LIST — MOBILE + TAB */}
+  <div className="lg:hidden bg-[#F2F5F9] py-3 px-3 space-y-0 overflow-y-auto h-[calc(100vh-180px)] [&::-webkit-scrollbar]:hidden">
+
+  {theatres.map((t) => (
+    <div key={t.id} className="bg-white p-3">
+
+      {/* TOP ROW */}
+      <div className="flex justify-between items-start">
+
+        {/* LEFT */}
+        <div className="flex gap-3">
+
+          <img src={t.logo} className="w-9 h-9 object-contain" />
+
+          <div>
+            <div className="flex items-center gap-1">
+              <div className="text-[14px] sm:text-[14px] font-medium text-[#333] leading-[18px]">
+                {t.name}
+              </div>
+              {/* <img src={infoIcon} className="w-3 h-4 sm:w-4 sm:h-5" /> */}
+            </div>
+
+            <div className="text-[11px] text-[#666] mt-1">
+              {t.note}
+            </div>
+          </div>
+        </div>
+
+        <img src={heartIcon} className="w-5 h-5 mt-1" />
+      </div>
+
+      {/* SHOWTIMES */}
+      <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 mt-3">
+        {t.showtimes.map((s, i) => (
+          <div
+            key={i}
+            className="border border-[#4CAF50] border-l-[4px] border-l-[#4CAF50] text-center py-2 rounded-sm"
+          >
+            <div className="flex items-center justify-center text-[11px] sm:text-[12px]  font-medium text-[#666]">
+              {s.time}
+
+              {s.lang && (
+                <span className="ml-1 text-[6px] sm:text-[7px] font-bold border border-[#666] px-[2px]">
+                  {s.lang}
+                </span>
+              )}
+            </div>
+
+            <div className="text-[7px] sm:text-[8px] text-[#666]">
+              {s.format}
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
+  ))}
+
+  <div className="flex flex-col items-center justify-center py-6 sm:py-8">
+    <div className="text-[14px] sm:text-[14px] font-medium text-[#333] text-center mb-4">
+      Unable to find what you are looking for?
+    </div>
+
+    <button className="text-[14px] font-normal leading-[20px] tracking-[0.2px] rounded-lg border border-[#DC354B] text-[#DC354B] bg-white cursor-pointer px-4 py-[6px]">
+      Change Location
+    </button>
   </div>
+</div>
+
+{/* end */}
+</div>
+  
   );
 }
 
