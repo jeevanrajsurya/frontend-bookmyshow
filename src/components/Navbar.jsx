@@ -3,12 +3,22 @@ import { TbSearch } from "react-icons/tb"
 import { RxHamburgerMenu } from "react-icons/rx"
 import { IoChevronDown } from "react-icons/io5"
 import { Link, useNavigate } from "react-router-dom"
+import mobileBg from "../assets/mvbg.avif";
+
 
 function Navbar({ onLocationClick, onSigninClick, onMenuClick }) {
   const navigate = useNavigate()
 
   return (
-    <header className="w-full bg-white border-b border-gray-200 sm:border-gray-200 ">
+      <header
+  className="w-full border-b border-gray-200 sm:border-gray-200 bg-white lg:static sticky top-0 z-50"
+        style={{
+          backgroundImage:
+            window.innerWidth < 1024 ? `url(${mobileBg})` : "none",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
       <div className="w-full h-16 ">
         <div className="h-full max-w-[1440px] lg:max-w-7xl mx-auto flex items-center px-4 sm:px-4">
 

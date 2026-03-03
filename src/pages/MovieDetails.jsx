@@ -766,6 +766,29 @@ const MovieDetails = () => {
   <FooterCTA />
 </div>
 
+          {/* ===== MOBILE + TAB TOP HEADER ===== */}
+<div className="lg:hidden sticky top-0 z-50 bg-[#ffffff] h-[66px] flex items-center justify-between px-4">
+
+  {/* LEFT SIDE */}
+  <div className="flex items-center gap-3">
+    <button
+      onClick={() => navigate(-1)}
+      className="text-black"
+    >
+      <FiChevronRight className="rotate-180 text-[22px] sm:text-[24px]" />
+    </button>
+
+    <h1 className="text-[16px] sm:text-[20px] font-medium text-black">
+      With Love
+    </h1>
+  </div>
+
+  {/* RIGHT SIDE */}
+  <button className="text-black">
+    <FiShare className="text-[18px] sm:text-[22px]" />
+  </button>
+
+</div>
 
 
 
@@ -1504,15 +1527,17 @@ const MovieDetails = () => {
     </div>
   </div>
 
-                {/* ===== MOBILE + TAB BOOK BUTTON ===== */}
-      <div className="lg:hidden fixed bottom-0 left-0 w-full z-50">
-        <button
-          onClick={() => navigate("/theaters/1")}
-          className="w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px]">
-          Book tickets
-        </button>
-      </div>
-
+              {/* ===== MOBILE + TAB BOOK BUTTON ===== */}
+<div className="lg:hidden fixed bottom-0 left-0 w-full bg-white z-50 py-3">
+  <div className="px-4">
+    <button
+      onClick={() => navigate("/theaters/1")}
+      className="w-full bg-[#dc3558] text-white py-3 font-semibold text-[16px] rounded-md"
+    >
+      Book tickets
+    </button>
+  </div>
+</div>
 </div>
   );
 };

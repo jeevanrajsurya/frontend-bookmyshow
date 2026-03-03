@@ -33,7 +33,7 @@ import Activities from "./pages/Activities";
 /* ================= MOVIEDETAILS PAGE ================= */
 import MovieDetails from "./pages/MovieDetails";
 
-/*   THEATERDETAILS PAGE */
+/* ================= THEATERDETAILS PAGE ================= */
 import TheaterDetails from "./pages/TheaterDetails";
 
 function App() {
@@ -41,9 +41,11 @@ function App() {
   const [showSignin, setShowSignin] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
-  /* ===== ROUTE DETECT ===== */
   const location = useLocation();
+
+  /* ===== ROUTE DETECT ===== */
   const isTheaterPage = location.pathname.startsWith("/theaters/");
+  const isMovieDetailsPage = location.pathname.startsWith("/movie/");
 
   /* ===== SCREEN SIZE DETECT ===== */
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
@@ -65,10 +67,18 @@ function App() {
     });
   }, []);
 
+  /* ===== NAVBAR SHOW LOGIC ===== */
+  const showNavbar =
+    (!isTheaterPage && !isMovieDetailsPage) || isDesktop;
+
+  /* ===== BOTTOM NAVBAR SHOW LOGIC ===== */
+  const showBottomNavbar =
+    (!isTheaterPage && !isMovieDetailsPage) || isDesktop;
+
   return (
     <>
       {/* NAVBAR */}
-      {(!isTheaterPage || isDesktop) && (
+      {showNavbar && (
         <Navbar
           onLocationClick={() => setShowLocation(true)}
           onSigninClick={() => setShowSignin(true)}
@@ -77,7 +87,7 @@ function App() {
       )}
 
       {/* BOTTOM NAVBAR */}
-      {(!isTheaterPage || isDesktop) && <BottomNavbar />}
+      {showBottomNavbar && <BottomNavbar />}
 
       <ScrollToTop />
 
