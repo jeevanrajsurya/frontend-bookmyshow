@@ -415,6 +415,7 @@ function TheaterDetailsHeader() {
           </div>
         </div>
 
+
     {/* THEATRE LIST — DESKTOP */}
 <div className="hidden lg:block bg-[#F2F5F9] py-4">
   <div className="max-w-[1440px] lg:max-w-7xl mx-auto space-y-0">
@@ -425,18 +426,19 @@ function TheaterDetailsHeader() {
     className="relative bg-white border border-[#E5E5E5] px-6 py-4"
   >
 
-    <div className="flex gap-6">
+    <div className="flex gap-18">
 
       {/* LEFT SIDE */}
-<div className="flex gap-4 w-[30%]">
+    <div className="flex  w-[25%]">
 
   {/* LOGO + FACILITY COLUMN */}
   <div className="flex flex-col items-start">
+
     {/* LOGO */}
-    <img src={t.logo} className="w-12 h-12 object-contain" />
+    <img src={t.logo} className="w-10 h-10 object-contain" />
 
     {/* FACILITY ICONS */}
-    <div className="flex gap-2 mt-3">
+    <div className="flex gap-2 mt-6">
       {t.facilities.map((f, i) => (
         <img key={i} src={f} className="w-6 h-6" />
       ))}
@@ -446,13 +448,12 @@ function TheaterDetailsHeader() {
   {/* THEATRE NAME COLUMN */}
   <div>
     <div className="flex items-center gap-2">
-      <div className="text-[16px] font-medium text-[#333]">
+      <div className="text-[14px] font-medium leading-[20px] tracking-[0.2px] text-[#333333] mr-5">
         {t.name}
       </div>
       {/* <img src={infoIcon} className="w-4 h-4" /> */}
     </div>
   </div>
-
 </div>
 
       {/* RIGHT SIDE */}
@@ -461,38 +462,42 @@ function TheaterDetailsHeader() {
   {/* SHOWTIME */}
   <div className="flex items-start gap-4">
 
-    {/* HEART — LEFT OF SHOWTIMES */}
+    {/* HEART */}
     <img
       src={heartIcon}
       className="w-5 h-5 mt-3 cursor-pointer"
     />
 
-    {/* SHOWTIMES */}
-    <div className="flex gap-3 flex-wrap">
-      {t.showtimes.map((s, i) => (
-        <div
-          key={i}
-          className="border border-[#4CAF50] text-center px-4 py-2 rounded-sm"
-        >
-          <div className="text-[14px] font-medium text-[#333]">
-            {s.time}
-          </div>
-          <div className="text-[10px] text-[#666]">
-            {s.format}
-            {s.lang && (
-              <span className="ml-1 border px-1 text-[9px]">
-                {s.lang}
-              </span>
-            )}
-          </div>
-        </div>
-      ))}
+   {/* SHOWTIMES */}
+<div className="flex gap-3 flex-wrap">
+  {t.showtimes.map((s, i) => (
+    <div
+      key={i}
+      className="border border-[#4CAF50] border-l-[4px] border-l-[#4CAF50] text-center px-4 py-1.5 rounded-sm"
+    >
+      {/* TIME + LANG SAME ROW */}
+      <div className="flex items-center justify-center text-[#666666] text-[12px] font-medium leading-[16px] tracking-[0.2px]">
+        {s.time}
+
+        {s.lang && (
+          <span className="flex items-center justify-center text-[7px] font-bold h-[10px] tracking-[0.5px] p-[1px] relative ml-1 border-[0.8px] border-[#666666]">
+            {s.lang}
+          </span>
+        )}
+      </div>
+
+      {/* FORMAT BELOW */}
+      <div className="text-[8px] font-normal leading-[12px] tracking-[0.2px] text-[#666666] w-full whitespace-nowrap overflow-hidden text-ellipsis">
+        {s.format}
+      </div>
     </div>
+  ))}
+</div>
 
   </div>
 
   {/* NOTE */}
-  <div className="text-[12px] text-[#666] mt-3 ml-9">
+  <div className="text-[11px] font-normal leading-[16px] tracking-[0.2px] text-[#666666] mt-2 ml-9">
     {t.note}
   </div>
 
@@ -500,6 +505,17 @@ function TheaterDetailsHeader() {
     </div>
   </div>
 ))}
+  {/* EMPTY STATE SECTION */}
+<div className="flex flex-col items-center justify-center py-10">
+  <div className="break-words text-[#333333] grow text-center font-medium leading-[24px] text-[16px] mb-6">
+    Unable to find what you are looking for?
+  </div>
+
+  <button className="text-[14px] font-normal leading-[20px] tracking-[0.2px] rounded-lg border border-[#DC354B] text-[#DC354B] bg-white cursor-pointer inline-block px-4 py-[6px] hover:bg-[#F84464] hover:text-white transition">
+    Change Location
+  </button>
+</div>
+
   </div>
 </div> 
 {/* end */}
