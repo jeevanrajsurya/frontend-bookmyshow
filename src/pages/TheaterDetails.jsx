@@ -3,6 +3,16 @@ import { FiChevronDown, FiSearch, FiX, FiArrowLeft, FiSliders, FiShuffle } from 
 import lanIcon from "../assets/lan.png";
 import { useNavigate } from "react-router-dom";
 
+import broadwayLogo from "../assets/broadway.avif";
+import kgLogo from "../assets/kg.avif";
+import CinepolisLogo from "../assets/cinepolis.avif";
+import InoxLogo from "../assets/inox.avif";
+import PvrLogo from "../assets/pvr.avif";
+import heartIcon from "../assets/heart.png";
+import infoIcon from "../assets/info.avif";
+import foodIcon from "../assets/food.avif";
+import mTicketIcon from "../assets/mticket.avif";
+
 
 
 function TheaterDetailsHeader() {
@@ -37,6 +47,72 @@ function TheaterDetailsHeader() {
   
   const navigate = useNavigate();
 
+  const theatres = [
+  {
+    id: 1,
+    name: "Broadway Cinemas: Coimbatore",
+    logo: broadwayLogo,
+    facilities: [foodIcon, mTicketIcon],
+    showtimes: [
+      { time: "12:30 PM", format: "4K DOLBY ATMOS" },
+      { time: "03:50 PM", format: "4K DOLBY ATMOS" },
+      { time: "07:05 PM", format: "4K DOLBY ATMOS" },
+      { time: "10:20 PM", format: "4K DOLBY ATMOS" },
+    ],
+    note: "Non-cancellable",
+  },
+  {
+    id: 2,
+    name: "KG Cinemas: Coimbatore",
+    logo: kgLogo,
+    facilities: [foodIcon, mTicketIcon],
+    showtimes: [
+      { time: "12:00 PM", format: "ANTARAA", lang: "ENG" },
+      { time: "07:10 PM", format: "PALLAVI", lang: "ENG" },
+      { time: "10:35 PM", format: "ANTARAA", lang: "ENG" },
+    ],
+    note: "Cancellation available",
+  },
+  {
+    id: 3,
+    name: "Cinepolis: Fun Republic Mall, Coimbatore",
+    logo: CinepolisLogo,
+    facilities: [foodIcon, mTicketIcon],
+    showtimes: [
+      { time: "12:00 PM", format: "ANTARAA", lang: "ENG" },
+      { time: "07:10 PM", format: "PALLAVI", lang: "ENG" },
+      { time: "10:35 PM", format: "ANTARAA", lang: "ENG" },
+    ],
+    note: "Cancellation available",
+  },
+  {
+    id: 1,
+    name: "INOX: Prozone Mall, Coimbatore",
+    logo: InoxLogo,
+    facilities: [foodIcon, mTicketIcon],
+    showtimes: [
+      { time: "12:30 PM", format: "4K DOLBY ATMOS" },
+      { time: "03:50 PM", format: "4K DOLBY ATMOS" },
+      { time: "07:05 PM", format: "4K DOLBY ATMOS" },
+      { time: "10:20 PM", format: "4K DOLBY ATMOS" },
+    ],
+    note: "Non-cancellable",
+  },
+  {
+    id: 1,
+    name: "PVR: Brookefields Mall, Coimbatore",
+    logo: PvrLogo,
+    facilities: [foodIcon, mTicketIcon],
+    showtimes: [
+      { time: "12:30 PM", format: "4K DOLBY ATMOS" },
+      { time: "03:50 PM", format: "4K DOLBY ATMOS" },
+      { time: "07:05 PM", format: "4K DOLBY ATMOS" },
+      { time: "10:20 PM", format: "4K DOLBY ATMOS" },
+    ],
+    note: "Non-cancellable",
+  },
+];
+
   return (
     <div className="w-full">
       {/* TITLE */}
@@ -65,7 +141,8 @@ function TheaterDetailsHeader() {
 <div className="bg-white border-b border-[#E5E5E5] shadow-[0_4px_24px_-8px_rgba(0,0,0,0.10)]">
 
   {/* MOBILE + TAB */}
-  <div className="lg:hidden px-3 py-2 space-y-2 ">
+  {/* <div className="lg:hidden px-3 py-2 space-y-2 "> */}
+  <div className="lg:hidden px-3 py-2 space-y-2 sticky top-0 z-40 bg-white">
   
    <div className="flex items-center justify-between py-1 w-full sm:max-w-[520px] sm:mx-auto ">
   
@@ -336,11 +413,100 @@ function TheaterDetailsHeader() {
               FAST FILLING
             </div>
           </div>
-    
-    
+        </div>
+
+    {/* THEATRE LIST — DESKTOP */}
+<div className="hidden lg:block bg-[#F2F5F9] py-4">
+  <div className="max-w-[1440px] lg:max-w-7xl mx-auto space-y-0">
+
+    {theatres.map((t) => (
+  <div
+    key={t.id}
+    className="relative bg-white border border-[#E5E5E5] px-6 py-4"
+  >
+
+    <div className="flex gap-6">
+
+      {/* LEFT SIDE */}
+<div className="flex gap-4 w-[30%]">
+
+  {/* LOGO + FACILITY COLUMN */}
+  <div className="flex flex-col items-start">
+    {/* LOGO */}
+    <img src={t.logo} className="w-12 h-12 object-contain" />
+
+    {/* FACILITY ICONS */}
+    <div className="flex gap-2 mt-3">
+      {t.facilities.map((f, i) => (
+        <img key={i} src={f} className="w-6 h-6" />
+      ))}
+    </div>
   </div>
+
+  {/* THEATRE NAME COLUMN */}
+  <div>
+    <div className="flex items-center gap-2">
+      <div className="text-[16px] font-medium text-[#333]">
+        {t.name}
+      </div>
+      {/* <img src={infoIcon} className="w-4 h-4" /> */}
+    </div>
+  </div>
+
+</div>
+
+      {/* RIGHT SIDE */}
+<div className="w-[70%]">
+
+  {/* SHOWTIME */}
+  <div className="flex items-start gap-4">
+
+    {/* HEART — LEFT OF SHOWTIMES */}
+    <img
+      src={heartIcon}
+      className="w-5 h-5 mt-3 cursor-pointer"
+    />
+
+    {/* SHOWTIMES */}
+    <div className="flex gap-3 flex-wrap">
+      {t.showtimes.map((s, i) => (
+        <div
+          key={i}
+          className="border border-[#4CAF50] text-center px-4 py-2 rounded-sm"
+        >
+          <div className="text-[14px] font-medium text-[#333]">
+            {s.time}
+          </div>
+          <div className="text-[10px] text-[#666]">
+            {s.format}
+            {s.lang && (
+              <span className="ml-1 border px-1 text-[9px]">
+                {s.lang}
+              </span>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+  {/* NOTE */}
+  <div className="text-[12px] text-[#666] mt-3 ml-9">
+    {t.note}
+  </div>
+
 </div>
     </div>
+  </div>
+))}
+  </div>
+</div> 
+{/* end */}
+
+
+    </div>
+  </div>
   );
 }
 
