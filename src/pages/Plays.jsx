@@ -189,7 +189,7 @@ function Plays() {
 
         {/* ================= RIGHT EVENTS ================= */}
         <div className="flex-1">
-          <h1 className="text-[24px] font-bold leading-[30px] text-[#333333] mb-6">
+          <h1 className="text-[20px] sm:text-[24px] font-bold leading-[30px] text-[#333333] mb-6">
             Plays in Coimbatore
           </h1>
 

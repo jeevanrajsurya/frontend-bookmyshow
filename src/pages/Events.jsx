@@ -187,12 +187,12 @@ function Events() {
 
         {/* ================= RIGHT EVENTS ================= */}
         <div className="flex-1">
-          <h1 className="text-[24px] font-bold leading-[30px] text-[#333333] mb-6">
+          <h1 className="text-[20px] sm:text-[24px] font-bold leading-[30px] text-[#333333] mb-6">
             Events in Coimbatore
           </h1>
 
          {/*  CATEGORY CHIPS – WRAP FIXED */}
-<div
+{/* <div
   className="
     flex flex-wrap
     items-center
@@ -221,7 +221,7 @@ function Events() {
       {cat}
     </button>
   ))}
-</div>
+</div> */}
 
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 ">
